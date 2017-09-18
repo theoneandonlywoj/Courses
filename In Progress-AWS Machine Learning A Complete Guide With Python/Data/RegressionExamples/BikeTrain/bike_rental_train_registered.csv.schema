@@ -1,0 +1,52 @@
+{
+  "version" : "1.0",
+  "rowId" : "datetime",
+  "rowWeight" : null,
+  "targetAttributeName" : "registered",
+  "dataFormat" : "CSV",
+  "dataFileContainsHeader" : true,
+  "attributes" : [ {
+    "attributeName" : "datetime",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "month",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "day",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "hour",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "dayofweek",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "season",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "holiday",
+    "attributeType" : "BINARY"
+  }, {
+    "attributeName" : "workingday",
+    "attributeType" : "BINARY"
+  }, {
+    "attributeName" : "weather",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "temp",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "atemp",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "humidity",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "windspeed",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "registered",
+    "attributeType" : "NUMERIC"
+  } ],
+  "excludedAttributeNames" : [ ]
+}

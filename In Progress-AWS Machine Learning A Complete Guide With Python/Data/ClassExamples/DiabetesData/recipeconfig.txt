@@ -1,0 +1,7 @@
+{
+  "outputs": [
+    "ALL_BINARY",
+    "ALL_CATEGORICAL",
+    "normalize(ALL_NUMERIC)"
+]
+}

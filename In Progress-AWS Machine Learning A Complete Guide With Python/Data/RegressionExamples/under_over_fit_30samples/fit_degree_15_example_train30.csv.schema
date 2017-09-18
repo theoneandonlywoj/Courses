@@ -1,0 +1,61 @@
+{
+  "version" : "1.0",
+  "rowId" : "Row",
+  "rowWeight" : null,
+  "targetAttributeName" : "y",
+  "dataFormat" : "CSV",
+  "dataFileContainsHeader" : true,
+  "attributes" : [ {
+    "attributeName" : "Row",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "x0",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x1",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x2",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x3",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x4",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x5",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x6",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x7",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x8",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x9",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x10",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x11",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x12",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x13",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x14",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "y",
+    "attributeType" : "NUMERIC"
+  } ],
+  "excludedAttributeNames" : [ ]
+}

@@ -1,0 +1,6 @@
+{
+  "outputs": [
+    "ALL_CATEGORICAL",
+    "ALL_NUMERIC"
+  ]
+}

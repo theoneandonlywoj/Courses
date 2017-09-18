@@ -1,0 +1,8 @@
+{
+  "outputs": [
+    "ALL_CATEGORICAL",
+    "normalize(ALL_NUMERIC)"
+  ]
+}
+
+Pick Random for Training and Evaluation Split

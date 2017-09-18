@@ -1,0 +1,19 @@
+{
+  "version" : "1.0",
+  "rowId" : "Row",
+  "rowWeight" : null,
+  "targetAttributeName" : "y",
+  "dataFormat" : "CSV",
+  "dataFileContainsHeader" : true,
+  "attributes" : [ {
+    "attributeName" : "Row",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "x0",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "y",
+    "attributeType" : "NUMERIC"
+  } ],
+  "excludedAttributeNames" : [ ]
+}

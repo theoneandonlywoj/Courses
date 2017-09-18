@@ -1,0 +1,28 @@
+{
+  "version" : "1.0",
+  "rowId" : "Row",
+  "rowWeight" : null,
+  "targetAttributeName" : "y_noisy",
+  "dataFormat" : "CSV",
+  "dataFileContainsHeader" : true,
+  "attributes" : [ {
+    "attributeName" : "Row",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "x",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x2",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x3",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "x4",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "y_noisy",
+    "attributeType" : "NUMERIC"
+  } ],
+  "excludedAttributeNames" : [ ]
+}

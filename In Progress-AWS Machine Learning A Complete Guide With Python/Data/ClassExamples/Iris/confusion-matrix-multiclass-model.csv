@@ -1,0 +1,14 @@
+,Iris-virginica,Iris-setosa,Iris-versicolor,Total,F1
+Iris-virginica,16,0,2,18,0.914285714
+Iris-setosa,0,15,1,16,0.967741935
+Iris-versicolor,1,0,10,11,0.833333333
+,,,,,
+,,,,,
+Accuracy,0.91,,,,
+TPR-vi,0.89,,F1-vi,0.91,
+TPR-set,0.94,,F1-se,0.97,
+TPR-ver,0.91,,F1-ve,0.83,
+,,,,,
+Preci-vi,0.941176471,,,,
+Preci-set,1,,,,
+Preci-ve,0.769230769,,,,
