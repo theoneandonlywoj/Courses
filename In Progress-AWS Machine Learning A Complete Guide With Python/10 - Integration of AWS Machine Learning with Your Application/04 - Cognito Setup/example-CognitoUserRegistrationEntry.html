@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+  Register users using Cognito.
+  
+  1. Enter user id, password, email that you would like to registerStatus
+  1.a. Click on 'Register User' Button
+  
+  2. Once you submit, Cognito will send an email with confirmation code
+  2.a. Submit the confirmation code and click on 'Confirm User' to complete the registration process
+  
+  3. Test your new account with 'Authenticate User' button.  Success message should be printed
+  
+  4. Once the user registration is completed, you can use this account to run example-CognitoPredict-UserAuthentication.html
+-->
+
+
+<!--Look for CHECK: tag and update correct information-->
+<html>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="javascript/jsbn.js"></script>
+<script src="javascript/jsbn2.js"></script>
+<script src="javascript/sjcl.js"></script>
+<script src="javascript/aws-cognito-sdk.min.js"></script>
+<script src="javascript/amazon-cognito-identity.min.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.6.4.min.js"></script>
+
+<body ng-app="myApp" >   
+<p>AWS Access</p>
+<div ng-controller="AwsDemoCtrl">  
+
+    <form novalidate>
+        <p><label for="ui">User Id</label><br><input class="form-control" type="text" name="ui" ng-model="user_info.user_id"></p>
+        <p><label for="pw">Password</label><br><input class="form-control" type="password" name="pw" ng-model="user_info.password"></p>
+        <p><label for="email">Email</label><br><input class="form-control" type="email" name="email" ng-model="user_info.email"></p>
+        <p><label for="cc">Confirmation Code</label><br><input class="form-control" type="text" name="cc" ng-model="user_info.confirm_code"></p>
+        <p><button class="btn btn-default"  ng-click="registerUser()">Register User</button>
+           <button class="btn btn-default"  ng-click="confirmUser()">Confirm User</button>
+           <button class="btn btn-default"  ng-click="authenticateUser()">Authenticate User</button>
+        <p>Status: {{registerStatus}}</p>
+    </form>
+</div>
+
+</body>
+
+<script>    
+    var app = angular.module('myApp', []);    
+    // CHECK: Specify region
+    AWS.config.region = 'us-east-1';
+    AWS.config.sslEnabled = true;
+    
+    app.controller('AwsDemoCtrl', function($scope)
+    {               
+        $scope.registerStatus = "Hi";
+        $scope.user_info = {
+            user_id:"test",
+            password:"***",
+            email:"email",
+            confirm_code:"confirm code"
+        };
+        
+        // When using loose Javascript files:
+        var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
+        
+        // CHECK: Specify user pool id and App client id
+        var poolData = { 
+            UserPoolId : 'us-east-1_aVJQmrx7S', // Your user pool id here
+            ClientId : '3rsj0n6kbod9bfrf1sdh5015r5' // Your client id here
+        };
+        
+        // CHECK: Specify federated identity pool id
+        var identityPoolId = 'us-east-1:f96a731c-f923-4345-8599-8c1c4be6b728';
+        var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+    
+        $scope.registerUser = function()
+        {
+            console.log('Registration Start');         
+            
+            var attributeList = [];
+            
+            var dataEmail = {
+                Name : 'email',
+                Value : $scope.user_info.email
+            };
+            
+            var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
+            attributeList.push(attributeEmail);
+
+            userPool.signUp($scope.user_info.user_id, $scope.user_info.password, attributeList, null, function(err, result)
+            {
+                if (err) 
+                {
+                    $scope.registerStatus = err;
+                    $scope.$apply();
+                    alert(err);
+
+                    return;
+                }
+                cognitoUser = result.user;
+                $scope.registerStatus = "Registered.  user name is: " + cognitoUser.getUsername();
+                $scope.$apply();
+                console.log('user name is ' + cognitoUser.getUsername());                
+            });
+        
+            console.log('Registration End');            
+        }            
+
+        $scope.confirmUser = function()
+        {
+            console.log('Confirm Start');         
+
+            var userData = 
+            {
+                Username : $scope.user_info.user_id,
+                Pool : userPool
+            };
+
+            var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+            cognitoUser.confirmRegistration($scope.user_info.confirm_code, true, function(err, result) 
+            {
+                if (err) 
+                {
+                    $scope.registerStatus = "Error:" + err;
+                    $scope.$apply();
+                    alert(err);
+                    return;
+                }
+                $scope.registerStatus = "Confirmed. Result: " + result;
+                $scope.$apply();
+                console.log('call result: ' + result);
+            });
+            
+            console.log('Confirm End');            
+        }
+
+        $scope.authenticateUser = function () 
+        {
+            var authenticationData = 
+            {
+                Username : $scope.user_info.user_id,
+                Password : $scope.user_info.password
+            };
+            
+            $scope.registerStatus = "Authenticate start...";
+
+            
+            var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
+
+            var userData = {
+                Username : $scope.user_info.user_id,
+                Pool : userPool
+            };
+            var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+            cognitoUser.authenticateUser(authenticationDetails, {
+                onSuccess: function (result) 
+                {
+                    console.log('access token + ' + result.getAccessToken().getJwtToken());
+                    
+                    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                        IdentityPoolId : identityPoolId,
+                        Logins : 
+                        {                        
+                            //CHECK: Specify UserPoolId
+                            //cognito-idp.us-east-1.amazonaws.com/UserPoolId
+                            
+                            'cognito-idp.us-east-1.amazonaws.com/us-east-1_aVJQmrx7S' : result.getIdToken().getJwtToken()
+                        }                                              
+                    });                                       
+
+                    $scope.registerStatus = "Authenticate Success...";        
+                    $scope.$apply();
+                },
+                onFailure: function(err) {
+                    alert(err);
+                },
+
+            });
+        }                    
+    });
+</script>
+</html>
