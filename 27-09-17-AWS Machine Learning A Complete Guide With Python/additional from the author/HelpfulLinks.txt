@@ -1,0 +1,23 @@
+AWS Machine Learning Developer Guide:
+http://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html
+
+UCI Machine Learning Data Repository:
+https://archive.ics.uci.edu/ml/index.html
+
+Kaggle Competition Datasets:
+https://www.kaggle.com/datasets
+
+Andrew Ng - Deep Learning in Practice: Speech Recognition and Beyond - YouTube
+https://www.youtube.com/watch?v=LFDU2GX4AqM
+
+Google's Peter Norvig - State-of-the-Art AI: Building Tomorrow’s Intelligent Systems - YouTube
+https://www.youtube.com/watch?v=zMBStaBkezw
+
+MIT EmtechDigital - Checkout 2016 all videos, Oren Etzioni, Andrew Ng, Peter Norvig
+http://events.technologyreview.com/video/
+
+AWS Machine Learning Samples:
+https://github.com/awslabs/machine-learning-samples
+
+
+

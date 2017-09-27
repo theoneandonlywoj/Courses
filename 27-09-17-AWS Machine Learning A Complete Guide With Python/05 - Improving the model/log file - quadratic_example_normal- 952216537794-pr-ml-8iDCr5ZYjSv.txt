@@ -1,0 +1,565 @@
+Message-ID: <Wed Sep 20 23:36:25 UTC 2017_952216537794-pr-ml-8iDCr5ZYjSv/userlog/952216537794-pr-ml-8iDCr5ZYjSv>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1_1151220556.1505950585948"
+
+------=_Part_1_1151220556.1505950585948
+Amazon Machine Learning
+
+
+------=_Part_1_1151220556.1505950585948
+17/09/20 23:35:27 INFO: Begin training.
+17/09/20 23:35:32 INFO: initial-training: l1=0.0 l2=1.0E-6 likelihood-function=linreg max-passes=10 max-model-size=104857600 (100.00 MB) readable=false
+17/09/20 23:35:32 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:32 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=1.000000e+00 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=1050 active-features:           updates=0000000000 min=0000000 max=0000000 mean=0000000 total-sum=0000000000
+17/09/20 23:35:32 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000000 quantile-50=0000000 quantile-90=0000000
+17/09/20 23:35:32 INFO: learner-id=1050 model-status:              model-size=0 (0.00 MB) #params=0 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:32 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=1.000000e+00 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=2101 active-features:           updates=0000000000 min=0000000 max=0000000 mean=0000000 total-sum=0000000000
+17/09/20 23:35:32 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000000 quantile-50=0000000 quantile-90=0000000
+17/09/20 23:35:32 INFO: learner-id=2101 model-status:              model-size=0 (0.00 MB) #params=0 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:32 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=1.000000e+00 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=3535 active-features:           updates=0000000000 min=0000000 max=0000000 mean=0000000 total-sum=0000000000
+17/09/20 23:35:32 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000000 quantile-50=0000000 quantile-90=0000000
+17/09/20 23:35:32 INFO: learner-id=3535 model-status:              model-size=0 (0.00 MB) #params=0 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:32 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=1.000000e+00 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=4202 active-features:           updates=0000000000 min=0000000 max=0000000 mean=0000000 total-sum=0000000000
+17/09/20 23:35:32 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000000 quantile-50=0000000 quantile-90=0000000
+17/09/20 23:35:32 INFO: learner-id=4202 model-status:              model-size=0 (0.00 MB) #params=0 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:32 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=1.000000e+00 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=5314 active-features:           updates=0000000000 min=0000000 max=0000000 mean=0000000 total-sum=0000000000
+17/09/20 23:35:32 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000000 quantile-50=0000000 quantile-90=0000000
+17/09/20 23:35:32 INFO: learner-id=5314 model-status:              model-size=0 (0.00 MB) #params=0 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:32 INFO: learner-id=1050 model-performance:         rmse=213.2470 mae=125.8919 nae=0.2504 mape=0.91201 log-likelihood=2.964093e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.964093e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=1050 active-features:           updates=0000000064 min=0000003 max=0000003 mean=0000003 total-sum=0000000192
+17/09/20 23:35:32 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:32 INFO: learner-id=2101 model-performance:         rmse=308.5238 mae=166.5562 nae=0.3312 mape=1.18431 log-likelihood=2.958505e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.958505e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=2101 active-features:           updates=0000000064 min=0000003 max=0000003 mean=0000003 total-sum=0000000192
+17/09/20 23:35:32 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:32 INFO: learner-id=3535 model-performance:         rmse=462.8135 mae=239.0330 nae=0.4753 mape=1.46568 log-likelihood=2.952219e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.952219e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=3535 active-features:           updates=0000000064 min=0000003 max=0000003 mean=0000003 total-sum=0000000192
+17/09/20 23:35:32 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:32 INFO: learner-id=4202 model-performance:         rmse=555.3027 mae=276.6631 nae=0.5502 mape=1.60121 log-likelihood=2.990861e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.990861e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=4202 active-features:           updates=0000000064 min=0000003 max=0000003 mean=0000003 total-sum=0000000192
+17/09/20 23:35:32 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:32 INFO: learner-id=5314 model-performance:         rmse=555.3027 mae=276.6631 nae=0.5502 mape=1.60121 log-likelihood=2.990861e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.990861e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=5314 active-features:           updates=0000000064 min=0000003 max=0000003 mean=0000003 total-sum=0000000192
+17/09/20 23:35:32 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:32 INFO: learner-id=1050 model-performance:         rmse=191.7372 mae=109.8340 nae=0.2155 mape=0.92166 log-likelihood=2.924668e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.924668e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=1050 active-features:           updates=0000000128 min=0000003 max=0000003 mean=0000003 total-sum=0000000384
+17/09/20 23:35:32 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:32 INFO: learner-id=2101 model-performance:         rmse=276.2788 mae=149.3929 nae=0.2931 mape=1.15390 log-likelihood=2.924238e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.924238e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=2101 active-features:           updates=0000000128 min=0000003 max=0000003 mean=0000003 total-sum=0000000384
+17/09/20 23:35:32 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:32 INFO: learner-id=3535 model-performance:         rmse=467.1075 mae=218.8649 nae=0.4294 mape=1.58104 log-likelihood=2.936106e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.936106e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=3535 active-features:           updates=0000000128 min=0000003 max=0000003 mean=0000003 total-sum=0000000384
+17/09/20 23:35:32 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:32 INFO: learner-id=4202 model-performance:         rmse=577.3101 mae=261.6626 nae=0.5134 mape=1.92047 log-likelihood=2.952515e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.952515e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=4202 active-features:           updates=0000000128 min=0000003 max=0000003 mean=0000003 total-sum=0000000384
+17/09/20 23:35:32 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:32 INFO: learner-id=5314 model-performance:         rmse=576.0575 mae=261.8301 nae=0.5137 mape=1.92140 log-likelihood=2.952515e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.952515e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=5314 active-features:           updates=0000000128 min=0000003 max=0000003 mean=0000003 total-sum=0000000384
+17/09/20 23:35:32 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:32 INFO: learner-id=1050 model-performance:         rmse=185.8336 mae=107.2265 nae=0.2123 mape=0.87597 log-likelihood=2.931009e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.931009e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=1050 active-features:           updates=0000000141 min=0000003 max=0000003 mean=0000003 total-sum=0000000423
+17/09/20 23:35:32 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:32 INFO: learner-id=2101 model-performance:         rmse=265.7340 mae=143.1498 nae=0.2834 mape=1.08920 log-likelihood=2.930619e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.930619e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=2101 active-features:           updates=0000000141 min=0000003 max=0000003 mean=0000003 total-sum=0000000423
+17/09/20 23:35:32 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:32 INFO: learner-id=3535 model-performance:         rmse=447.6462 mae=208.7507 nae=0.4133 mape=1.48253 log-likelihood=2.920178e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.920178e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=3535 active-features:           updates=0000000141 min=0000003 max=0000003 mean=0000003 total-sum=0000000423
+17/09/20 23:35:32 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:32 INFO: learner-id=4202 model-performance:         rmse=573.7686 mae=260.9782 nae=0.5168 mape=1.80594 log-likelihood=2.940597e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.940597e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=4202 active-features:           updates=0000000141 min=0000003 max=0000003 mean=0000003 total-sum=0000000423
+17/09/20 23:35:32 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:32 INFO: learner-id=5314 model-performance:         rmse=575.4351 mae=261.8638 nae=0.5185 mape=1.80748 log-likelihood=2.938700e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.938700e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=5314 active-features:           updates=0000000141 min=0000003 max=0000003 mean=0000003 total-sum=0000000423
+17/09/20 23:35:32 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:32 INFO: learner-id=1050 model-performance:         rmse=177.7338 mae=103.2757 nae=0.2055 mape=0.88958 log-likelihood=2.954610e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.954610e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=1050 active-features:           updates=0000000256 min=0000003 max=0000003 mean=0000003 total-sum=0000000768
+17/09/20 23:35:32 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:32 INFO: learner-id=2101 model-performance:         rmse=260.4465 mae=142.4323 nae=0.2834 mape=1.15094 log-likelihood=2.920260e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.920260e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=2101 active-features:           updates=0000000256 min=0000003 max=0000003 mean=0000003 total-sum=0000000768
+17/09/20 23:35:32 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:32 INFO: learner-id=3535 model-performance:         rmse=408.9370 mae=197.2398 nae=0.3925 mape=1.56416 log-likelihood=2.919331e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.919331e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=3535 active-features:           updates=0000000256 min=0000003 max=0000003 mean=0000003 total-sum=0000000768
+17/09/20 23:35:32 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:32 INFO: learner-id=4202 model-performance:         rmse=527.8865 mae=241.3496 nae=0.4803 mape=1.81825 log-likelihood=2.922970e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.922970e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=4202 active-features:           updates=0000000256 min=0000003 max=0000003 mean=0000003 total-sum=0000000768
+17/09/20 23:35:32 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:32 INFO: learner-id=5314 model-performance:         rmse=535.9628 mae=245.2462 nae=0.4880 mape=1.83615 log-likelihood=2.922582e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.922582e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=5314 active-features:           updates=0000000256 min=0000003 max=0000003 mean=0000003 total-sum=0000000768
+17/09/20 23:35:32 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:32 INFO: learner-id=1050 model-performance:         rmse=171.8324 mae=100.0957 nae=0.1982 mape=0.83413 log-likelihood=2.953247e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.953247e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=1050 active-features:           updates=0000000282 min=0000003 max=0000003 mean=0000003 total-sum=0000000846
+17/09/20 23:35:32 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:32 INFO: learner-id=2101 model-performance:         rmse=251.4837 mae=137.1918 nae=0.2716 mape=1.07247 log-likelihood=2.918594e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.918594e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=2101 active-features:           updates=0000000282 min=0000003 max=0000003 mean=0000003 total-sum=0000000846
+17/09/20 23:35:32 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:32 INFO: learner-id=3535 model-performance:         rmse=415.7941 mae=194.1490 nae=0.3844 mape=1.45320 log-likelihood=2.888282e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.888282e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=3535 active-features:           updates=0000000282 min=0000003 max=0000003 mean=0000003 total-sum=0000000846
+17/09/20 23:35:32 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:32 INFO: learner-id=4202 model-performance:         rmse=544.8261 mae=245.2524 nae=0.4856 mape=1.69864 log-likelihood=2.929468e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.929468e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=4202 active-features:           updates=0000000282 min=0000003 max=0000003 mean=0000003 total-sum=0000000846
+17/09/20 23:35:32 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:32 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:32 INFO: learner-id=5314 model-performance:         rmse=552.0018 mae=249.4736 nae=0.4940 mape=1.71637 log-likelihood=2.926212e+01 (delta=1.000000e+00)
+17/09/20 23:35:32 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.926212e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:32 INFO: learner-id=5314 active-features:           updates=0000000282 min=0000003 max=0000003 mean=0000003 total-sum=0000000846
+17/09/20 23:35:32 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:32 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:32 INFO: 
+17/09/20 23:35:33 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:33 INFO: learner-id=1050 model-performance:         rmse=162.6895 mae=95.6665 nae=0.1894 mape=0.80280 log-likelihood=2.938820e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.938820e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=1050 active-features:           updates=0000000423 min=0000003 max=0000003 mean=0000003 total-sum=0000001269
+17/09/20 23:35:33 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:33 INFO: learner-id=2101 model-performance:         rmse=241.3200 mae=132.7230 nae=0.2628 mape=1.05357 log-likelihood=2.919648e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.919648e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=2101 active-features:           updates=0000000423 min=0000003 max=0000003 mean=0000003 total-sum=0000001269
+17/09/20 23:35:33 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:33 INFO: learner-id=3535 model-performance:         rmse=391.3738 mae=182.9091 nae=0.3622 mape=1.41341 log-likelihood=2.882189e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.882189e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=3535 active-features:           updates=0000000423 min=0000003 max=0000003 mean=0000003 total-sum=0000001269
+17/09/20 23:35:33 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:33 INFO: learner-id=4202 model-performance:         rmse=526.0386 mae=234.8423 nae=0.4650 mape=1.62320 log-likelihood=2.937867e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.937867e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=4202 active-features:           updates=0000000423 min=0000003 max=0000003 mean=0000003 total-sum=0000001269
+17/09/20 23:35:33 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:33 INFO: learner-id=5314 model-performance:         rmse=539.5012 mae=242.0883 nae=0.4793 mape=1.65360 log-likelihood=2.935262e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.935262e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=5314 active-features:           updates=0000000423 min=0000003 max=0000003 mean=0000003 total-sum=0000001269
+17/09/20 23:35:33 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:33 INFO: learner-id=1050 model-performance:         rmse=158.7308 mae=94.4068 nae=0.1853 mape=0.79941 log-likelihood=2.931832e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.931832e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=1050 active-features:           updates=0000000512 min=0000003 max=0000003 mean=0000003 total-sum=0000001536
+17/09/20 23:35:33 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:33 INFO: learner-id=2101 model-performance:         rmse=238.5689 mae=131.8479 nae=0.2588 mape=1.07886 log-likelihood=2.923533e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.923533e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=2101 active-features:           updates=0000000512 min=0000003 max=0000003 mean=0000003 total-sum=0000001536
+17/09/20 23:35:33 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:33 INFO: learner-id=3535 model-performance:         rmse=378.2374 mae=177.7829 nae=0.3489 mape=1.45084 log-likelihood=2.889919e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.889919e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=3535 active-features:           updates=0000000512 min=0000003 max=0000003 mean=0000003 total-sum=0000001536
+17/09/20 23:35:33 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:33 INFO: learner-id=4202 model-performance:         rmse=514.6644 mae=227.9630 nae=0.4474 mape=1.64080 log-likelihood=2.931930e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.931930e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=4202 active-features:           updates=0000000512 min=0000003 max=0000003 mean=0000003 total-sum=0000001536
+17/09/20 23:35:33 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:33 INFO: learner-id=5314 model-performance:         rmse=531.8233 mae=236.0985 nae=0.4634 mape=1.67521 log-likelihood=2.935830e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.935830e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=5314 active-features:           updates=0000000512 min=0000003 max=0000003 mean=0000003 total-sum=0000001536
+17/09/20 23:35:33 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:33 INFO: learner-id=1050 model-performance:         rmse=155.7781 mae=92.3754 nae=0.1829 mape=0.77695 log-likelihood=2.923991e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.923991e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=1050 active-features:           updates=0000000564 min=0000003 max=0000003 mean=0000003 total-sum=0000001692
+17/09/20 23:35:33 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:33 INFO: learner-id=2101 model-performance:         rmse=233.3573 mae=129.0848 nae=0.2556 mape=1.03583 log-likelihood=2.926465e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.926465e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=2101 active-features:           updates=0000000564 min=0000003 max=0000003 mean=0000003 total-sum=0000001692
+17/09/20 23:35:33 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:33 INFO: learner-id=3535 model-performance:         rmse=373.1566 mae=174.6180 nae=0.3458 mape=1.38074 log-likelihood=2.885681e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.885681e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=3535 active-features:           updates=0000000564 min=0000003 max=0000003 mean=0000003 total-sum=0000001692
+17/09/20 23:35:33 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:33 INFO: learner-id=4202 model-performance:         rmse=513.4289 mae=227.8473 nae=0.4512 mape=1.57340 log-likelihood=2.937602e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.937602e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=4202 active-features:           updates=0000000564 min=0000003 max=0000003 mean=0000003 total-sum=0000001692
+17/09/20 23:35:33 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:33 INFO: learner-id=5314 model-performance:         rmse=532.8062 mae=237.7338 nae=0.4707 mape=1.61419 log-likelihood=2.937455e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.937455e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=5314 active-features:           updates=0000000564 min=0000003 max=0000003 mean=0000003 total-sum=0000001692
+17/09/20 23:35:33 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:33 INFO: learner-id=1050 model-performance:         rmse=150.2059 mae=89.7419 nae=0.1777 mape=0.75494 log-likelihood=2.914072e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.914072e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=1050 active-features:           updates=0000000705 min=0000003 max=0000003 mean=0000003 total-sum=0000002115
+17/09/20 23:35:33 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:33 INFO: learner-id=2101 model-performance:         rmse=226.8357 mae=126.0438 nae=0.2496 mape=1.02003 log-likelihood=2.935572e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.935572e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=2101 active-features:           updates=0000000705 min=0000003 max=0000003 mean=0000003 total-sum=0000002115
+17/09/20 23:35:33 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:33 INFO: learner-id=3535 model-performance:         rmse=359.0454 mae=168.2413 nae=0.3331 mape=1.35484 log-likelihood=2.891426e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.891426e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=3535 active-features:           updates=0000000705 min=0000003 max=0000003 mean=0000003 total-sum=0000002115
+17/09/20 23:35:33 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:33 INFO: learner-id=4202 model-performance:         rmse=504.0417 mae=222.7725 nae=0.4411 mape=1.53867 log-likelihood=2.938368e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.938368e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=4202 active-features:           updates=0000000705 min=0000003 max=0000003 mean=0000003 total-sum=0000002115
+17/09/20 23:35:33 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:33 INFO: learner-id=5314 model-performance:         rmse=528.7378 mae=234.9668 nae=0.4652 mape=1.58839 log-likelihood=2.934240e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.934240e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=5314 active-features:           updates=0000000705 min=0000003 max=0000003 mean=0000003 total-sum=0000002115
+17/09/20 23:35:33 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:33 INFO: learner-id=1050 model-performance:         rmse=145.5433 mae=87.5644 nae=0.1734 mape=0.73623 log-likelihood=2.905764e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.905764e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=1050 active-features:           updates=0000000846 min=0000003 max=0000003 mean=0000003 total-sum=0000002538
+17/09/20 23:35:33 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:33 INFO: learner-id=2101 model-performance:         rmse=221.3402 mae=123.4308 nae=0.2444 mape=1.00603 log-likelihood=2.941643e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.941643e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=2101 active-features:           updates=0000000846 min=0000003 max=0000003 mean=0000003 total-sum=0000002538
+17/09/20 23:35:33 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:33 INFO: learner-id=3535 model-performance:         rmse=347.7272 mae=163.1605 nae=0.3231 mape=1.33395 log-likelihood=2.896293e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.896293e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=3535 active-features:           updates=0000000846 min=0000003 max=0000003 mean=0000003 total-sum=0000002538
+17/09/20 23:35:33 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:33 INFO: learner-id=4202 model-performance:         rmse=496.5512 mae=218.8462 nae=0.4333 mape=1.51307 log-likelihood=2.941046e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.941046e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=4202 active-features:           updates=0000000846 min=0000003 max=0000003 mean=0000003 total-sum=0000002538
+17/09/20 23:35:33 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:33 INFO: learner-id=5314 model-performance:         rmse=526.0133 mae=233.0811 nae=0.4615 mape=1.57059 log-likelihood=2.933698e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.933698e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=5314 active-features:           updates=0000000846 min=0000003 max=0000003 mean=0000003 total-sum=0000002538
+17/09/20 23:35:33 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:33 INFO: learner-id=1050 model-performance:         rmse=141.5446 mae=85.7223 nae=0.1697 mape=0.71992 log-likelihood=2.904942e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.904942e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=1050 active-features:           updates=0000000987 min=0000003 max=0000003 mean=0000003 total-sum=0000002961
+17/09/20 23:35:33 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:33 INFO: learner-id=2101 model-performance:         rmse=216.6125 mae=121.1470 nae=0.2399 mape=0.99363 log-likelihood=2.944834e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.944834e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=2101 active-features:           updates=0000000987 min=0000003 max=0000003 mean=0000003 total-sum=0000002961
+17/09/20 23:35:33 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:33 INFO: learner-id=3535 model-performance:         rmse=338.3930 mae=159.0415 nae=0.3149 mape=1.31681 log-likelihood=2.901972e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.901972e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=3535 active-features:           updates=0000000987 min=0000003 max=0000003 mean=0000003 total-sum=0000002961
+17/09/20 23:35:33 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:33 INFO: learner-id=4202 model-performance:         rmse=490.2976 mae=215.6656 nae=0.4270 mape=1.49335 log-likelihood=2.943077e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.943077e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=4202 active-features:           updates=0000000987 min=0000003 max=0000003 mean=0000003 total-sum=0000002961
+17/09/20 23:35:33 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:33 INFO: learner-id=5314 model-performance:         rmse=524.0610 mae=231.7220 nae=0.4588 mape=1.55769 log-likelihood=2.934199e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.934199e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=5314 active-features:           updates=0000000987 min=0000003 max=0000003 mean=0000003 total-sum=0000002961
+17/09/20 23:35:33 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000003
+17/09/20 23:35:33 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:33 INFO: learner-id=1050 model-performance:         rmse=141.1573 mae=85.4889 nae=0.1696 mape=0.71231 log-likelihood=2.904062e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.904062e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=1050 active-features:           updates=0000001024 min=0000003 max=0000003 mean=0000003 total-sum=0000003072
+17/09/20 23:35:33 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:33 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:33 INFO: learner-id=2101 model-performance:         rmse=216.2732 mae=120.4669 nae=0.2390 mape=0.98227 log-likelihood=2.944138e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.944138e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=2101 active-features:           updates=0000001024 min=0000003 max=0000003 mean=0000003 total-sum=0000003072
+17/09/20 23:35:33 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:33 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:33 INFO: learner-id=3535 model-performance:         rmse=334.3691 mae=157.0472 nae=0.3116 mape=1.29931 log-likelihood=2.903477e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.903477e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=3535 active-features:           updates=0000001024 min=0000003 max=0000003 mean=0000003 total-sum=0000003072
+17/09/20 23:35:33 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:33 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:33 INFO: learner-id=4202 model-performance:         rmse=483.9135 mae=212.8482 nae=0.4223 mape=1.47366 log-likelihood=2.940403e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.940403e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=4202 active-features:           updates=0000001024 min=0000003 max=0000003 mean=0000003 total-sum=0000003072
+17/09/20 23:35:33 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:33 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:33 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:33 INFO: learner-id=5314 model-performance:         rmse=517.7323 mae=229.1024 nae=0.4546 mape=1.53830 log-likelihood=2.933576e+01 (delta=1.000000e+00)
+17/09/20 23:35:33 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.933576e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:33 INFO: learner-id=5314 active-features:           updates=0000001024 min=0000003 max=0000003 mean=0000003 total-sum=0000003072
+17/09/20 23:35:33 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:33 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:33 INFO: 
+17/09/20 23:35:34 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:34 INFO: learner-id=1050 model-performance:         rmse=138.0538 mae=84.1334 nae=0.1666 mape=0.70570 log-likelihood=2.904976e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.904976e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=1050 active-features:           updates=0000001128 min=0000003 max=0000003 mean=0000003 total-sum=0000003384
+17/09/20 23:35:34 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:34 INFO: learner-id=2101 model-performance:         rmse=212.4792 mae=119.1217 nae=0.2359 mape=0.98261 log-likelihood=2.946183e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.946183e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=2101 active-features:           updates=0000001128 min=0000003 max=0000003 mean=0000003 total-sum=0000003384
+17/09/20 23:35:34 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:34 INFO: learner-id=3535 model-performance:         rmse=330.5232 mae=155.6139 nae=0.3081 mape=1.30249 log-likelihood=2.907724e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.907724e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=3535 active-features:           updates=0000001128 min=0000003 max=0000003 mean=0000003 total-sum=0000003384
+17/09/20 23:35:34 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:34 INFO: learner-id=4202 model-performance:         rmse=484.9131 mae=213.0013 nae=0.4218 mape=1.47760 log-likelihood=2.944329e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.944329e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=4202 active-features:           updates=0000001128 min=0000003 max=0000003 mean=0000003 total-sum=0000003384
+17/09/20 23:35:34 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:34 INFO: learner-id=5314 model-performance:         rmse=522.5929 mae=230.6989 nae=0.4568 mape=1.54796 log-likelihood=2.934717e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.934717e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=5314 active-features:           updates=0000001128 min=0000003 max=0000003 mean=0000003 total-sum=0000003384
+17/09/20 23:35:34 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:34 INFO: learner-id=1050 model-performance:         rmse=134.9653 mae=82.7366 nae=0.1638 mape=0.69326 log-likelihood=2.905098e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.905098e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=1050 active-features:           updates=0000001269 min=0000003 max=0000003 mean=0000003 total-sum=0000003807
+17/09/20 23:35:34 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=2101 model-configuration:       learning-rate=0.1
+17/09/20 23:35:34 INFO: learner-id=2101 model-performance:         rmse=208.8182 mae=117.3070 nae=0.2323 mape=0.97277 log-likelihood=2.940565e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=2101 model-convergence:         negative-log-likelihood=2.940565e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=2101 active-features:           updates=0000001269 min=0000003 max=0000003 mean=0000003 total-sum=0000003807
+17/09/20 23:35:34 INFO: learner-id=2101 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=2101 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=3535 model-configuration:       learning-rate=1.0
+17/09/20 23:35:34 INFO: learner-id=3535 model-performance:         rmse=323.7690 mae=152.6986 nae=0.3024 mape=1.29031 log-likelihood=2.913497e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=3535 model-convergence:         negative-log-likelihood=2.913497e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=3535 active-features:           updates=0000001269 min=0000003 max=0000003 mean=0000003 total-sum=0000003807
+17/09/20 23:35:34 INFO: learner-id=3535 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=3535 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=4202 model-configuration:       learning-rate=10.0
+17/09/20 23:35:34 INFO: learner-id=4202 model-performance:         rmse=480.1736 mae=210.7127 nae=0.4172 mape=1.46465 log-likelihood=2.945003e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=4202 model-convergence:         negative-log-likelihood=2.945003e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=4202 active-features:           updates=0000001269 min=0000003 max=0000003 mean=0000003 total-sum=0000003807
+17/09/20 23:35:34 INFO: learner-id=4202 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=4202 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: learner-id=5314 model-configuration:       learning-rate=100.0
+17/09/20 23:35:34 INFO: learner-id=5314 model-performance:         rmse=521.4484 mae=229.9021 nae=0.4552 mape=1.54038 log-likelihood=2.935148e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=5314 model-convergence:         negative-log-likelihood=2.935148e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=5314 active-features:           updates=0000001269 min=0000003 max=0000003 mean=0000003 total-sum=0000003807
+17/09/20 23:35:34 INFO: learner-id=5314 active-features-quantiles: quantile-10=0000003 quantile-50=0000003 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=5314 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: finished-training: total-passes=10 valid-records=1410 invalid-records=0
+17/09/20 23:35:34 INFO: best learner:
+17/09/20 23:35:34 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:34 INFO: learner-id=1050 model-performance:         rmse=132.2032 mae=81.4920 nae=0.1614 mape=0.68310 log-likelihood=2.904461e+01 (delta=1.000000e+00)
+17/09/20 23:35:34 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.904461e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=1050 active-features:           updates=0000001410 min=0000003 max=0000003 mean=0000003 total-sum=0000004230
+17/09/20 23:35:34 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000000
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: final consolidation:
+17/09/20 23:35:34 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:34 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.904461e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=1050 active-features:           updates=0000001410 min=0000003 max=0000003 mean=0000003 total-sum=0000004230
+17/09/20 23:35:34 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000001
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: saved final learner:
+17/09/20 23:35:34 INFO: learner-id=1050 model-configuration:       learning-rate=0.01
+17/09/20 23:35:34 INFO: learner-id=1050 model-convergence:         negative-log-likelihood=2.904461e+01 (delta=1.000000e+00) is-converged=no
+17/09/20 23:35:34 INFO: learner-id=1050 active-features:           updates=0000001410 min=0000003 max=0000003 mean=0000003 total-sum=0000004230
+17/09/20 23:35:34 INFO: learner-id=1050 active-features-quantiles: quantile-10=0000003 quantile-50=0000004 quantile-90=0000004
+17/09/20 23:35:34 INFO: learner-id=1050 model-status:              model-size=288 (0.00 MB) #params=3 #pruning-calls=0000000001
+17/09/20 23:35:34 INFO: 
+17/09/20 23:35:34 INFO: initial-training: finished
+17/09/20 23:35:34 INFO: Foorprint size is 33554
+17/09/20 23:35:34 INFO: Training complete.
+
+
+------=_Part_1_1151220556.1505950585948--

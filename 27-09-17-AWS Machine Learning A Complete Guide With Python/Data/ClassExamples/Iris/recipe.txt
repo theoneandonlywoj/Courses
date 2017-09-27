@@ -1,0 +1,20 @@
+Test 1:
+Average F1 score: 0.905 
+Default Recipe.
+{
+  "groups" : {
+    "NUMERIC_VARS_QB_20" : "group('sepal_width')",
+    "NUMERIC_VARS_QB_10" : "group('petal_length','petal_width','sepal_length')"
+  },
+  "assignments" : { },
+  "outputs" : [ "ALL_CATEGORICAL", "quantile_bin(NUMERIC_VARS_QB_20,20)", "quantile_bin(NUMERIC_VARS_QB_10,10)" ]
+}
+
+Test 2: 
+Average F1 score: 0.827
+{
+  "outputs": [
+    "ALL_CATEGORICAL",
+    "ALL_NUMERIC"
+  ]
+}
