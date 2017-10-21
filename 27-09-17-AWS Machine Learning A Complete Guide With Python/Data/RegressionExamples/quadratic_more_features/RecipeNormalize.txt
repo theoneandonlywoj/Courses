@@ -1,7 +1,0 @@
-{
-  "outputs": [
-    "ALL_CATEGORICAL",
-    "normalize(ALL_NUMERIC)"
-  ]
-}
-
