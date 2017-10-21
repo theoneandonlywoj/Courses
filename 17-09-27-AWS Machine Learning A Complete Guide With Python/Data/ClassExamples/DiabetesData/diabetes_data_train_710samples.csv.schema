@@ -1,0 +1,40 @@
+{
+  "version" : "1.0",
+  "rowId" : "Row",
+  "rowWeight" : null,
+  "targetAttributeName" : "diabetes_class",
+  "dataFormat" : "CSV",
+  "dataFileContainsHeader" : true,
+  "attributes" : [ {
+    "attributeName" : "Row",
+    "attributeType" : "CATEGORICAL"
+  }, {
+    "attributeName" : "preg_count",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "glucose_concentration",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "diastolic_bp",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "triceps_skin_fold_thickness",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "two_hr_serum_insulin",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "bmi",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "diabetes_pedi",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "age",
+    "attributeType" : "NUMERIC"
+  }, {
+    "attributeName" : "diabetes_class",
+    "attributeType" : "BINARY"
+  } ],
+  "excludedAttributeNames" : [ ]
+}

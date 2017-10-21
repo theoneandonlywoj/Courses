@@ -1,0 +1,8 @@
+{
+  "groups" : {
+    "NUMERIC_VARS_QB_20" : "group('sepal_width')",
+    "NUMERIC_VARS_QB_10" : "group('petal_length','petal_width','sepal_length')"
+  },
+  "assignments" : { },
+  "outputs" : [ "ALL_CATEGORICAL", "quantile_bin(NUMERIC_VARS_QB_20,20)", "quantile_bin(NUMERIC_VARS_QB_10,10)" ]
+}
