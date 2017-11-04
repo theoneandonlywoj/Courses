@@ -4,7 +4,32 @@
 	<artifactId>maven-examples</artifactId>
 	<groupId>courses.arcyfelix.com.github</groupId>
 	<version>1.0.0</version>
+	
+	<name>Maven Examples</name>
+	<description>Maven Learning Examples as part of Udemy's Learn Apache Maven course</description>
+	<url>http://github.com/arcyfelix/courses</url>
+	<licenses>
+		<license>
+			<name>Apache Licence 2.0</name>
+			<comments>Standard Apache 2.0 Licence.</comments>
+		</license>
+	</licenses>
 
-
+	<organization>
+		<name> Wojciech's Amazing Wonders </name>
+		<url>http://github.com/arcyfelix/courses</url>
+	</organization>
+	
+	<developers>
+		<developer>
+			<name>Wojciech Orzechowski</name>
+			<email>wor@kth.se</email>
+				<roles>
+					<role>Chief Data Scientist</role>
+				</roles>
+		</developer>
+	</developers>
+	
+	
 
 </project>
