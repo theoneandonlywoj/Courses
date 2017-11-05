@@ -1,0 +1,6 @@
+// To generate a project
+mvn archetype:generate
+
+// To transform it to an Eclipse project
+cd directory/of/the/project
+mvn eclipse:eclipse
