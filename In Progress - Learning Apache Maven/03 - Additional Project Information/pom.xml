@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+
+	<!-- Required pieces of information -->
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>Project03</artifactId>
+	<groupId>com.github.arcyfelix</groupId>
+	<version>1.0.0</version>
+
+	<!-- Packaging information -->
+	<packaging>jar</packaging>
+
+	<!-- Additonal informations about the project -->
+	<name>Project03</name>
+	<description>Project03 for course Learning Apache Maven</description>
+	<url>https://github.com/arcyfelix/Courses</url>
+
+	<licenses>
+		<license>
+			<name>Apache Licence 2.0</name>
+			<comments>Standard Apache Licence</comments>
+		</license>
+	</licenses>
+
+	<!-- Information about the developers etc. -->
+	<organization>
+		<name>VoiTech</name>
+		<url>https://github.com/arcyfelix</url>
+	</organization>
+	<developers>
+		<developer>
+			<name>Wojciech Orzechowski</name>
+			<email>wor@kth.se</email>
+			<roles>
+				<role>Chief Data Scientist</role>
+			</roles>
+		</developer>
+	</developers>
+</project>
