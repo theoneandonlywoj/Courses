@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>05b-parent</artifactId>
+	<groupId>com.github.arcyfelix</groupId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>Learning Maven Examples</name>
+	<description>This is a project used to demonstrate maven principles</description>
+	<url>http://github.com/arcyfelix/Courses</url>
+	
+	<licenses>
+		<license>
+			<name>Apache License</name>
+			<comments>We are pretty good about sharing</comments>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<name>Wojciech Orzechowski</name>
+			<email>wor@kth.se</email>
+		</developer>
+	</developers>
+	
+</project>
