@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.arcyfelix</groupId>
+  <artifactId>11-DependencyScope</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+
+  <name>11-DependencyScope</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Additional dependency -->
+    <dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.3.2</version>
+	    <!-- Setting up scope for the dependency -->
+	    <!-- It will be fetched if for the compile phase and all phases after it. -->
+	    <!-- There are few scopes to choose from: -->
+	    <!-- - compile -->
+	    <!-- - import - not used very often, advanced -->
+	    <!-- - provided - used when the dependency can be provided by the environment, f.e. with Tomcat, very often with web applications  -->
+	    <!-- - runtime - is needed when we execute or test the application. The dependency is not used during the compilation!  -->
+	    <!-- - system -  not adviced, the dependency will be provided by the file system, very rigid-->
+	    <!-- - test -  -->
+	    <scope>compile</scope>
+ 	</dependency>
+  </dependencies>
+</project>
