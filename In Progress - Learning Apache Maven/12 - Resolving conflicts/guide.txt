@@ -1,0 +1,6 @@
+First install projects 12b and 12c:
+-- mvn install
+Then you can compile 12a:
+-- mvn compile
+
+If error "Duplicated tag: 'packaging'", delete <packaging>jar</packaging>  from 12a's POM.
