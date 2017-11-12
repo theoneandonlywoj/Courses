@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.github.arcyfelix.AppTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec <<< FAILURE!
+testApp2(com.github.arcyfelix.AppTest)  Time elapsed: 0.008 sec  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at junit.framework.Assert.assertFalse(Assert.java:34)
+	at junit.framework.Assert.assertFalse(Assert.java:41)
+	at com.github.arcyfelix.AppTest.testApp2(AppTest.java:41)
+
