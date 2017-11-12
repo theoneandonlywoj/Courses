@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.arcyfelix</groupId>
+	<artifactId>19-DeployPlugin</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<name>19-DeployPlugin</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- Deploy / Distribution management -->
+	<!-- Not a real repository, so it will not work properly -->
+	<!-- Execute with "mvn deploy" -->
+	<!-- Provided as an example: -->
+	<distributionManagement>
+		<repository>
+			<id>myId</id>
+			<name>myName</name>
+			<url>myUrl.com/release</url>
+		</repository>
+	</distributionManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
