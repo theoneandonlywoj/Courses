@@ -1,0 +1,14 @@
+Users\Kevin Bowersox\Desktop\Development\InfiniteSkills\Courses\Learning Maven\Lessons\0800\0803 Deploying to Tomcat\Deploying to Tomcat
+   │
+   ├[src]
+   │   │
+   │   └[main]
+   │       │
+   │       ├[resources]
+   │       └[webapp]
+   │           │
+   │           ├[WEB-INF]
+   │           │   │
+   │           │   └web
+   │           └index
+   └pom
