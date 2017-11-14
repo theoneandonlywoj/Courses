@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.arcyfelix</groupId>
+	<artifactId>27-Properties</artifactId>
+	<packaging>war</packaging>
+	<version>1.0</version>
+	<name>27-Properties</name>
+	<url>http://maven.apache.org</url>
+	
+	<description>${env.PATH}</description>
+	
+	<!--  Custom property -->
+	<properties>
+		<tomcat.url>http://localhost:8080/manager/text</tomcat.url>
+	</properties>
+	
+	
+	<!-- Dependencies -->
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<!-- Using properties to give the name of the war file -->
+		<finalName>${project.artifactId}-${java.version}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>${tomcat.url}</url>
+					<server>tomcat-server</server>
+				</configuration>
+			</plugin>
+		</plugins>
+		
+	</build>
+</project>
