@@ -1,0 +1,18 @@
+{
+	"ProductCategory": {
+		"AttributeValueList": [
+			{
+				"S": "Bike"
+			}			
+		],
+		"ComparisonOperator": "EQ"
+	},
+	"Price": {
+		"AttributeValueList": [
+			{
+				"N": "300"
+			}			
+		],
+		"ComparisonOperator": "LE"
+	}	
+}
