@@ -13,6 +13,14 @@ class Item(Resource):
 
 	@jwt_required()
 	def get(self, name):
+		item = Item.find_by_name(name)
+		if item is not None:
+			return item
+		else:
+			return {'message' : 'Item not found.'}, 404
+
+	@classmethod
+	def find_by_name(cls, name):
 		connection = sqlite3.connect('data.db')
 		cursor = connection.cursor()
 
@@ -24,45 +32,80 @@ class Item(Resource):
 		connection.close()
 
 		if row is not None:
-			return {'item': {'name' : row[0], 'price' : row[1]}}
-		else:
-			return {'message' : 'Item not found.'}, 404
+			return {'item': {'name' : row[0], 
+							 'price' : row[1]}}
+
+	@classmethod
+	def insert(cls, item):
+		connection = sqlite3.connect('data.db')
+		cursor = connection.cursor()
+
+		query = "INSERT INTO items VALUES(?, ?)"
+		cursor.execute(query, (item['name'], item['price']))
+
+		connection.commit()
+		connection.close()
+
 
 	def post(self, name):
-		# Ensuring that there is only one item with that name
-		# 'next(filter(lambda x: x['name'] == name, items), None)' will be None 
-		# only if the new existing item does not exist in the list.
+		if Item.find_by_name(name) is not None:
+			return {'message' : 'Item already exists.'}, 400
+		else:
+			# Parsing 
+			request_data = Item.parser.parse_args()
+			item = {'name' : name, 
+					'price' : request_data['price']}
 
-		if next(filter(lambda x: x['name'] == name, items), None) is not None:
-			return {'message' : "An item with name '{} already exists!".format(name)}, 400
-		
-		request_data = Item.parser.parse_args()
-
-		item = {'name' : name,
-				'price' : request_data['price']}
-		items.append(item)
-		return item, 201
+			# Dealing with possible insertion error
+			try:
+				Item.insert(item)
+			except:
+				# Returning 500 - Internal Server Error
+				return {'message' : 'An error occurred inserting the item.'}, 500
+			
+			return item, 201
 
 	def delete(self, name):
-		# Deleting by filtering out the list of items and overwriting it
-		# We need to use global items variable
-		# Otherwise Python will think that we want to use a variable before assigning it
-		global items
-		items = list(filter(lambda x: x['name'] != name, items))
+		connection = sqlite3.connect('data.db')
+		cursor = connection.cursor()
+
+		query = "DELETE FROM items WHERE name = ?"
+		cursor.execute(query, (name,))
+		
+		connection.commit()
+		connection.close()
 		return {'message' : 'Item deleted.'}
 
+	@classmethod
+	def update(cls, item):
+		connection = sqlite3.connect('data.db')
+		cursor = connection.cursor()
+
+		query = "UPDATE items SET price = ? WHERE name = ? "
+		cursor.execute(query, (item['price'], item['name']))
+
+		connection.commit()
+		connection.close()
+
+
 	def put(self, name):
+		# Parsing 
 		request_data = Item.parser.parse_args()
-		# Check if the item exists
-		item = next(filter(lambda x: x['name'] == name, items), None)
-		# If the item does not exist, create it.
+		item = Item.find_by_name(name)
+		updated_item = {'name' : name, 
+						'price' : request_data['price']}
 		if item is None:
-			item = {'name' : name,
-				'price' : request_data['price']}
-			items.append(item)
+			try:
+				Item.insert(updated_item)
+			except: 
+				return {'message' : 'An error occurred inserting the item.'}, 500
+			return {'message' : 'Item already exists. Updated.'}
 		else:
-			item.update(request_data)
-		return item
+			try:
+				Item.update(updated_item)
+			except:
+				return {'message' : 'An error occurred updating the item.'}, 500
+			return {'message' : 'Item created.'}
 
 
 class ItemList(Resource):
