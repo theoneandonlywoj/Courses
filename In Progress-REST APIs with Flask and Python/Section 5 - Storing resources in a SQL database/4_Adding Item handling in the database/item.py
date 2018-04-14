@@ -99,15 +99,28 @@ class Item(Resource):
 				Item.insert(updated_item)
 			except: 
 				return {'message' : 'An error occurred inserting the item.'}, 500
-			return {'message' : 'Item already exists. Updated.'}
+			return {'message' : 'Item created.'}
 		else:
 			try:
 				Item.update(updated_item)
 			except:
 				return {'message' : 'An error occurred updating the item.'}, 500
-			return {'message' : 'Item created.'}
-
-
+			return {'message' : 'Item already exists. Updated.'}
+			
 class ItemList(Resource):
 	def get(self):
+		connection = sqlite3.connect('data.db')
+		cursor = connection.cursor()
+
+		query = "SELECT * FROM items"
+		result = cursor.execute(query)
+		items = []
+		for row in result:
+			items.append({'name' : row[0], 
+						  'price' : row[1]})
+
+
+		connection.commit()
+		connection.close()
+
 		return {'items' : items}

@@ -14,8 +14,8 @@ create_table_query = "CREATE TABLE IF NOT EXISTS items ( name text, price real)"
 cursor.execute(create_table_query)
 
 # Inserting an example item
-create_example_item_query = "INSERT INTO items VALUES('test item', 10.99)"
-cursor.execute(create_example_item_query)
+#create_example_item_query = "INSERT INTO items VALUES('test item', 10.99)"
+#cursor.execute(create_example_item_query)
 
 # Commiting the insert(s)
 connection.commit()
