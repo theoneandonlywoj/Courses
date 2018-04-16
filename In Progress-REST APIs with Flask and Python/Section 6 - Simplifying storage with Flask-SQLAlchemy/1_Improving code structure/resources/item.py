@@ -30,7 +30,7 @@ class Item(Resource):
 
 			# Dealing with possible insertion error
 			try:
-				item.insert(item)
+				item.insert()
 			except:
 				# Returning 500 - Internal Server Error
 				return {'message' : 'An error occurred inserting the item.'}, 500
