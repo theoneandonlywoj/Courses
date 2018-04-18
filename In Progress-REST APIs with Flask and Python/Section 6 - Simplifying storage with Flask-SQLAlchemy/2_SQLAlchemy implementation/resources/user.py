@@ -14,21 +14,13 @@ class UserRegister(Resource):
 						required = True,
 						help = "Password is required!" )
 	def post(self):
-		data = UserRegister.parser.parse_args()
+		request_data = UserRegister.parser.parse_args()
 
 		# Preventing user duplication
-		if UserModel.find_by_username(data['username']) is not None:
+		if UserModel.find_by_username(request_data['username']) is not None:
 			return {"message" : "User with that username already exists."}, 400
 		else:
-			# Connection
-			connection = sqlite3.connect('data.db')
-			cursor = connection.cursor()
-
-			# id is auto-incrementing so it needs to be setup to null
-			register_query = "INSERT INTO users VALUES (NULL, ?, ?)"
-			cursor.execute(register_query, (data['username'], data['password'],))
-
-			connection.commit()
-			connection.close()
+			user = UserModel(request_data['username'], request_data['password'])
+			user.save_to_db()
 
 			return {"message": "User created successfully!"}, 201

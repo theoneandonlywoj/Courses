@@ -2,54 +2,23 @@ import sqlite3
 from db import db
 
 class UserModel(db.Model):
-	__tablename__ = 'user'
+	__tablename__ = 'users'
 	id = db.Column(db.Integer, primary_key = True)
 	username = db.Column(db.String(100))
 	password = db.Column(db.String(100))
 
-	def __init__(self, _id, username, password):
-		self.id = _id
+	def __init__(self, username, password):
 		self.username = username
 		self.password = password
 
+	def save_to_db(self):
+		db.session.add(self)
+		db.session.commit()
+
 	@classmethod
 	def find_by_username(cls, username):
-		connection = sqlite3.connect('data.db')
-		cursor = connection.cursor()
-
-		query = "SELECT * FROM users WHERE username = ?"
-		# Parameters MUST ALWAYS be in form of a TUPLE!
-		result = cursor.execute(query, (username, ))
-		# If the result set does not contain any values row = None
-		row = result.fetchone()
-
-		if row is not None:
-			# *row is like *args, cls in this example is class User
-			user = cls(*row)
-		else:
-			user = None
-
-		connection.close()
-
-		return user
+		return cls.query.filter_by(username = username).first()
 
 	@classmethod
-	def find_by_id(cls, id):
-		connection = sqlite3.connect('data.db')
-		cursor = connection.cursor()
-
-		query = "SELECT * FROM users WHERE id = ?"
-		# Parameters MUST ALWAYS be in form of a TUPLE!
-		result = cursor.execute(query, (id, ))
-		# If the result set does not contain any values row = None
-		row = result.fetchone()
-
-		if row is not None:
-			# *row is like *args, cls in this example is class User
-			user = cls(*row)
-		else:
-			user = None
-
-		connection.close()
-
-		return user
+	def find_by_id(cls, _id):
+		return cls.query.filter_by(id = _id).first()
