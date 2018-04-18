@@ -20,7 +20,7 @@ class UserRegister(Resource):
 		if UserModel.find_by_username(request_data['username']) is not None:
 			return {"message" : "User with that username already exists."}, 400
 		else:
-			user = UserModel(request_data['username'], request_data['password'])
+			user = UserModel(**request_data)
 			user.save_to_db()
 
 			return {"message": "User created successfully!"}, 201
