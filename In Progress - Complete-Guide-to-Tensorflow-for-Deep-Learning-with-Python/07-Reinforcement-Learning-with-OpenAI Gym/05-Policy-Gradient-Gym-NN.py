@@ -158,7 +158,6 @@ with tf.Session() as sess:
         all_rewards = discount_and_normalize_rewards(all_rewards,discount_rate)
         feed_dict = {}
 
-
         for var_index, gradient_placeholder in enumerate(gradient_placeholders):
             mean_gradients = np.mean([reward * all_gradients[game_index][step][var_index]
                                       for game_index, rewards in enumerate(all_rewards)
@@ -171,25 +170,4 @@ with tf.Session() as sess:
     meta_graph_def = tf.train.export_meta_graph(filename = './models/simple_model.meta')
     saver.save(sess, './models/simple_model')
 
-#############################################
-### RUN TRAINED MODEL ON ENVIRONMENT ########
-#############################################
 
-env = gym.make('CartPole-v0')
-
-with tf.Session() as sess:
-    # https://www.tensorflow.org/api_guides/python/meta_graph
-    new_saver = tf.train.import_meta_graph('./models/simple_model.meta')
-    new_saver.restore(sess,'./models/simple_model')
-
-    for iteration in range(20):
-        observations = env.reset()
-
-        for x in range(5000):
-            env.render()
-            action_val, gradients_val = sess.run([action, gradients], 
-                                                feed_dict = {X: observations.reshape(1, num_inputs)})
-            observations, reward, done, info = env.step(action_val[0][0])
-            if done:
-                print('DONE!')
-                break
