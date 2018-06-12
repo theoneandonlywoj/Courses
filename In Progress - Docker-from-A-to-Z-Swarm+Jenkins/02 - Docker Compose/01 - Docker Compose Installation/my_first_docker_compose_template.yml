@@ -1,0 +1,20 @@
+version: '3.1'
+
+# Services = Containers
+services:
+  tomcat1:
+    # First Tomcat Server
+    image: tomcat:latest
+    ports: 
+      - 1002:80
+      - 1003:8080
+      - 1013:8080
+
+  tomcat2:
+    # Second Tomcat Server
+    image: tomcat:latest
+    ports:
+      - 1004:80
+      - 1005:8080
+    environment:
+      TEST_ENV_VARIABLE: environment_test_variable
