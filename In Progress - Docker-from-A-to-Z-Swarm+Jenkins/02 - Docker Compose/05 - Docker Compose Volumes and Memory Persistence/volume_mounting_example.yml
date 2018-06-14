@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  nginx:
+    image: nginx:latest
+    restart: always
+    volumes:
+      # Location inside the docker container
+      # If the directory does not exist, it will be created.
+      - nginx_volume:/usr/share/nginx/html/vol
+      # Attach existing directory
+      - /e/test.php:/home/courses/test.php
+volumes:
+  nginx_volume:
+    driver: local
