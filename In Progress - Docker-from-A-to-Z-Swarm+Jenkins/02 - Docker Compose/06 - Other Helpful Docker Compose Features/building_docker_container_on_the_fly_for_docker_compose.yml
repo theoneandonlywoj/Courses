@@ -1,0 +1,20 @@
+version: '3.6'
+
+services: 
+  custom_ubuntu:
+    # Building docker image "on the fly"
+    # Context = Location
+    # Dockerfile = Dockerfile custom name
+    build: 
+      context: .
+      dockerfile: custom_ubuntu_with_echo_dockerfile
+    environment: 
+      TEST_ENV_VARIABLE: 1234
+    restart: always
+
+  httpd:
+    image: httpd:latest
+    ports:
+      - 81:80
+      - 8081:8080
+
