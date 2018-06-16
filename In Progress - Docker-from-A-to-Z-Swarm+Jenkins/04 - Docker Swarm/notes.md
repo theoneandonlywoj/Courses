@@ -79,4 +79,10 @@ Leaving as a Manager or Leader needs to be forced as below:
 
 docker swarm leave --force
 
+### Promote Worker to Manager (from inside of the Leader)
+#### Its new manager status will be "Reachable"
+docker node promote my-new-
 
+### Demote Manager to Worker (from inside of the Leader)
+#### Its new manager status will be " "
+docker node demote my-new-machine
