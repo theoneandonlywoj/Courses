@@ -26,3 +26,57 @@ A Worker simply receives and carriers out commands passed by managers.
 - Rolling updates
 - Security
 - Self-Healing
+
+## Creating a Swarm 
+### Basic Information
+Command "docker swarm init" run from inside the docker machine will not work due to IP conflicts (the machine has two IP addresses).
+It can be overcome by finding IP of the local machine (run outside of the default machine):
+docker-machine ip default 
+
+### SSH to the default machine:
+docker-machine ssh default
+
+### Initialize a Swarm as below:
+docker swarm init --advertise-addr 192.168.99.100
+
+It returns a message:
+"Swarm initialized: current node (z1ou1rbxqpvzjwarmwmzof6mw) is now a manager. 
+### Notes on adding a Worker
+To add a worker to this swarm, run the following command:
+
+docker swarm join --token SWMTKN-1-62xsy5jjbqh7f85ofmvfb99xexmhp55nwtdkafkfxeo6so1qbh-73dt1w52t667t8cupt529kruv 192.168.99.100:2377                                   
+
+#### Notes on adding a Manager
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions."
+
+### Create additional docker machine (Swarm node)
+docker-machine create my-new-machine
+
+### SSH to the new docker machine (Swarm node)
+docker-machine ssh my-new-machine
+
+### Add the node to the Swarm as a Worker (from inside the node)
+docker swarm join --token SWMTKN-1-62xsy5jjbqh7f85ofmvfb99xexmhp55nwtdkafkfxeo6so1qbh-73dt1w52t667t8cupt529kruv 192.168.99.100:2377
+
+### Check information on the node to ensure the success:
+docker info
+
+### It will return a lot of information, the most important for now is the Swarm section:
+- Swarm: active 
+- NodeID: mcmu9h2scqb3n2uu8sw0bkun0  
+- Is Manager: false          
+- Node Address: 192.168.99.101   
+- Manager Addresses: 192.168.99.100:2377  
+
+### Ensure the Leader has access to the Worker node (from inside of the Leader node):
+docker node ls
+
+### Remove a node from the Swarm (from inside of the node):
+docker swarm leave
+
+### Leave as a Manager / Leader:
+Leaving as a Manager or Leader needs to be forced as below:
+
+docker swarm leave --force
+
+
