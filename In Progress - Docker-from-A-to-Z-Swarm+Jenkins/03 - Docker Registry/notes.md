@@ -36,3 +36,16 @@ docker save my-image-name > some-name.tar
 
 #### Load Docker Image from .tar
 docker load -- input some-name.tar
+
+## Docker Hub Registry Alternatives
+### Self-hosted Alternatives
+- Generic Private Docker Registry
+- Portus
+
+### Other Hosted Alternatives
+- Quay.io
+- Azure Container Registry
+- Amazon Elastic Container Registry
+- Google Container Registry
+- Private Docker Registry
+- Artifactory
