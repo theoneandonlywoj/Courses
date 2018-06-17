@@ -86,3 +86,31 @@ docker node promote my-new-
 ### Demote Manager to Worker (from inside of the Leader)
 #### Its new manager status will be " "
 docker node demote my-new-machine
+
+## Docker Services
+### Create a Service (a Nginx example, replicated mode by default)
+docker service create --replicas 5 nginx
+
+### Create a Service (global mode)
+docker service create --mode global nginx
+
+### List all Docker Services
+docker service ls
+
+### Get information about the Service
+docker service ps my_service_id
+
+### Scale up the Service
+docker service update --replicas 6 my_service_id
+
+### Scale up after adding new nodes (global mode)
+docker service update --replicas 6 --mode global my_service_id
+
+### Changing ports (rolling update)
+docker service update --publish-add 80:80 my_service_id
+
+### Run all containers on a specific machine
+docker service update --constraint-add "node.hostname==my-new-machine" my_service_id
+
+### Rollback
+docker service rollback my_service_id
