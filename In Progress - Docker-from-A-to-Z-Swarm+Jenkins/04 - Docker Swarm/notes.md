@@ -81,7 +81,7 @@ docker swarm leave --force
 
 ### Promote Worker to Manager (from inside of the Leader)
 #### Its new manager status will be "Reachable"
-docker node promote my-new-
+docker node promote my-new-machine
 
 ### Demote Manager to Worker (from inside of the Leader)
 #### Its new manager status will be " "
