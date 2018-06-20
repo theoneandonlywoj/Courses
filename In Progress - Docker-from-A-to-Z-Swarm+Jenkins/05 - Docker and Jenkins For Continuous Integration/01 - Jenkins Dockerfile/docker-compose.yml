@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  jenkins_service:
+    image: my_jenkins:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+      placement:
+        constraints:
+          - node.hostname == default
+    ports:
+      - 8081:8080
+      - 50001:50000
