@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+    stages {
+        stage('Checking Docker Version'){
+            steps {
+                sh "docker -v"
+            }
+        }
+        stage('Checking Running Docker Containers'){
+            steps {
+                sh "docker ps"
+            }
+        }
+        
+    }
+    post{
+        always {
+            sh 'echo "Doing stuff after the stages."'
+        }
+    }
+}
+
+    
