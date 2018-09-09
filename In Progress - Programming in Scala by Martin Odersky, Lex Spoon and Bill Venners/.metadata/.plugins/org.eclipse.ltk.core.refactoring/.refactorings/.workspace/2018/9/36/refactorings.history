@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;00-FirstStepsInScala&apos; to &apos;00-DefineVariablesAndFunctions&apos;&#x0A;- Original element: &apos;00-FirstStepsInScala&apos;&#x0A;- Renamed element: &apos;00-FirstStepsInScala&apos;&#x0A;- Update references to refactored element" description="Rename Java project &apos;00-FirstStepsInScala&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=00-FirstStepsInScala" name="00-DefineVariablesAndFunctions" references="true" stamp="1536530881709" version="1.0"/>
+</session>
