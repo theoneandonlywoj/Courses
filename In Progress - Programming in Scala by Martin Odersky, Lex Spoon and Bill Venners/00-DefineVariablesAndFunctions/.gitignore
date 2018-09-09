@@ -4,6 +4,7 @@
 
 build
 .classpath
+.cache-main
 .project
 .settings
 org.scala-ide.sdt.core/META-INF/MANIFEST.MF
