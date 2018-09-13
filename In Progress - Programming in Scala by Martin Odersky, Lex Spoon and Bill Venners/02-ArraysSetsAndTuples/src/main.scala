@@ -116,4 +116,58 @@ object main extends App{
   // Determine if an object exists in the List
   val ifExists = notSoEmptyList.exists(s => s == 1)
   println(ifExists)
+  
+  /*
+   * Filter:
+   * Return all elements that satisfy a constraint
+   */
+  val satisfyConstrain = countingStrings.filter(s => s.length >= 4)
+  println(satisfyConstrain)
+  
+  
+  /*
+   * Indicate if all of the elements fulfil the constraint
+   */
+  var someWords = List[String]()
+  someWords = "one" :: "two" :: "three" :: someWords
+  
+  println(someWords)
+  val doesAllEndsWithEOrO = someWords.forall(x => (x.endsWith("e") | x.endsWith("o")))
+  println(doesAllEndsWithEOrO)
+  
+  /*
+   * Execute a function for each object in the list
+   */
+  println("Print for each element:")
+  someWords.foreach(s => println(s))
+  
+  
+  // Return first element of the list
+  println("The first element:")
+  println(someWords.head)
+  
+  // Return all but the last element of the list
+  println("Everything but the last element:")
+  println(someWords.init)
+  
+  // Return the last element of the list
+  println("The last element of the list:")
+  println(someWords.tail)
+  
+  // Indicate if the array is Empty
+  val myEmptyList = Nil
+  println(myEmptyList.isEmpty)
+  
+  // Number of records in the list
+  println(myEmptyList.length)
+  println(List(1, 2).length)
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
