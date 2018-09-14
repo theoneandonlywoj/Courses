@@ -124,6 +124,12 @@ object main extends App{
   val satisfyConstrain = countingStrings.filter(s => s.length >= 4)
   println(satisfyConstrain)
   
+  /*
+   * Filter Not:
+   * Return all elements that do not satisfy a constraint
+   */
+  val doNotSatisfyConstraing = countingStrings.filter(s => s.length >= 4)
+  println(doNotSatisfyConstraing)
   
   /*
    * Indicate if all of the elements fulfil the constraint
@@ -141,7 +147,6 @@ object main extends App{
   println("Print for each element:")
   someWords.foreach(s => println(s))
   
-  
   // Return first element of the list
   println("The first element:")
   println(someWords.head)
@@ -152,6 +157,10 @@ object main extends App{
   
   // Return the last element of the list
   println("The last element of the list:")
+  println(someWords.last)
+  
+  // Return all but the first element of the list
+  println("Everything but the first element:")
   println(someWords.tail)
   
   // Indicate if the array is Empty
@@ -161,13 +170,102 @@ object main extends App{
   // Number of records in the list
   println(myEmptyList.length)
   println(List(1, 2).length)
+    
+  // Map
+  val addingLetterL = someWords.map(s => s + "l")
+  println(addingLetterL)
   
+  val returnLengthTimesTwo = someWords.map(s => s.length * 2)
+  println(returnLengthTimesTwo)
   
+  /*
+   * Reverse:
+   * Return the list in the reversed order
+   */
+  val notReversed = List("FirstWord", "SecondWord", "ThirdWord")
+  println(notReversed)
   
+  val listReversed = notReversed.reverse
+  println(listReversed)
   
+  /*
+   * Sorting in a specific order.
+   * Example:
+   * Sorting by the first character of the word
+   */
+  val exampleWords = List("bear", "dog", "cat")
+  println(exampleWords)
+  val someWordsSorted = exampleWords.sortWith((s, t) => 
+                            s.charAt(0).toLower < t.charAt(0).toLower)
+  println(someWordsSorted)
   
+  /*
+   * Make a string from the list.
+   */
   
+  println(exampleWords.mkString(", "))
+  println(exampleWords.mkString(":"))
   
+  /*
+   * Tuples.
+   * Tuples are immutable, but can contain objects of different types.
+   * Creating tuples and obtaining elements from them.
+   */
+  val myNewTuple = ("Something", "Something2")
   
+  // Accessing the first element of the tuple
+  val myNewTupleFirstValue = myNewTuple._1
   
+  // Accessing the second element of the tuple
+  val myNewTupleSecondValue = myNewTuple._2
+  
+  println(myNewTupleFirstValue)
+  println(myNewTupleSecondValue)
+  
+  /*
+   * Sets:
+   * In Scala, sets can be mutable or and immutable.
+   * Both mutable and immutable version of the set can be imported
+   * from Scala's collection.
+   */
+  
+  // Mutable Sets
+  import scala.collection.mutable
+  
+  val movieSet = mutable.Set("Inception", "Matrix")
+  movieSet += "Batman"
+  println(movieSet)
+  
+  // Immutable Sets
+  import scala.collection.immutable
+  
+  val immutableMovieSet = immutable.Set("Value1", "Value2")
+  println(immutableMovieSet)
+  
+  /*
+   * Maps:
+   * In Scala, maps can be mutable or immutable.
+   * Both mutable and immutable version of the map can be imported
+   * from Scala's collection. 
+   */
+  
+  // Mutable maps
+  import scala.collection.mutable
+  
+  val treasureMap = mutable.Map[Int, String]()
+  treasureMap += (1 -> "Go to island.")
+  treasureMap += (2 -> "Find big X on the ground")
+  treasureMap += (3 -> "Dig.")
+  println(treasureMap(2))
+  
+  // Immutable maps are the default option, the import is not necessary
+  // Just for clarity:
+  import scala.collection.immutable
+  
+  val romanNumeral = immutable.Map(1 -> "I",
+                                   2 -> "II",
+                                   3 -> "III",
+                                   4 -> "IV",
+                                   5 -> "V")
+  println(romanNumeral(4))
 }
