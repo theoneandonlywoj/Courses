@@ -1,4 +1,5 @@
 // Creating class called ChecksumAccumulator
+// Classes in Scala cannot contain static methods.
 class ChecksumAccumulator{
   // Variables inside classes are called fields
   private var sum = 0
