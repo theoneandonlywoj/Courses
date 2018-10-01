@@ -1,3 +1,6 @@
+import java.util.function.ToLongFunction
+import com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement
+
 object main extends App {
   /*
    * Traits:
@@ -37,4 +40,31 @@ object main extends App {
   }
   val frog3 = new Frog3
   println(frog3)
+  
+  /*
+   * Example: Rectangle
+   */
+  class Point(val x: Int, val y: Int)
+  trait Rectangular {
+    def topLeft: Point
+    def bottomRight: Point
+    def left_x = topLeft.x
+    def left_y = topLeft.y
+    def right_x = bottomRight.x
+    def right_y = bottomRight.y
+    def width = Math.abs(right_x - left_x)
+    def heigth = Math.abs(left_y - right_y)
+  }
+  
+  // Mixing in Rectangular into Rectangle
+  class Rectangle(val topLeft: Point, val bottomRight: Point) extends Rectangular { 
+    def area: Int = {
+      this.width * this.heigth
+    }
+  }
+  val r = new Rectangle(topLeft = new Point(1, 0), bottomRight = new Point(10, 11))
+  println(r.area)
+  println(r.topLeft.x)
+  println(r.left_x)
+  
 }
