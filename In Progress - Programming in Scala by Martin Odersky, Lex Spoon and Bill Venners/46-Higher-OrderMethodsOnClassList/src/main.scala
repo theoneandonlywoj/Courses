@@ -160,4 +160,20 @@ object main extends App {
             divideDoubleByDouble(list2(2), 2.0)))
   println(dividedResult)
   println(dividedResult2)
+  /*
+   * sorthWith:
+   */
+  val list3: List[Double] = List(1.0, -2.0, 3.0, 2.5, 1.5)
+  val list4: List[Double] = list3.sortWith(_ < _)
+  
+  println(list3)
+  println(list4)
+  
+  val list5: List[(Double, Double)] = List((1.0, -1.0), (2.0, -2.0), (3.0, -3.0))
+  val list6: List[(Double, Double)] = list5.sortWith(_._1 < _._1)
+  val list7: List[(Double, Double)] = list5.sortWith(_._1 > _._1)
+  val list8: List[(Double, Double)] = list5.sortWith(_._2 > _._2)
+  println(list6)
+  println(list7)
+  println(list8)
 }
