@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/69-ClickCounter.iml" filepath="$PROJECT_DIR$/.idea/modules/69-ClickCounter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/69-ClickCounter-build.iml" filepath="$PROJECT_DIR$/.idea/modules/69-ClickCounter-build.iml" />
+    </modules>
+  </component>
+</project>
