@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="68-simplegui"
+		module="68-simplegui_2.12"
+		revision="0.1"
+		conf="compile"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
+		date="20181018181157"/>
+	<dependencies>
+		<module organisation="org.scala-lang.modules" name="scala-swing_2.12">
+			<revision name="2.0.0-M2" status="release" pubdate="20161029001126" resolver="public" artresolver="public" homepage="http://www.scala-lang.org/" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="1">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="successful" details="" size="1695" time="149" location="/home/arcyfelix/.ivy2/cache/org.scala-lang.modules/scala-swing_2.12/ivy-2.0.0-M2.xml" searched="true" original-local-location="/home/arcyfelix/.ivy2/cache/org.scala-lang.modules/scala-swing_2.12/ivy-2.0.0-M2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-swing_2.12/2.0.0-M2/scala-swing_2.12-2.0.0-M2.pom"/>
+				<caller organisation="68-simplegui" name="68-simplegui_2.12" conf="compile" rev="2.0.0-M2" rev-constraint-default="2.0.0-M2" rev-constraint-dynamic="2.0.0-M2" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="scala-swing_2.12" type="bundle" ext="jar" status="successful" details="" size="736839" time="445" location="/home/arcyfelix/.ivy2/cache/org.scala-lang.modules/scala-swing_2.12/bundles/scala-swing_2.12-2.0.0-M2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-swing_2.12/2.0.0-M2/scala-swing_2.12-2.0.0-M2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.12.7" status="release" pubdate="20180927093542" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.7/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="0">
+				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
+				<metadata-artifact status="no" details="" size="2471" time="0" location="/home/arcyfelix/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.7/scala-library-2.12.7.pom"/>
+				<caller organisation="org.scala-lang.modules" name="scala-swing_2.12" conf="default, compile, runtime, master" rev="2.12.7" rev-constraint-default="2.12.7" rev-constraint-dynamic="2.12.7" callerrev="2.0.0-M2"/>
+				<caller organisation="68-simplegui" name="68-simplegui_2.12" conf="compile" rev="2.12.7" rev-constraint-default="2.12.7" rev-constraint-dynamic="2.12.7" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="scala-library" type="jar" ext="jar" status="no" details="" size="5277511" time="0" location="/home/arcyfelix/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.7.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>
