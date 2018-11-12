@@ -34,3 +34,24 @@ In order to pick the best model, we choose the model that gives the existing lab
 
 6) Cross-entropy
 Cross-entropy ties events and probabilities. If the probability of the events are high, then the cross-entropy is low.
+
+7) Gradient descent algorithm
+- Start with random weights (and biases)
+- For every point (or a batch) and every feature calculate the partial derivative of the error function with respect to a weight or a bias,
+and update the weight with a given learning rate.
+- Repeat until error is small
+
+8) Derivative of the sigmoid function
+The derivative of the sigmoid function is given as the sigmoid function multiplied by the result of substracting sigmoid function from 1.
+
+9) Types of errors
+- Overfitting - fitting to the training data too much, resulting in the model not being able to represent the real relation between the input and the output
+- Underfitting - trying to solve the problem with a model that is not good enough and it is not capable of learning the input-output relation.
+
+10) Training Optimization Techiniques
+- Early Stopping
+- Regularization (L1 and L2)
+- Dropout
+- Random Restart - starting from few different random places
+- Batch training (Stochastic Gradient Descent)
+- Decaying learning rate
