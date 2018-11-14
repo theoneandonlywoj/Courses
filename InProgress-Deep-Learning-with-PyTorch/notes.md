@@ -55,3 +55,9 @@ The derivative of the sigmoid function is given as the sigmoid function multipli
 - Random Restart - starting from few different random places
 - Batch training (Stochastic Gradient Descent)
 - Decaying learning rate
+
+## Convolutional Neural Networks
+1) Model validation
+The dataset should be split into train, test and validation dataset.
+During the training process, the network uses the training dataset and it is evaluated by calculating accuracy (or error) over the validation dataset.
+Using early stopping, we can stop training when the network does not improve to save resources. 
