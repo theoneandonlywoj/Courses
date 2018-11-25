@@ -22,3 +22,16 @@ h1 {
   color: red;
 }
 ```
+### Specifying a color
+#### RGB
+```css
+body {
+	background-color: rgb(255, 0, 255);
+}
+```
+#### Hexadecimal
+```css
+body {
+	background-color: #ff00ff;
+}
+```
