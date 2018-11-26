@@ -1,10 +1,23 @@
 # Notes
 ## Adding jQuery to a HTML file
-- Local
+### Local
+```javascript 
 <script src='js/jquery.min.js'></script>
-
-- jQuery official
+```
+### Local
+ jQuery official
+```javascript 
 <script src='//code.jquery.com/jquery-1.11.1.min.js'></script>
-
-- Content Delivery Network
+```
+### Local
+ Content Delivery Network
+```javascript 
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+```
+
+## Family Tree Selection
+- .parent() - parent of a given object (1 level above)
+- .parents() - all parents, grandparents etc... of a given object (all the way up to the top)
+- .children() - all immediate children of a given object (1 level below)
+- .find() - all children og a given object (all level below)
+- .siblings - all siblings (objects having the same parent as the given object)
