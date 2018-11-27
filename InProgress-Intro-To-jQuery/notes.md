@@ -21,3 +21,9 @@
 - .children() - all immediate children of a given object (1 level below)
 - .find() - all children og a given object (all level below)
 - .siblings - all siblings (objects having the same parent as the given object)
+
+## Appending elements with jQuery
+- .preprend() - prepending a child element
+- .append() - appending a child element 
+- .insertBefore() - inserting a sibling element before the given element
+- .insertAfter() - inserting a sibling element after the given element
