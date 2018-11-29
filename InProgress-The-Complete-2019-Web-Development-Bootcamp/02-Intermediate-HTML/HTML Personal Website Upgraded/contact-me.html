@@ -11,18 +11,19 @@
   <p>Fake Address</p>
   <p>123456789</p>
   <p>FakeEmail@gmail.com</p>
-  <form class="" action="index.html" method="post">
-    <label for="">Your Name</label>
-    <input type="text" name="" value="">
-    <input type="color" name="" value="">
+  <!-- Enctype == encoding type -->
+  <form action="mailto:yourmail@gmail.com" method="post" enctype="text/plain">
+    <label> Your Name:</label>
+    <input type="text" name="yourName" value="">
     <br>
-    <label> Do you want to sign up for the newsletter?</label>
-    <input type="checkbox" name="" value="">
+    <label> Your Email:</label>
+    <input type="text" name="yourEmail" value="">
     <br>
-    <input type="date" name="" value="">
+    <label> Your Message:</label>
     <br>
-    <input type="password" name="" value="">
+    <textarea name="yourMessage" rows="10" cols="30"></textarea>
     <input type="submit" name="">
+
   </form>
 </body>
 
