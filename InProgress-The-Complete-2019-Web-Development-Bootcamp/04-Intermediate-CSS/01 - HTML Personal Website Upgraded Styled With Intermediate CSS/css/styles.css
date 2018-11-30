@@ -1,12 +1,26 @@
 body {
   margin: 0;
+  text-align: center;
+  font-family: 'Merriweather', serif;
 }
 
 h1 {
-  margin: 0;
+  margin: 0 auto 0 auto;
+  width: 10%;
+  font-family: 'Sacramento', cursive;
 }
+h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .top-container {
   background-color: #E4F9F5;
+  position: relative;
+  padding-top: 100px;
 }
 
 .middle-container {
@@ -26,4 +40,16 @@ Span does not have width and height parameters.
 */
 .data {
   text-decoration: underline;
+}
+
+.top-cloud {
+  position: absolute;
+  right: 500px;
+  top:50px;
+}
+
+.bottom-cloud {
+  position: absolute;
+  left: 500px;
+  bottom: 300px;
 }
