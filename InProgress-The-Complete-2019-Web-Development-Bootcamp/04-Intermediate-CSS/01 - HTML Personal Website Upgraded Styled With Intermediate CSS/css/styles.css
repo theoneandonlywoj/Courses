@@ -1,20 +1,45 @@
 body {
+  color: #40514E;
   margin: 0;
   text-align: center;
   font-family: 'Merriweather', serif;
+  font-size: 1.1em;
 }
 
 h1 {
-  margin: 0 auto 0 auto;
-  width: 10%;
+  /*
+  100% font size corresponds to 16 px.
+  90px / 16 = 5.625em = 562.5%
+
+  16px = 100% = 1em
+
+  Important!
+  If body had font-size 2em, h1's font size would be 2 x 5.625!
+  It can be rectified by using rem - root em.
+  */
+  color: #66BFBF;
+  font-size: 5.625rem;
   font-family: 'Sacramento', cursive;
+  margin: 50px auto 0 auto;
+
 }
 h2 {
+  color: #66BFBF;
   font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
 }
 
 h3 {
+  color: #11999E;
   font-family: 'Montserrat', sans-serif;
+}
+
+hr {
+  border: dotted #EAF6F6 6px;
+  border-bottom: none;
+  margin: 100px auto;
+  width: 4%;
 }
 
 .top-container {
@@ -22,34 +47,61 @@ h3 {
   position: relative;
   padding-top: 100px;
 }
+.intro {
+  width: 30%;
+  margin: auto;
+}
+
+.contact-message{
+  width: 40%;
+  margin : 40px auto 60px;
+}
 
 .middle-container {
-  background-color: red;
-  height: 200px;
-  width: 200px;
+  margin: 100px 0;
 }
 
 .bottom-container {
-  background-color: blue;
-  height: 200px;
-  width: 200px;
+  background-color: #66BFBF;
+  padding: 50px 0 20px 0;
 }
 
+.skill-row {
+  width: 50%;
+  margin: 100px auto 100px auto;
+  line-height: 2;
+  text-align: left;
+}
+
+.skill-img1 {
+  float: left;
+  margin-right: 30px;
+  width: 25%;
+}
+
+.skill-img2 {
+  float: right;
+  margin-left: 30px;
+  width: 25%;
+}
 /* Span data
 Span does not have width and height parameters.
 */
 .data {
   text-decoration: underline;
 }
+.subtitle {
+  font-weight: normal;
+}
 
 .top-cloud {
   position: absolute;
-  right: 500px;
+  right: 300px;
   top:50px;
 }
 
 .bottom-cloud {
   position: absolute;
-  left: 500px;
+  left: 300px;
   bottom: 300px;
 }
