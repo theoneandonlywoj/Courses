@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Adding fonts from Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Ubuntu" rel="stylesheet">
+  <!-- Adding icons from FontAwesome.com -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <!-- Always import your own css after importing Bootstrap -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -25,7 +27,6 @@
   <section id="title">
     <!-- Adding the navbar and the title to a fluid container -->
     <div class="container-fluid">
-
 
       <!-- Nav Bar -->
       <nav class="navbar navbar-expand-lg navbar-dark">
@@ -59,9 +60,14 @@
           <h1>Meet new and interesting dogs nearby.</h1>
           <!-- Adding button styling. -->
           <!-- Large, dark button -->
-          <button class="btn btn-dark btn-lg" type="button">Download</button>
+          <button class="btn btn-dark btn-lg" type="button">
+            <!-- Adding Apple Icon from FontsAwesome.com -->
+            <span class="fab fa-apple"></span> Download
+          </button>
           <!-- Large, outlined light button -->
-          <button class="btn btn-outline-light btn-lg" type="button">Download</button>
+          <button class="btn btn-outline-light btn-lg" type="button">
+            <span class="fab fa-google-play"></span> Download
+          </button>
         </div>
         <div class="col-lg-6">
           <img src="images/iphone6.png" alt="iphone-mockup">
