@@ -33,7 +33,7 @@ p {
 }
 
 .container-fluid {
-  padding: 3% 15%;
+  padding: 3% 15% 7%;
 }
 
 .navbar {
@@ -67,10 +67,29 @@ p {
 .title-image {
   width: 60%;
   transform: rotate(20deg);
+  /*
+  In order to the z-index beinh applied, the position must be set to an option different from static
+  */
+  position: absolute;
+}
+
+@media (max-width: 1028px) {
+  #title {
+    background-color: #ff4c68;
+    color: white;
+    text-align: center;
+  }
+
+  .title-image {
+    transform: rotate(0);
+    position: static;
+  }
 }
 
 #features {
   padding: 7% 15%;
+  position: relative;
+  background-color: white;
 }
 
 .feature-box {
