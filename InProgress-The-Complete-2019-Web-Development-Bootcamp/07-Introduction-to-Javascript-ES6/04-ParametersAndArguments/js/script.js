@@ -38,4 +38,5 @@ function getMilkWithMoney(money) {
   goToShop();
   console.log("Bought " + bottlesBought + " bottle(s) of milk");
   comeBackHome();
+  return money % pricePerBottle;
 }
