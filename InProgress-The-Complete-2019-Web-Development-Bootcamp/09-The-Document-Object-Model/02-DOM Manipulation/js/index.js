@@ -43,4 +43,12 @@ button.addEventListener("click", function(e){
     // https://www.w3schools.com/jsref/dom_obj_all.asp
     googleLink.style.color = "red";
     button.style.visibility = "hidden";
+
+    /* Adding and deleting classes can be done by adding or removing a class from the class list:
+    f.e:
+    1) adding: document.querySelector("h1").classList.add("newClass");
+    2) removing: document.querySelector("h1").classList.remove("newClass");
+    3) toggle (add not added, remove if already added):
+       document.querySelector("h1").classList.toggle("newClass");
+    */
 }, false);
