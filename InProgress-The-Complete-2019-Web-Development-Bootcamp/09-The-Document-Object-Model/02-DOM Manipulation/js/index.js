@@ -51,4 +51,11 @@ button.addEventListener("click", function(e){
     3) toggle (add not added, remove if already added):
        document.querySelector("h1").classList.toggle("newClass");
     */
+
+    /*
+    Attributes:
+    1) Obtaining list of attibutes (like href or src): document.querySelector("a").attributes;
+    2) Obtaining the attribute: document.querySelector("a").getAttribute("href");
+    3) Set a new value to an attribute: document.querySelector("a").setAttribute("href", "https://www.bing.com");
+    */
 }, false);
