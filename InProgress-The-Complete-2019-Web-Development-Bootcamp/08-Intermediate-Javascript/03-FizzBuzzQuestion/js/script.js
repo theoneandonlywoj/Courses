@@ -15,10 +15,9 @@ function fizzBuzz() {
   count++;
 }
 
-
 function fizzBuzzGame() {
   for (i = 0; i <= 100; i++) {
-    fizzBuzz();  
+    fizzBuzz();
   }
   console.log(output);
 }
