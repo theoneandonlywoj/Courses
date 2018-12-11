@@ -1,11 +1,12 @@
 // Adding an Event Listener
 // The name of the function (without the "()") is passed to the event listener
-// Adding the event listener to all buttons (with class drum, for the mouse) 
+// Adding the event listener to all buttons (with class drum, for the mouse)
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     // Switching based on the letter inside the inner HTML of each button
     var buttonInnerHTML = this.innerHTML;
     playSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
   });
 }
 
@@ -14,6 +15,7 @@ document.addEventListener("keypress", function(event){
   var key = event.key;
   console.log(key);
   playSound(key);
+  buttonAnimation(key);
 });
 
 // Playing the relevant sound
@@ -56,4 +58,12 @@ function playSound(key){
     default:
       console.log(key);
     }
+}
+
+function buttonAnimation(currentKey){
+  var activeButton = document.querySelector("." +  currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function(){
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
