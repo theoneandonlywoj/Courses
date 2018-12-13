@@ -14,3 +14,10 @@ $("h1").addClass("big-title margin-50");
 // Checking if the element has given class
 var hasClassMargin50 = $("h1").hasClass("margin-50");
 console.log(hasClassMargin50);
+
+// Changing the text of the header h1 to Hello, + name !
+var name = "Wojciech";
+$("h1").text("Hello, " + name + "!");
+
+// Changing HTML of an element (previous using Javascript's .innerHTML)
+$("button").html("<strong>Button</strong>");
