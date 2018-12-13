@@ -36,3 +36,13 @@ $("button").click(function(){
 $(document).keypress(function(event){
   console.log(event.key);
 });
+
+// Adding an event listener for mouseenter and mouseleave
+$("h1").on({
+    mouseenter: function () {
+        $("h1").css("color", "red");
+    },
+    mouseleave: function () {
+        $("h1").css("color", "yellow");
+    }
+});
