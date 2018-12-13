@@ -21,3 +21,7 @@ $("h1").text("Hello, " + name + "!");
 
 // Changing HTML of an element (previous using Javascript's .innerHTML)
 $("button").html("<strong>Button</strong>");
+
+// Chainging attributes
+// Class is an attribute as well!
+$("a").attr("href", "https://google.com");
