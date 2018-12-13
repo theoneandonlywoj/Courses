@@ -25,3 +25,14 @@ $("button").html("<strong>Button</strong>");
 // Chainging attributes
 // Class is an attribute as well!
 $("a").attr("href", "https://google.com");
+
+// Adding an event listener
+// jQuery adds the event listener to all the buttons
+$("button").click(function(){
+  $("h1").css("color", "purple");
+});
+
+// Adding a keypress logging to the whole page
+$(document).keypress(function(event){
+  console.log(event.key);
+});
