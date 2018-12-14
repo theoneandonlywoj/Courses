@@ -69,3 +69,16 @@ $(".button-prepend").on("click", function(){
 $(".button-append").on("click", function(){
   $("h1").append("<button> New Append Button </button>");
 });
+
+// Annimate
+$(".button-toggle-h1").on("click", function(){
+  $("h1").toggle();
+});
+
+$(".button-slideToggle-h1").on("click", function(){
+  $("h1").slideToggle();
+});
+
+$(".button-animate-h2").on("click", function(){
+  $("h2").slideUp().slideDown().animate({opacity: 0.5});
+});
