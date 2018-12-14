@@ -20,7 +20,7 @@ var name = "Wojciech";
 $("h1").text("Hello, " + name + "!");
 
 // Changing HTML of an element (previous using Javascript's .innerHTML)
-$("button").html("<strong>Button</strong>");
+//$("button").html("<strong>Button</strong>");
 
 // Chainging attributes
 // Class is an attribute as well!
@@ -45,4 +45,27 @@ $("h1").on({
     mouseleave: function () {
         $("h1").css("color", "yellow");
     }
+});
+
+/* Adding and removing elements
+- before
+- after
+- prepend
+- append
+*/
+
+$(".button-before").on("click", function(){
+  $("h1").before("<button> New Before Button </button>");
+});
+
+$(".button-after").on("click", function(){
+  $("h1").after("<button> New After Button </button>");
+});
+
+$(".button-prepend").on("click", function(){
+  $("h1").prepend("<button> New Prepend Button </button>");
+});
+
+$(".button-append").on("click", function(){
+  $("h1").append("<button> New Append Button </button>");
 });
