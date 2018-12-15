@@ -8,5 +8,5 @@ npm install express
 ```
 # Installing Nodemon
 ```terminal
-npm install nodemon
+npm install -g nodemon
 ```
