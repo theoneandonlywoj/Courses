@@ -6,3 +6,7 @@ npm init
 ```terminal
 npm install express
 ```
+# Installing Nodemon
+```terminal
+npm install nodemon
+```
