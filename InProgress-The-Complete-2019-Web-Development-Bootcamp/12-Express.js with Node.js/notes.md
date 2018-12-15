@@ -10,3 +10,5 @@ npm install express
 ```terminal
 npm install -g nodemon
 ```
+# Using Nodemon
+nodemon server.js localhost 3000
