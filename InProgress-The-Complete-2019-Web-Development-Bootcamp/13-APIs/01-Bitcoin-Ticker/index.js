@@ -23,7 +23,10 @@ app.post("/", (req, res) => {
     console.log(response.statusCode);
     // Parsing the JSON into a Javascript object
     var data = JSON.parse(body);
-    res.send("open today: " + data.open.day);
+    // Writing a temporary response to the memory
+    res.write("<h1>open week: " + data.open.week + "</h1>");
+    res.write("<h1>open day: " + data.open.day + "</h1>");
+    res.send();
   });
 });
 
