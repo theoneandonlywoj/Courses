@@ -19,13 +19,24 @@ app.post("/", (req, res) => {
   var crypto = req.body.crypto;
   var fiat = req.body.fiat;
 
-  request("https://apiv2.bitcoinaverage.com/indices/global/ticker/" + crypto + fiat, function(error, response, body){
+  //"https://apiv2.bitcoinaverage.com/indices/global/ticker/" + crypto + fiat
+
+  var options = {
+    url: "https://apiv2.bitcoinaverage.com/convert/global",
+    method: "GET",
+    qs: {
+      from: crypto,
+      to: fiat,
+      amount: 1
+    }
+  }
+
+  request(options, function(error, response, body){
     console.log(response.statusCode);
     // Parsing the JSON into a Javascript object
     var data = JSON.parse(body);
     // Writing a temporary response to the memory
-    res.write("<h1>open week: " + data.open.week + "</h1>");
-    res.write("<h1>open day: " + data.open.day + "</h1>");
+    res.write("<h1>price: " + data.price + "</h1>");
     res.send();
   });
 });
