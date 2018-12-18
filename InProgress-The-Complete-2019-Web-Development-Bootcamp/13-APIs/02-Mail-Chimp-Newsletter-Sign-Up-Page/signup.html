@@ -17,13 +17,13 @@
 </head>
 
 <body class="text-center">
-  <form class="form-signin">
+  <form action="/" method="POST" class="form-signin">
     <img class="mb-4" src="img/logo.png" alt="" width="288" height="144">
     <h1 class="h3 mb-3 font-weight-normal">Sign Up to My Newsletter</h1>
 
-    <input type="text" class="form-control top" placeholder="First Name" required autofocus>
-    <input type="text" class="form-control middle" placeholder="Last Name" required>
-    <input type="email" id="inputEmail" class="form-control bottom" placeholder="Email address" required>
+    <input type="text" name="fName" class="form-control top" placeholder="First Name" required autofocus>
+    <input type="text" name="lName" class="form-control middle" placeholder="Last Name" required>
+    <input type="email" name="email" class="form-control bottom" placeholder="Email address" required>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
     <p class="mt-5 mb-3 text-muted">github.com/arcyfelix</p>
