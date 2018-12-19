@@ -51,10 +51,10 @@ app.post("/", function(req, res) {
 
   request(options, (error, response, body) => {
     if (error) {
-      res.send("There was an error. Try again.");
+      res.sendFile(__dirname + "/failure.html");
     } else {
       if (response.statusCode === 200) {
-        res.send("Successfully subscribed");
+        res.sendFile(__dirname + "/success.html");
       } else {
         res.send("Something was not correct.");
       }
