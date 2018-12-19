@@ -19,7 +19,42 @@ app.post("/", function(req, res){
   var firstName = req.body.fName;
   var lastName = req.body.lName;
   var email = req.body.email;
+
+  var data = {
+  	members: [{
+  		email_address: email,
+  		status: "subscribed",
+  		merge_fields: {
+  			"FNAME": firstName,
+  			"LNAME": lastName
+  			}
+  		}
+  	]
+  };
+  var jsonData = JSON.stringify(data);
   console.log(firstName, lastName, email);
+
+  /* Mailchimp APIs
+  https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#create-post_lists_list_id
+  */
+  const listID = "07f1540996";
+  const authKey = "de352bf036830289b7d80e3a712f2c7c-us7";
+  var options = {
+  	url: "https://us7.api.mailchimp.com/3.0/lists/" + listID,
+  	method: "POST",
+  	headers: {
+  		"Authorization": "W1 " + authKey
+  	},
+  	body: jsonData
+  };
+
+  request(options, (error, response, body) => {
+  	if(error){
+  		console.log(error);
+  	} else {
+  		console.log(response.statusCode);
+  	}
+  });
 });
 
 app.listen(port, ()=> {
