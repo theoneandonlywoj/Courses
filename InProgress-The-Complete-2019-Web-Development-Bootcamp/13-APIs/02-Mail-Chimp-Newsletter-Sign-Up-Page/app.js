@@ -9,27 +9,28 @@ const port = 3000;
 // Adding reference to the public folder where the CSS files and the images are stored
 app.use(express.static("public"));
 // Using body parser
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-app.get("/", function(req, res){
+app.get("/", function(req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
 
-app.post("/", function(req, res){
+app.post("/", function(req, res) {
   var firstName = req.body.fName;
   var lastName = req.body.lName;
   var email = req.body.email;
 
   var data = {
-  	members: [{
-  		email_address: email,
-  		status: "subscribed",
-  		merge_fields: {
-  			"FNAME": firstName,
-  			"LNAME": lastName
-  			}
-  		}
-  	]
+    members: [{
+      email_address: email,
+      status: "subscribed",
+      merge_fields: {
+        "FNAME": firstName,
+        "LNAME": lastName
+      }
+    }]
   };
   var jsonData = JSON.stringify(data);
   console.log(firstName, lastName, email);
@@ -40,23 +41,27 @@ app.post("/", function(req, res){
   const listID = "07f1540996";
   const authKey = "de352bf036830289b7d80e3a712f2c7c-us7";
   var options = {
-  	url: "https://us7.api.mailchimp.com/3.0/lists/" + listID,
-  	method: "POST",
-  	headers: {
-  		"Authorization": "W1 " + authKey
-  	},
-  	body: jsonData
+    url: "https://us7.api.mailchimp.com/3.0/lists/" + listID,
+    method: "POST",
+    headers: {
+      "Authorization": "W1 " + authKey
+    },
+    body: jsonData
   };
 
   request(options, (error, response, body) => {
-  	if(error){
-  		console.log(error);
-  	} else {
-  		console.log(response.statusCode);
-  	}
+    if (error) {
+      res.send("There was an error. Try again.");
+    } else {
+      if (response.statusCode === 200) {
+        res.send("Successfully subscribed");
+      } else {
+        res.send("Something was not correct.");
+      }
+    }
   });
 });
 
-app.listen(port, ()=> {
+app.listen(port, () => {
   console.log("Listening...");
 });
