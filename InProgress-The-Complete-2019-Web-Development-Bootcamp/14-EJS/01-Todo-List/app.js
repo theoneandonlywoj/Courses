@@ -5,8 +5,18 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 app.get("/", function(req, res){
-  res.send("Hello");
+  var todayDayOfTheWeekNumber = new Date();
+  var day = "";
+
+  if (todayDayOfTheWeekNumber === 6 | todayDayOfTheWeekNumber === 0){
+    day = "weekend";
+  } else {
+    day = "weekday";
+  }
+  res.render('list', {'day': day});
 });
 
 app.listen(3000, function(){
