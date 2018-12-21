@@ -1,31 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>To Do List</title>
-  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-  <div class="box" id="heading">
-    <h1>
-      <%=listTitle%>
-    </h1>
+<%- include('header'); -%>
+<div class="box" id="heading">
+  <h1>
+    <%=listTitle%>
+  </h1>
+</div>
+<div class="box">
+  <% for (var i=0; i < newListItems.length; i++){ %>
+  <div class="item">
+    <input type="checkbox">
+    <p>
+      <%=newListItems[i]%>
+    </p>
   </div>
-  <div class="box">
-    <% for (var i=0; i < newListItems.length; i++){ %>
-    <div class="item">
-      <input type="checkbox">
-      <p><%=newListItems[i]%></p>
-    </div>
-    <% } %>
-    <form class="item" action="/" method="post">
-      <input type="text" name="newItem" placeholder="New Task" autocomplete="off">
-      <button type="submit" name="submitButton" value=<%=listType%>>+</button>
-    </form>
-  </div>
-</body>
-
-</html>
+  <% } %>
+  <form class="item" action="/" method="post">
+    <input type="text" name="newItem" placeholder="New Task" autocomplete="off">
+    <button type="submit" name="submitButton" value=<%=listType%>>+</button>
+  </form>
+</div>
+<%- include('footer'); -%>
