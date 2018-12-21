@@ -10,6 +10,7 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 let items = [];
+let workItems = [];
 
 app.get("/", function(req, res){
   var dateOptions = {
@@ -19,14 +20,24 @@ app.get("/", function(req, res){
   }
   let day = new Date().toLocaleDateString("en-US", dateOptions);
 
-  res.render('list', {'day': day, 'newListItems': items});
+  res.render('list', {listTitle: day, newListItems: items, listType:"Personal"});
 });
 
 app.post("/", (req, res) => {
   let item = req.body.newItem;
-  items.push(item);
-  res.redirect("/");
-})
+  console.log(req.body);
+  if (req.body.submitButton === "Work"){
+    workItems.push(item);
+    res.redirect("/work");
+  } else {
+    items.push(item);
+    res.redirect("/");
+  }
+});
+
+app.get("/work", (req, res) => {
+  res.render("list", {listTitle: "Work List", newListItems: workItems, listType:"Work"});
+});
 
 app.listen(3000, function(){
   console.log("Server started on port 3000.");
