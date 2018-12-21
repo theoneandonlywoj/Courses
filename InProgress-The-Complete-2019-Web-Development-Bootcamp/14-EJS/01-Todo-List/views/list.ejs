@@ -5,10 +5,15 @@
     <title>To Do List</title>
   </head>
   <body>
-    <% if (day === "Saturday" || day === "Sunday"){ %>
-      <h1 style="color: purple"><%=day%> To Do List</h1>
-    <% } else { %>
-      <h1 style="color: blue"><%=day%> To Do List</h1>
-    <%} %>
+      <h1><%=day%></h1>
+      <ul>
+        <% for (var i=0; i <newListItems.length; i++){ %>
+          <li><%=newListItems[i]%></li>
+        <%} %>
+        <form class="" action="/" method="post">
+          <input type="text" name="newItem" placeholder="New Task">
+          <button type="submit" name="button">Add</button>
+        </form>
+      </ul>
   </body>
 </html>
