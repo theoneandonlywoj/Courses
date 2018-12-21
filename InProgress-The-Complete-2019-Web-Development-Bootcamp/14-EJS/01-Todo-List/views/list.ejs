@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>To Do List</title>
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -17,7 +18,7 @@
     <% for (var i=0; i < newListItems.length; i++){ %>
     <div class="item">
       <input type="checkbox">
-      <p><%=newListItems[i]%><p>
+      <p><%=newListItems[i]%></p>
     </div>
     <% } %>
     <form class="item" action="/" method="post">
@@ -26,4 +27,5 @@
     </form>
   </div>
 </body>
+
 </html>

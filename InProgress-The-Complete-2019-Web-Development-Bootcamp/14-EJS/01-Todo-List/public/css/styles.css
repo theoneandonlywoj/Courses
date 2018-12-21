@@ -2,7 +2,7 @@ html {
   background-color: #E4E9FD;
   background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
   min-height: 1000px;
-  font-family: 'helvetica neue';
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 h1 {
@@ -46,9 +46,11 @@ input[type="checkbox"] {
 p {
   margin: 0;
   padding: 20px;
+  font-family: 'Gloria Hallelujah', cursive;
   font-size: 20px;
   font-weight: 200;
   color: #00204a;
+
 }
 
 form {
@@ -76,6 +78,7 @@ input[type="text"] {
   background: transparent;
   font-size: 20px;
   font-weight: 200;
+  font-family: 'Gloria Hallelujah', cursive;
   width: 313px;
 }
 
