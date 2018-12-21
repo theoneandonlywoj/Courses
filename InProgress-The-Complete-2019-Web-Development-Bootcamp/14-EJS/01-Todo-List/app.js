@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('view engine', 'ejs');
 
-var items = [];
+let items = [];
 
 app.get("/", function(req, res){
   var dateOptions = {
@@ -16,13 +16,13 @@ app.get("/", function(req, res){
     day: "numeric",
     month: "long"
   }
-  var day = new Date().toLocaleDateString("en-US", dateOptions);
+  let day = new Date().toLocaleDateString("en-US", dateOptions);
 
   res.render('list', {'day': day, 'newListItems': items});
 });
 
 app.post("/", (req, res) => {
-  item = req.body.newItem;
+  let item = req.body.newItem;
   items.push(item);
   res.redirect("/");
 })
