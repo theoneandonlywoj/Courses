@@ -1,7 +1,9 @@
-//jshint esversion:6
+
 
 const express = require("express");
 const bodyParser = require("body-parser");
+// Importing an external module
+const date = require(__dirname + "/date.js");
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -12,14 +14,8 @@ app.set('view engine', 'ejs');
 let items = [];
 let workItems = [];
 
-app.get("/", function(req, res){
-  var dateOptions = {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
-  }
-  let day = new Date().toLocaleDateString("en-US", dateOptions);
-
+app.get("/", function(req, res) {
+  let day = date.getDateToday();
   res.render('list', {listTitle: day, newListItems: items, listType:"Personal"});
 });
 
