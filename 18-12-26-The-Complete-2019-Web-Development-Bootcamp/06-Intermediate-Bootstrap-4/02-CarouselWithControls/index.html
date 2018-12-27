@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CarouselExample</title>
+
+  <!-- Adding jQuery etc... -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
+  <!-- Adding Bootstrap 4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Adding fonts from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Ubuntu|EB+Garamond" rel="stylesheet">
+  <!-- Adding icons from FontAwesome.com -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <!-- Always import your own css after importing Bootstrap -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Changing carousel speed by adding data-interval in the definition of the div.
+       Changing data-ride="false" make the carousel stop playing automatically.
+  -->
+  <!-- Adding pause of the mouse hover -->
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2000" data-pause="hover">
+    <!-- Carousel Slides Below -->
+    <div class="carousel-inner">
+      <!-- Element markes as "active" will be the first item showed on the carousel.
+           The carousel must have a single active item. -->
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="images/mashable.png" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/bizinsider.png" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/TechCrunch.png" alt="Third slide">
+      </div>
+    </div>
+    <!-- Carousel Control Buttons -->
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon carousel-button" aria-hidden="true"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon carousel-button" aria-hidden="true"></span>
+    </a>
+  </div>
+
+</body>
+
+</html>

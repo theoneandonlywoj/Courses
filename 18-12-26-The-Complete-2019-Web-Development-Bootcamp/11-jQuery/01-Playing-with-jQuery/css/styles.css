@@ -1,0 +1,13 @@
+h2 {
+  color: purple;
+}
+
+.big-title {
+  color: green;
+  font-family: cursive;
+  font-size: 2rem;
+}
+
+.margin-50 {
+  margin: 50px;
+}
