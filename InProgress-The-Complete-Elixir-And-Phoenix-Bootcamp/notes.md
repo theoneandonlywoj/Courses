@@ -8,3 +8,8 @@ mix new my_project_name
 ```bash
 iex -S mix
 ```
+
+## Recompile in the IEX
+```iex
+recompile
+```
