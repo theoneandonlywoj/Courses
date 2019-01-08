@@ -50,6 +50,13 @@ defmodule Cards do
       # _ means 'I do not care about this variable.'
       {:error, _} -> "That file does not exist!"
     end
-    
+  end
+
+  def create_hand(hand_size) do
+    # The pipe operator passes the result
+    # as the first argument to the next function
+    Cards.create_deck
+    |> Cards.shuffle
+    |> Cards.deal(hand_size)
   end
 end
