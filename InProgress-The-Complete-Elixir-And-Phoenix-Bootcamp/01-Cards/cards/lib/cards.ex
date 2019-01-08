@@ -36,4 +36,20 @@ defmodule Cards do
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
+
+  def save(deck, filename) do
+    # Calling erlang object:
+    binary = :erlang.term_to_binary(deck)
+    File.write(filename, binary)
+  end
+
+  def load(filename) do
+    case File.read(filename) do
+      # :name is an atom
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      # _ means 'I do not care about this variable.'
+      {:error, _} -> "That file does not exist!"
+    end
+    
+  end
 end
