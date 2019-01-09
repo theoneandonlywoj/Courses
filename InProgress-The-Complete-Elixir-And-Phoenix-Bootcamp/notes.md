@@ -19,3 +19,8 @@ recompile
 ```bash
 mix deps.get
 ```
+- Add `@moduledoc` and `@doc`
+- Run in the bash / command prompt
+```bash
+mix docs
+```

@@ -32,7 +32,19 @@ defmodule Cards do
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
+  @doc """
+  Splitting the deck into hand and the rest.
 
+  ## Examples
+
+      iex>deck = ['Ace of Spades', 'Two of Diamonds', 'Three of Clubs']
+      iex>{hand, the_rest} = Cards.deal(deck, 2)
+      iex>hand
+      ['Ace of Spades', 'Two of Diamonds']
+      iex>the_rest
+      ['Three of Clubs']
+
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
