@@ -24,3 +24,8 @@ mix deps.get
 ```bash
 mix docs
 ```
+
+## Running tests
+```iex
+mix test
+```
