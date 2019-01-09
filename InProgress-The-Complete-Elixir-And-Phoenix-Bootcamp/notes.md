@@ -13,3 +13,9 @@ iex -S mix
 ```iex
 recompile
 ```
+## Installing ex-doc documentation generation package
+- Add package name and version as a tuple in the mix.exs file
+- Run in the bash / command prompt
+```bash
+mix deps.get
+```
