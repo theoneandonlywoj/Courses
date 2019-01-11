@@ -44,4 +44,19 @@ defmodule Maps do
     last_data
   end
 
+  @doc """
+  Returning a new map with a key changed / inserted if does not exist already.
+
+  ## Examples
+
+      iex> my_map = Maps.create_map
+      iex> Maps.change_value_for_a_key(my_map, :primary, 'new_value')
+      %{last: 'yellow', primary: 'new_value', secondary: 'blue'}
+
+  """
+  def change_value_for_a_key(map, key, value) do
+    map = Map.put(map, key, value)
+    map
+  end
+
 end
