@@ -14,10 +14,10 @@ defmodule Identicon.Image do
   ## Examples
 
       iex> %Identicon.Image{}
-      %Identicon.Image{hex: nil}
+      %Identicon.Image{color: nil, hex: nil}
 
       iex> %Identicon.Image{hex: []}
-      %Identicon.Image{hex: []}
+      %Identicon.Image{color: nil, hex: []}
   """
-  defstruct hex: nil
+  defstruct hex: nil, color: nil
 end

@@ -20,9 +20,11 @@ defmodule Identicon do
   ## Examples
 
       iex> Identicon.hash_input('my_string')
-      %Identicon.Image{ hex: [61, 33, 43, 33, 250, 215, 190, 214, 60, 31, 181, 96, 198, 165, 197, 208] }
+      %Identicon.Image{ hex: [61, 33, 43, 33, 250, 215, 190, 214, 60, 31, 181, 96, 198, 165, 197, 208],
+                        color: nil }
       iex> Identicon.hash_input('my_string')
-      %Identicon.Image{ hex: [61, 33, 43, 33, 250, 215, 190, 214, 60, 31, 181, 96, 198, 165, 197, 208] }
+      %Identicon.Image{ hex: [61, 33, 43, 33, 250, 215, 190, 214, 60, 31, 181, 96, 198, 165, 197, 208],
+                        color: nil }
 
   """
   def hash_input(input) do
@@ -40,14 +42,18 @@ defmodule Identicon do
 
       iex> image = Identicon.hash_input('hash_me')
       iex> Identicon.pick_color(image)
-      [202, 80, 91]
+      %Identicon.Image{ color: {202, 80, 91},
+                        hex: [202, 80, 91, 154, 26, 69, 237, 0, 38, 137, 34, 139, 223, 37, 34, 93] }
   """
   def pick_color(image) do
     # Accessing first three values using pattern matching
     %Identicon.Image{hex: hex_list} = image
     # Pattern matching and tossing away the tail
     [r, g, b | _tail] = hex_list
-    [r, g, b]
+    # Updating the value for a given key using the 'pipe' syntax
+    #% Identicon.Image{image | color: {r, g, b}}
+    # Update the value for a given key using Map.put
+    Map.put(image, :color, {r, g, b})
   end
 
 end
