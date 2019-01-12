@@ -11,6 +11,7 @@ defmodule Identicon do
     input
     |> hash_input
     |> pick_color
+    |> build_grid
   end
 
   @doc """
@@ -44,6 +45,7 @@ defmodule Identicon do
       iex> Identicon.pick_color(image)
       %Identicon.Image{ color: {202, 80, 91},
                         hex: [202, 80, 91, 154, 26, 69, 237, 0, 38, 137, 34, 139, 223, 37, 34, 93] }
+
   """
   def pick_color(image) do
     # Accessing first three values using pattern matching
@@ -56,4 +58,51 @@ defmodule Identicon do
     Map.put(image, :color, {r, g, b})
   end
 
+  @doc """
+  Building the grid.
+  We are using chunk size = 3, because we are mirroring the number to get 5 values.
+  Using pattern matching directly from the parameter.
+
+  ## Examples
+
+      iex> image = Identicon.hash_input('hash_me')
+      %Identicon.Image{
+      color: nil,
+      hex: [202, 80, 91, 154, 26, 69, 237, 0, 38, 137, 34, 139, 223, 37, 34, 93]
+      }
+      iex> Identicon.build_grid(image)
+      [
+        [202, 80, 91, 80, 202],
+        [154, 26, 69, 26, 154],
+        [237, 0, 38, 0, 237],
+        [137, 34, 139, 34, 137],
+        [223, 37, 34, 37, 223]
+      ]
+
+  """
+  def build_grid(%Identicon.Image{hex: hex_list}) do
+    # Enum.chunk creates list of lists
+    hex_list
+    # Chunking the list by 3 with step 3 and discarding the rest
+    |> Enum.chunk_every(3, 3, :discard)
+    # Passing reference to a function mirror_row that takes 1 argument.
+    |> Enum.map(&mirror_row/1)
+  end
+
+  @doc """
+  Mirroring a 3 elements row [a, b, c].
+  Returning a 5 elements row [a, b, c, d, e]
+
+  ## Examples
+
+      iex> Identicon.mirror_row([1, 2, 3])
+      [1, 2, 3, 2, 1]
+
+  """
+  def mirror_row(row) do
+    # [ 1, 2, 3] => [1, 2, 3, 2, 1]
+    [first, second, _tail] = row
+    ## Joining lists with '++'
+    row ++ [second, first]
+  end
 end
