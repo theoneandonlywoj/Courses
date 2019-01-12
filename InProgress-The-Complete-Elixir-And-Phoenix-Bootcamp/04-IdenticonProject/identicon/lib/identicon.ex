@@ -10,6 +10,7 @@ defmodule Identicon do
   def main(input) do
     input
     |> hash_input
+    |> pick_color
   end
 
   @doc """
@@ -29,6 +30,24 @@ defmodule Identicon do
     |> :binary.bin_to_list
 
     %Identicon.Image{hex: hex}
+  end
+
+  @doc """
+  Picking the color as the first 3 numbers from the 'image' struct.
+  The numbers correspond to (R)ed, (G)reen and (B)lue channels.
+
+  ## Examples
+
+      iex> image = Identicon.hash_input('hash_me')
+      iex> Identicon.pick_color(image)
+      [202, 80, 91]
+  """
+  def pick_color(image) do
+    # Accessing first three values using pattern matching
+    %Identicon.Image{hex: hex_list} = image
+    # Pattern matching and tossing away the tail
+    [r, g, b | _tail] = hex_list
+    [r, g, b]
   end
 
 end
