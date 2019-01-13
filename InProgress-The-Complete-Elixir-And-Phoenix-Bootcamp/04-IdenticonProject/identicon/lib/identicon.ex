@@ -13,6 +13,7 @@ defmodule Identicon do
     |> pick_color
     |> build_grid
     |> filter_odd_squares
+
   end
 
   @doc """
@@ -180,6 +181,36 @@ defmodule Identicon do
     %Identicon.Image{image| grid: grid}
   end
 
+  @doc """
+  Building a pixel map.
+  Each cell must be defined as {{x_top_left, y_top_left}, {x_bottom_right, y_bottom_right}}
+  ## Examples
+
+      iex> fake_img = %Identicon.Image{grid: [{202, 0}, {80, 1}, {90, 3}, {98, 5}]}
+      iex> Identicon.build_pixel_map(fake_img)
+      %Identicon.Image{
+        color: nil,
+        grid: [{202, 0}, {80, 1}, {90, 3}, {98, 5}],
+        hex: nil,
+        pixel_map: [
+          {{0, 0}, {50, 50}},
+          {{50, 0}, {100, 50}},
+          {{150, 0}, {200, 50}},
+          {{0, 50}, {50, 100}}
+        ]
+      }
+  """
+  def build_pixel_map(%Identicon.Image{grid: grid} = image) do
+    pixel_map = Enum.map(grid, fn({_, index}) ->
+      horizontal = rem(index, 5) * 50
+      vertical = div(index, 5) * 50
+
+      top_left_corner = {horizontal, vertical}
+      bottom_right_corner = {horizontal + 50, vertical + 50}
+
+      {top_left_corner, bottom_right_corner}
+    end)
+
+    %Identicon.Image{image | pixel_map: pixel_map}
+  end
 end
-
-
