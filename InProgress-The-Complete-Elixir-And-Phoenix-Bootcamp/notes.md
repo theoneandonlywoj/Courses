@@ -38,3 +38,24 @@ In case of EGD not being seen by the compiler:
 ```
 mix local.rebar --force
 ```
+
+## Phoenix 1.2
+### Installation
+```bash
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-1.2.5.ez
+```
+
+### Create a new project
+```bash
+mix phoenix.new my_project_name
+```
+### Configure connection with Ecto
+- Change user name, password and port and run:
+```bash
+mix ecto.create
+```
+
+### Running a new Phoenix server
+```bash
+mix phoenix.server
+```
