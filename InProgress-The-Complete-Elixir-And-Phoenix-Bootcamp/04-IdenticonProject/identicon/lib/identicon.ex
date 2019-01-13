@@ -13,7 +13,8 @@ defmodule Identicon do
     |> pick_color
     |> build_grid
     |> filter_odd_squares
-
+    |> build_pixel_map
+    |> draw_image
   end
 
   @doc """
@@ -212,5 +213,21 @@ defmodule Identicon do
     end)
 
     %Identicon.Image{image | pixel_map: pixel_map}
+  end
+
+  @doc """
+  Drawing the image with EGD.
+  """
+  def draw_image(%Identicon.Image{color: color, pixel_map: pixel_map}) do
+    image = :egd.create(250, 250)
+    fill = :egd.color(color)
+
+    # EGD weirdness - we are editing an existing image
+    # instead of returning a new one each time we draw something.
+    Enum.each(pixel_map, fn({start, stop}) ->
+      :egd.filledRectangle(image, start, stop, fill)
+    end)
+
+    :egd.render(image)
   end
 end

@@ -29,3 +29,12 @@ mix docs
 ```iex
 mix test
 ```
+
+## Issues with EGD
+In case of EGD not being seen by the compiler:
+- Check the dependencies
+- Get the dependencies
+- If all fails, run line below
+```
+mix local.rebar --force
+```
