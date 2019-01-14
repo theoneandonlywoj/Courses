@@ -59,3 +59,13 @@ mix ecto.create
 ```bash
 mix phoenix.server
 ```
+
+### Generating migration file
+```bash
+mix ecto.gen.migration migration_name
+```
+
+## Execute migration
+```bash
+mix ecto.migrate
+```
