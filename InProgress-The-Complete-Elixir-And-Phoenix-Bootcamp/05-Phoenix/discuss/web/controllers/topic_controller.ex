@@ -21,13 +21,14 @@ defmodule Discuss.TopicController do
   # Accessing the parameters with pattern matching
   def create(conn, %{"topic" => topic}) do
     # Creating changeset
-    changes = Topic.changeset(%Topic{}, topic)
+    changeset = Topic.changeset(%Topic{}, topic)
     # They changeset does not need to be check valid?
     # Repo module takes care of it and it will not try to insert it,
     # if the changeset is invalid
-    case Repo.insert(changes) do
+    case Repo.insert(changeset) do
       {:ok, post} -> IO.inspect(post)
-      {:error, changes} -> IO.inspect(changes)
+      {:error, changeset} ->
+        render conn, "new.html", changeset_variable: changeset
     end
   end
 end
