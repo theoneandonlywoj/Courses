@@ -31,4 +31,9 @@ defmodule Discuss.TopicController do
         render conn, "new.html", changeset_variable: changeset
     end
   end
+
+  def index(conn, _params) do
+    topics = Repo.all(Topic)
+    render conn, "index.html", topics_list: topics
+  end
 end
