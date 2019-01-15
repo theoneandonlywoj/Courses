@@ -65,7 +65,12 @@ mix phoenix.server
 mix ecto.gen.migration migration_name
 ```
 
-## Execute migration
+### Execute migration
 ```bash
 mix ecto.migrate
 ```
+
+### Import, alias, use
+- ```import``` -> take all the functions out of this module and give them to this other module
+- ```alias``` -> short the name
+- ```use``` -> fancy setup
