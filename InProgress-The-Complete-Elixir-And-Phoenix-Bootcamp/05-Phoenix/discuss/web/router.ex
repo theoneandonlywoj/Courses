@@ -22,6 +22,9 @@ defmodule Discuss.Router do
     post "/topics", TopicController, :create
     get "/topics", TopicController, :index
     get "/", TopicController, :index
+    # Adding a route using a wildcard.
+    get "/topics/:id/edit", TopicController, :edit
+    put "/topics/:id", TopicController, :update
   end
 
   # Other scopes may use custom stacks.

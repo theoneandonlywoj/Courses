@@ -43,4 +43,13 @@ defmodule Discuss.TopicController do
     topics = Repo.all(Topic)
     render conn, "index.html", topics_list: topics
   end
+
+  def edit(conn, %{"id" => topic_id}) do
+    # Selecting with an id
+    topic = Repo.get(Topic, topic_id)
+    # No changes for now, thus we do not pass the second parameter.
+    topic_changeset = Topic.changeset(topic)
+
+    render conn, "edit.html", changeset_variable: topic_changeset, topic_variable: topic
+  end
 end
