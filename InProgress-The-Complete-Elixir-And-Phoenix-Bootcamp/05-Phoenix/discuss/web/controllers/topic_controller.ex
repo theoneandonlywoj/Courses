@@ -26,9 +26,16 @@ defmodule Discuss.TopicController do
     # Repo module takes care of it and it will not try to insert it,
     # if the changeset is invalid
     case Repo.insert(changeset) do
-      {:ok, post} -> IO.inspect(post)
+      {:ok, _} ->
+        conn
+        # Show an info
+        |> put_flash(:info, "Topic Created")
+        # Redirect to function index
+        |> redirect(to: topic_path(conn, :index))
       {:error, changeset} ->
-        render conn, "new.html", changeset_variable: changeset
+        conn
+        |> put_flash(:error, "An error occured!")
+        |> render("new.html", changeset_variable: changeset)
     end
   end
 

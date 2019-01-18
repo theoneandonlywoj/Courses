@@ -20,7 +20,7 @@ defmodule Discuss.Router do
     # -> send them to TopicController and run function "new"
     get "/topics/new", TopicController, :new
     post "/topics", TopicController, :create
-    #get "/topics", TopicController, :index
+    get "/topics", TopicController, :index
     get "/", TopicController, :index
   end
 
