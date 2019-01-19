@@ -54,8 +54,8 @@ defmodule Discuss.TopicController do
   end
 
   def update(conn, %{"id" => topic_id, "topic" => topic_from_form}) do
-    topic_changeset = Repo.get(Topic, topic_id)
-    |> Topic.changeset(topic_from_form)
+    old_topic = Repo.get(Topic, topic_id)
+    topic_changeset = Topic.changeset(old_topic, topic_from_form)
 
     # Updating
      case Repo.update(topic_changeset) do
@@ -67,7 +67,7 @@ defmodule Discuss.TopicController do
         |> redirect(to: topic_path(conn, :index))
       {:error, topic_changeset} ->
         # Redirect back to the edit page
-        render conn, "edit.html", changeset_variable: topic_changeset
+        render conn, "edit.html", changeset_variable: topic_changeset, topic_variable: old_topic
     end
   end
 end
