@@ -26,7 +26,7 @@ defmodule Discuss.TopicController do
     # Repo module takes care of it and it will not try to insert it,
     # if the changeset is invalid
     case Repo.insert(changeset) do
-      {:ok, _} ->
+      {:ok, _topic} ->
         conn
         # Show an info
         |> put_flash(:info, "Topic Created")
@@ -51,5 +51,23 @@ defmodule Discuss.TopicController do
     topic_changeset = Topic.changeset(topic)
 
     render conn, "edit.html", changeset_variable: topic_changeset, topic_variable: topic
+  end
+
+  def update(conn, %{"id" => topic_id, "topic" => topic_from_form}) do
+    topic_changeset = Repo.get(Topic, topic_id)
+    |> Topic.changeset(topic_from_form)
+
+    # Updating
+     case Repo.update(topic_changeset) do
+      {:ok, _} ->
+        conn
+        # Show an info
+        |> put_flash(:info, "Topic Updated")
+        # Redirect to function index
+        |> redirect(to: topic_path(conn, :index))
+      {:error, topic_changeset} ->
+        # Redirect back to the edit page
+        render conn, "edit.html", changeset_variable: topic_changeset
+    end
   end
 end
