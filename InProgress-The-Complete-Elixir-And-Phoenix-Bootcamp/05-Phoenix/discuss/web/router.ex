@@ -18,13 +18,17 @@ defmodule Discuss.Router do
 
     # If somebody makes a request to "/topics/new"
     # -> send them to TopicController and run function "new"
-    get "/topics/new", TopicController, :new
-    post "/topics", TopicController, :create
-    get "/topics", TopicController, :index
+    #get "/topics/new", TopicController, :new
+    #post "/topics", TopicController, :create
+    #get "/topics", TopicController, :index
     get "/", TopicController, :index
     # Adding a route using a wildcard.
-    get "/topics/:id/edit", TopicController, :edit
-    put "/topics/:id", TopicController, :update
+    #get "/topics/:id/edit", TopicController, :edit
+    #put "/topics/:id", TopicController, :update
+    #del "/topics/:id", TopicController, :delete
+    # Resources assume a certain REST convention
+    # Details: https://hexdocs.pm/phoenix/routing.html#resources
+    resources "/topics", TopicController
   end
 
   # Other scopes may use custom stacks.
