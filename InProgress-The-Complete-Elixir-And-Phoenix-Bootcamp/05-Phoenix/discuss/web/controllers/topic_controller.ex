@@ -70,4 +70,16 @@ defmodule Discuss.TopicController do
         render conn, "edit.html", changeset_variable: topic_changeset, topic_variable: old_topic
     end
   end
+
+  def delete(conn, %{"id" => topic_id}) do
+    # get! function re-directs to an error page if it fails
+    Repo.get!(Topic, topic_id)
+    |> Repo.delete!()
+
+    # There is no need for case statement,
+    # because the code below will be accessed only if the deletion is successful
+    conn
+    |> put_flash(:info, "Topic Deleted!")
+    |> redirect(to: topic_path(conn, :index))
+  end
 end
