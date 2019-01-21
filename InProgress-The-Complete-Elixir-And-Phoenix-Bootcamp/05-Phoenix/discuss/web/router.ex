@@ -31,6 +31,16 @@ defmodule Discuss.Router do
     resources "/topics", TopicController
   end
 
+  scope "/auth", Discuss do
+    # pipe_through => for any request for the scope do some specified pre-processing
+    pipe_through :browser
+
+    # The request function / module is already defined by the UeberAuth in the auth_controller.ex
+    # Using :provider instead of just "github", it will handle all types of providers, f.e. Google etc.
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Discuss do
   #   pipe_through :api
