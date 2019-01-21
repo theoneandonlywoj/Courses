@@ -28,10 +28,10 @@ import_config "#{Mix.env}.exs"
 
 # UeberAuth Github Setup
 config :ueberauth, Ueberauth,
-  providers:[
+  providers: [
     github: { Ueberauth.Strategy.Github, []}
   ]
 
-  config :ueberauth, Ueberauth.Strategy.Github.Oauth,
+  config :ueberauth, Ueberauth.Strategy.Github.OAuth,
     client_id: "cbc4356f47d5e5ba15c3",
     client_secret: "15ab91c4e5e7aee00d892913323a58a269f2621d"
