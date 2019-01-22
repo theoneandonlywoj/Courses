@@ -5,7 +5,7 @@ defmodule Discuss.AuthController do
   # Aliasing the User model
   alias Discuss.User
 
-  def callback(conn, params) do
+  def callback(conn, _params) do
     # Pattern matching to extract ueberauth_auth
     %{assigns: %{ ueberauth_auth: auth }} = conn
     # Extracting user data
