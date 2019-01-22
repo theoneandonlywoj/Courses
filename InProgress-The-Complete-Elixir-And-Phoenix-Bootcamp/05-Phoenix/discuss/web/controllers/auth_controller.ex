@@ -16,7 +16,24 @@ defmodule Discuss.AuthController do
     }
     # Creating a new User changeset
     changeset = User.changeset(%User{}, user_params)
-    insert_or_update_user(changeset)
+    signin(conn, changeset)
+  end
+
+  defp signin(conn, changeset) do
+    case insert_or_update_user(changeset) do
+      # Successful login (either existing or just inserted)
+      {:ok, user} ->
+        conn
+        |> put_flash(:info, "Welcome back!")
+        # Putting encrypted user id into the session
+        |> put_session(:user_id, user.id)
+        |> redirect(to: topic_path(conn, :index))
+      # If the user fails to sign in, I re-direct him / her to the topics index page
+      {:error, _reason} ->
+        conn
+        |> put_flash(:error, "Error signing in")
+        |> redirect(to: topic_path(conn, :index))
+    end
   end
 
   # A private helper function
