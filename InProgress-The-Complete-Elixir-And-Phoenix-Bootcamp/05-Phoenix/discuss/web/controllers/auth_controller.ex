@@ -12,7 +12,7 @@ defmodule Discuss.AuthController do
     user_params = %{
       token: auth.credentials.token,
       email: auth.info.email,
-      provider: auth.provider
+      provider: "github"
     }
     # Creating a new User changeset
     changeset = User.changeset(%User{}, user_params)
