@@ -26,7 +26,7 @@ defmodule Discuss.AuthController do
         conn
         |> put_flash(:info, "Welcome back!")
         # Putting encrypted user id into the session
-        |> put_session(:user_id, user.id)
+        |> put_session(:user_id_session, user.id)
         |> redirect(to: topic_path(conn, :index))
       # If the user fails to sign in, I re-direct him / her to the topics index page
       {:error, _reason} ->
@@ -34,6 +34,15 @@ defmodule Discuss.AuthController do
         |> put_flash(:error, "Error signing in")
         |> redirect(to: topic_path(conn, :index))
     end
+  end
+
+  # It is not a private function, because it is a handler
+  def signout(conn, _params) do
+    conn
+    # Destroying the session
+    |> configure_session(drop: true)
+    # Redirecting to the index page
+    |> redirect(to: topic_path(conn, :index))
   end
 
   # A private helper function

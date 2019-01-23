@@ -31,6 +31,7 @@ defmodule Discuss.Router do
     # Resources assume a certain REST convention
     # Details: https://hexdocs.pm/phoenix/routing.html#resources
     resources "/topics", TopicController
+
   end
 
   scope "/auth", Discuss do
@@ -39,6 +40,7 @@ defmodule Discuss.Router do
 
     # The request function / module is already defined by the UeberAuth in the auth_controller.ex
     # Using :provider instead of just "github", it will handle all types of providers, f.e. Google etc.
+    get "/signout", AuthController, :signout
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
   end

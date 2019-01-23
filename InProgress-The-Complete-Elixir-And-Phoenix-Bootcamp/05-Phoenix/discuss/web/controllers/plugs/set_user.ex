@@ -13,7 +13,7 @@ defmodule Discuss.Plugs.SetUser do
   def call(conn, _params_from_init) do
     # Getting user id from the session
     # Function 'get_session' is defined in Phoenix.Controller
-    user_id = get_session(conn, :user_id)
+    user_id = get_session(conn, :user_id_session)
     # Condition statement
     # First condition that evaluates to true will be executed
     cond do
@@ -21,11 +21,11 @@ defmodule Discuss.Plugs.SetUser do
       user = user_id && Repo.get(User, user_id) ->
         # We put data to the 'assigns' part of the connection to user_property
         # Function 'assign' from Plug.Conn will return the connection
-        assign(conn, :user_property, user)
+        assign(conn, :user, user)
       # 2. We do not have a user_id
       # We place true so it will be executed in the end
       true ->
-        assign(conn, :user_property, nil)
+        assign(conn, :user, nil)
     end
   end
 end
