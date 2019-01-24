@@ -4,6 +4,8 @@ defmodule Discuss.Topic do
   # Implementing model schema
   schema "topics" do
     field :title, :string
+    # A topic belongs to a user
+    belongs_to :user, Discuss.User
   end
   # Changeset validation
   # \\ means the default value

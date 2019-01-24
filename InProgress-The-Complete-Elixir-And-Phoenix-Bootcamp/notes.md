@@ -75,4 +75,8 @@ mix ecto.migrate
 - ```alias``` -> short the name
 - ```use``` -> fancy setup
 
-###
+### Accessing the user interactively
+- without associated topics
+```elixir
+iex> Discuss.Repo.get(Discuss.User, 2)
+```
