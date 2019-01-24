@@ -9,6 +9,10 @@ defmodule Discuss.TopicController do
   # Not using the layout
   #plug :put_layout, false
 
+  # Adding the plug only for given actions
+  # Only for :new, :create, :edit, :update, :delete
+  plug Discuss.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
+
   def new(conn, _params) do
     struct = %Topic{}
     params = %{}
