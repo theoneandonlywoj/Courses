@@ -24,8 +24,15 @@ defmodule Discuss.TopicController do
 
   # Accessing the parameters with pattern matching
   def create(conn, %{"topic" => topic}) do
-    # Creating changeset
-    changeset = Topic.changeset(%Topic{}, topic)
+    # Creating changeset with user id association
+    # First, we need to obtain the user_id from the session
+    changeset = conn.assigns.user
+    # Building an association with the topic
+    # The atom :topics comes from field in the DB in the user.ex model
+    |> build_assoc(:topics)
+    # Building the changeset from the struct
+    |> Topic.changeset(topic)
+    # Old version: changeset = Topic.changeset(%Topic{}, topic)
     # They changeset does not need to be check valid?
     # Repo module takes care of it and it will not try to insert it,
     # if the changeset is invalid
