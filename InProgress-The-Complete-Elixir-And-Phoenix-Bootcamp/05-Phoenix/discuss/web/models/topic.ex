@@ -6,6 +6,8 @@ defmodule Discuss.Topic do
     field :title, :string
     # A topic belongs to a user
     belongs_to :user, Discuss.User
+    # A topic can have multiple comments
+    has_many :comments, Discuss.Comment
   end
   # Changeset validation
   # \\ means the default value
