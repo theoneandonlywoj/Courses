@@ -1,6 +1,8 @@
 defmodule Discuss.UserSocket do
   use Phoenix.Socket
-  # channel "room:*", Discuss.RoomChannel
+  # This file can be compared to Route.ex file
+  # Adding route for the comments channel
+  channel "comments:*", Discuss.CommentsChannel
 
   transport :websocket, Phoenix.Transports.WebSocket
 
