@@ -71,6 +71,11 @@ defmodule Discuss.TopicController do
     render conn, "index.html", topics_list: topics
   end
 
+  def show(conn, %{"id" => topic_id}) do
+    topic = Repo.get!(Topic, topic_id)
+    render conn, "show.html", topic_html_variable: topic
+  end
+
   def edit(conn, %{"id" => topic_id}) do
     # Selecting with an id
     topic = Repo.get(Topic, topic_id)
