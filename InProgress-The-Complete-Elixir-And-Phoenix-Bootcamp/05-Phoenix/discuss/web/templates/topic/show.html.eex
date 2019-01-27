@@ -1,1 +1,3 @@
 <%= @topic_html_variable.title %>
+
+<button> Ping! </button>
