@@ -1,3 +1,6 @@
 <%= @topic_html_variable.title %>
-
-<button> Ping! </button>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        window.createSocket(<%= @topic_html_variable.id %>)
+    });
+</script> 
