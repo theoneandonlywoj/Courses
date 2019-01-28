@@ -1,6 +1,6 @@
 defmodule Discuss.CommentsChannel do
   use Discuss.Web, :channel
-  alias Discuss.Topic
+  alias Discuss.{Topic, Comment}
 
   def join(name, _params, socket) do
     # Name arguments is given as "comments:topic_id"
@@ -12,13 +12,28 @@ defmodule Discuss.CommentsChannel do
     topic = Repo.get(Topic, topic_id)
 
     IO.inspect(topic)
-    {:ok, %{}, socket}
+    # Assigning value to the socket (similar like with the conn object)
+    # {:ok, %{}, socket}
+    {:ok, %{}, assign(socket, :topic, topic)}
   end
 
   def handle_in(name, message, socket) do
     # Pattern matching to get the content message
     %{"messageContent" => content} = message
-    IO.inspect(content)
-    {:reply, :ok, socket}
+    # Obtaining the topic from the socket object
+    topic = socket.assigns.topic
+    # Building the association
+    changeset = topic
+    # with the comments table
+    |> build_assoc(:comments)
+    # Content property comes from the Comment model
+    |> Comment.changeset(%{content: content})
+
+    case Repo.insert(changeset) do
+      {:ok, comment} ->
+        {:reply, :ok, socket}
+      {:error, _reason} ->
+        {:reply, { :error, %{ errors: changeset }}, socket}
+    end
   end
 end
