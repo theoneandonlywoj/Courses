@@ -9,12 +9,15 @@ defmodule Discuss.CommentsChannel do
     # 'topic id' must be an integer
     topic_id = String.to_integer(topic_id)
     # Fetching Topic with given id
-    topic = Repo.get(Topic, topic_id)
+    # Adding preloading comments for the topics
+    topic = Topic
+      |> Repo.get(topic_id)
+      |> Repo.preload(:comments)
 
-    IO.inspect(topic)
+    IO.inspect(topic.comments)
     # Assigning value to the socket (similar like with the conn object)
     # {:ok, %{}, socket}
-    {:ok, %{}, assign(socket, :topic, topic)}
+    {:ok, %{comments: topic.comments}, assign(socket, :topic, topic)}
   end
 
   def handle_in(name, message, socket) do
