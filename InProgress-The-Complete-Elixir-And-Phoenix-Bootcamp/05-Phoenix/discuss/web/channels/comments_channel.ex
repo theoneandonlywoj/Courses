@@ -36,7 +36,7 @@ defmodule Discuss.CommentsChannel do
       {:ok, comment} ->
         # Notifying everyone who subscribes to the channel
         # broadcast!(socket, event_name, data_to_be_sent)
-        broadcast!(socket, "comments:#{socket.assigns.topic.id}:new",
+        broadcast!(socket, "comments:#{topic.id}:new",
             %{comment: comment}
           )
         # Reply will come from the broadcast method.
