@@ -34,7 +34,13 @@ defmodule Discuss.CommentsChannel do
 
     case Repo.insert(changeset) do
       {:ok, comment} ->
-        {:reply, :ok, socket}
+        # Notifying everyone who subscribes to the channel
+        # broadcast!(socket, event_name, data_to_be_sent)
+        broadcast!(socket, "comments:#{socket.assigns.topic.id}:new",
+            %{comment: comment}
+          )
+        # Reply will come from the broadcast method.
+        # {:reply, :ok, socket}
       {:error, _reason} ->
         {:reply, { :error, %{ errors: changeset }}, socket}
     end
