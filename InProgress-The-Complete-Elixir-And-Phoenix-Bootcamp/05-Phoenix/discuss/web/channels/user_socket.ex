@@ -6,7 +6,10 @@ defmodule Discuss.UserSocket do
 
   transport :websocket, Phoenix.Transports.WebSocket
 
-  def connect(_params, socket) do
+  # Obtaining token that comes from socket.js
+  # It is passed as a parameter
+  def connect(%{"token" => token}, socket) do
+    IO.puts(token)
     {:ok, socket}
   end
 
