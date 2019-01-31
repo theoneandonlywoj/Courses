@@ -25,10 +25,11 @@ defmodule Discuss.CommentsChannel do
     %{"messageContent" => content} = message
     # Obtaining the topic from the socket object
     topic = socket.assigns.topic
+    user_id = socket.assigns.user_id
     # Building the association
     changeset = topic
     # with the comments table
-    |> build_assoc(:comments)
+    |> build_assoc(:comments, user_id: user_id)
     # Content property comes from the Comment model
     |> Comment.changeset(%{content: content})
 
