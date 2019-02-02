@@ -12,9 +12,12 @@ defmodule Discuss.CommentsChannel do
     # Adding preloading comments for the topics
     topic = Topic
       |> Repo.get(topic_id)
-      |> Repo.preload(:comments)
-
-    IO.inspect(topic.comments)
+    # Adding preloading with nested associations
+    # Use following if you want to preload user that created the topic
+    # and the user that create the comments
+    # Discuss.Repo.preload([:user, comments: [:user]])
+    # But below, only the users that created the comments are preloaded
+      |> Repo.preload(comments: [:user])
     # Assigning value to the socket (similar like with the conn object)
     # {:ok, %{}, socket}
     {:ok, %{comments: topic.comments}, assign(socket, :topic, topic)}

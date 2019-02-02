@@ -8,6 +8,7 @@ const createSocket = (topicId) => {
   channel.join()
     .receive("ok", resp => { 
       console.log("Channel joined!");
+      console.log(resp);
       renderComments(resp.comments); 
     })
     .receive("error", resp => { console.log("Unable to join", resp) })
@@ -35,9 +36,17 @@ function renderComment(event){
 };
 
 function commentTemplate(comment){
+  // If the user is null => email = Anonymous
+  let email ='Anonymous';
+  if (comment.user) {
+    email = comment.user.email;
+  }
   return `
     <li class="collection-item">
       ${comment.content}
+      <div class="secondary-content">
+        ${email}
+      </div>
     </li>
     `
 };
