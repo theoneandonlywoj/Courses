@@ -1,0 +1,13 @@
+<h5><%= @topic_html_variable.title %></h5>
+<div class="input_field">
+    <textarea class="materialize-textarea"></textarea>
+    <button class="btn">Add Comment</button>
+    <ul class="collection">
+
+    </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        window.createSocket(<%= @topic_html_variable.id %>)
+    });
+</script> 
