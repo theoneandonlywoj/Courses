@@ -16,6 +16,7 @@
       <!-- Using an event modifier to create a dead spot-->
       - <span v-on:mousemove.stop>DEAD SPOT</span>
     </p>
+    <input type="text" v-on:keyup.enter.k="alertMe">
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
