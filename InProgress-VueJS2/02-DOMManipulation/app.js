@@ -1,7 +1,8 @@
 new Vue({
 	el: '#app',
 	data: {
-		title: 'Hello World!'
+		title: 'Hello World!',
+    link: 'http://google.com'
 	},
   methods: {
     sayHello: function (){
