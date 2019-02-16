@@ -11,7 +11,11 @@
     <p>Counter: {{ counter}}</p>
     <!-- Passing both the default event and a custom argument -->
     <button v-on:click="increase(2, $event)">Click me</button>
-    <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+    <p v-on:mousemove="updateCoordinates">
+      Coordinates: {{ x }} / {{ y }}
+      <!-- Using an event modifier to create a dead spot-->
+      - <span v-on:mousemove.stop>DEAD SPOT</span>
+    </p>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
