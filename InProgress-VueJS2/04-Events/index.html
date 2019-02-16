@@ -9,7 +9,8 @@
 <body>
   <div id="app">
     <p>Counter: {{ counter}}</p>
-    <button v-on:click="increase">Click me</button>
+    <!-- Passing both the default event and a custom argument -->
+    <button v-on:click="increase(2, $event)">Click me</button>
     <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
   </div>
   <script src="https://unpkg.com/vue"></script>
