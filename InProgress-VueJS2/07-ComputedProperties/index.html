@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+    <button type="button" v-on:click="counter++">Increase</button>
+    <button type="button" v-on:click="counter--">Decrease</button>
+    <button type="button" v-on:click="secondCounter++">Increase Second Counter</button>
+    <p>Counter: {{ counter }}</p>
+    <p>Second counter: {{ secondCounter }}</p>
+    <p>{{ counterGreaterThanFive() }}</p>
+    <!-- Everything stoed in computed should be used like a property.
+         Computed properties will be run only when it is needed,
+         no every time something changes.
+        Methods are executed every time. -->
+    <p>{{ output }}</p>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
