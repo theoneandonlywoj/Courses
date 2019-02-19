@@ -3,7 +3,8 @@ new Vue({
   data: {
     attachRed: false,
     attachBlue: false,
-    attachGreen: false
+    attachGreen: false,
+    color: 'green'
   },
   computed: {
     divClasses: function() {

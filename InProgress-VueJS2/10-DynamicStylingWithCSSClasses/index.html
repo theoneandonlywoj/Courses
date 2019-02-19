@@ -15,6 +15,10 @@
     <div class="demo" v-on:click="attachGreen = !attachGreen" v-bind:class="{'green': attachGreen}"></div>
     <!-- Attaching classes using objects -->
     <div class="demo" v-bind:class="divClasses"></div>
+    <hr>
+    <div class="demo" v-bind:class="[color, {red: attachRed}]"></div>
+    <input type="text" v-model="color">
+
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
