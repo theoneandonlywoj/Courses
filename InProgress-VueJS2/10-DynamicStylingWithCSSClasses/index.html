@@ -13,6 +13,8 @@
     <div class="demo" v-on:click="attachRed = !attachRed" v-bind:class="{'red': attachRed}"></div>
     <div class="demo" v-on:click="attachBlue = !attachBlue" v-bind:class="{'blue': attachBlue}"></div>
     <div class="demo" v-on:click="attachGreen = !attachGreen" v-bind:class="{'green': attachGreen}"></div>
+    <!-- Attaching classes using objects -->
+    <div class="demo" v-bind:class="divClasses"></div>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
