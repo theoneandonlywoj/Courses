@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-show allows us to show / hide a DOM element without detaching it.  -->
+    <!-- Inspect the page in the browser to observe the behavior.
+         V-if generally prefered.
+         I observed, v-show does not work with the template tag.
+         Use the div tag instead. -->
+    <div v-show="show">
+      <h1>Hello!</h1>
+      <p>I am not hidden!</p>
+    </div>
+    <button v-on:click="show = !show">Toggle</button>
+    <p>Do you also see me?</p>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
