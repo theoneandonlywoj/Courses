@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- If you want to attach / detach multiple elements without repeating v-if
+         you can use a template.
+         Template tag is not put in the HTML code of the web browser. -->
+    <template v-if="show">
+      <h1>Hello!</h1>
+      <p>You can see me!</p>
+    </template>
+    <template v-else>
+      <h1>Hi!</h1>
+      <p>Template 2!</p>
+    </template>
+    <button v-on:click="show = !show">Toggle</button>
+    <p>Do you also see me?</p>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
