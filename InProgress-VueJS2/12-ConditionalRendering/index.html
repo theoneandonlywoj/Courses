@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-if will attaches or detaches elements to the DOM -->
+    <p v-if="show">You can see me!</p>
+    <!-- v-else and v-else-if refers to the last if statement -->
+    <p v-else>Now you see me!</p>
+    <button v-on:click="show = !show">Toggle</button>
+    <p>Do you also see me?</p>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
