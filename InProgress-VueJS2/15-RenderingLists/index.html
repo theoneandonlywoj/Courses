@@ -17,6 +17,12 @@
       <!-- Syntax: "(element, index) in elements" -->
       <li v-for="(ingredient, i) in ingredients"> ({{ i }}) {{ ingredient }} </li>
     </ul>
+    <h1>Using a template</h1>
+    <template v-for="(ingredient, index) in ingredients">
+      <h4>{{ ingredient }}</h4>
+      <p>{{ index }}</p>
+      <hr>
+    </template>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
