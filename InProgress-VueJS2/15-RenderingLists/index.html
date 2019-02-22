@@ -23,6 +23,14 @@
       <p>{{ index }}</p>
       <hr>
     </template>
+    <hr>
+    <h1>Looping through objects</h1>
+    <ul>
+      <li v-for="person in people">
+        <!-- Accessing the key and value. The order is important! -->
+        <div v-for="(value, key, index) in person"> {{ index }} - {{ key }}: {{ value }} </div>
+      </li>
+    </ul>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
