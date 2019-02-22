@@ -8,8 +8,14 @@
 
 <body>
   <div id="app">
+    <h1>V-for</h1>
     <ul>
       <li v-for="ingredient in ingredients"> {{ ingredient }}</li>
+    </ul>
+    <h1>Accessing the index</h1>
+    <ul>
+      <!-- Syntax: "(element, index) in elements" -->
+      <li v-for="(ingredient, i) in ingredients"> ({{ i }}) {{ ingredient }} </li>
     </ul>
   </div>
   <script src="https://unpkg.com/vue"></script>
