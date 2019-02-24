@@ -12,17 +12,12 @@ new Vue({
       this.monsterHealth = 100;
     },
     attack: function() {
-      this.monsterHealth -= this.calculateDamage(3, 10);
-      // If we win, we do not want to execute the rest of the code
-      // Using 'return;' to stop the execution of the rest of the code.
-      if (this.checkWin()){
-        return;
-      }
-      this.playerHealth -= this.calculateDamage(5, 12);
-      this.checkLost();
+      this.monsterAttacks();
+      this.playerAttacks(false);
     },
     specialAttack: function() {
-      
+      this.monsterAttacks();
+      this.playerAttacks(true);
     },
     heal: function() {
     
@@ -58,6 +53,26 @@ new Vue({
       } else {
         return false;
       }
+    },
+    playerAttacks: function(isSpecial){
+      var dmgMultiplier = 1;
+      if (isSpecial){
+        dmgMultiplier = 2;
+      }
+      this.monsterHealth -= dmgMultiplier * this.calculateDamage(3, 10);
+      // If we win, we do not want to execute the rest of the code
+      // Using 'return;' to stop the execution of the rest of the code.
+      if (this.checkWin()){
+        return;
+      }
+    },
+    monsterAttacks: function(){
+      this.playerHealth -= this.calculateDamage(5, 15);
+      if (this.checkLost()){
+        return;
+      }
     }
+    
+
   }
 });
