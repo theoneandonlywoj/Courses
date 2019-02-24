@@ -30,15 +30,15 @@
     </section>
     <section v-if="!gameIsRunning" class="row controls">
       <div class="small-12 columns">
-        <button v-on:click="gameIsRunning = !gameIsRunning" id="start-game">START NEW GAME</button>
+        <button v-on:click="startGame" id="start-game">START NEW GAME</button>
       </div>
     </section>
     <section v-else class="row controls">
       <div class="small-12 columns">
-        <button id="attack">ATTACK</button>
-        <button id="special-attack">SPECIAL ATTACK</button>
-        <button id="heal">HEAL</button>
-        <button id="give-up">GIVE UP</button>
+        <button v-on:click="attack" id="attack">ATTACK</button>
+        <button v-on:click="specialAttack" id="special-attack">SPECIAL ATTACK</button>
+        <button v-on:click="heal" id="heal">HEAL</button>
+        <button v-on:click="giveUp" id="give-up">GIVE UP</button>
       </div>
     </section>
     <section class="row log">
