@@ -20,10 +20,12 @@ new Vue({
       this.playerAttacks(true);
     },
     heal: function() {
-    
+      // Not healing more than 100%
+      this.playerHealth = Math.min(this.playerHealth + 10, 100);
+      this.monsterAttacks();
     },
     giveUp: function(){
-
+      this.gameIsRunning = false;
     },
     calculateDamage: function(minDmg, maxDmg) {
       return Math.max(Math.floor(Math.random() * maxDmg), minDmg);
@@ -72,7 +74,7 @@ new Vue({
         return;
       }
     }
-    
+
 
   }
 });
