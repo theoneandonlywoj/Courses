@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ title }}</h1>
+    <button v-on:click="title = 'New title'">New Title</button>
+    <button v-on:click="destroy">Destroy</button>
+  </div>
+  <script src="app.js"></script>
+</body>
