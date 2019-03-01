@@ -17,3 +17,9 @@ cd projectName
 npm install
 npm run dev
 ```
+## Build the project
+```bash
+npm run build
+```
+## Serve in production with Docker
+https://cli.vuejs.org/guide/deployment.html#bitbucket-cloud
