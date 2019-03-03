@@ -12,10 +12,14 @@
       <app-user-detail v-bind:name="name"
                       v-on:nameWasReset="name=$event.name"
                       v-bind:resetFn="resetNameFromParent"
+                      v-bind:userAge="age"
                       ></app-user-detail>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <app-user-edit></app-user-edit>
+      <app-user-edit
+        v-bind:userAge="age"
+        v-on:ageWasEditted="age=$event.age"
+      ></app-user-edit>
     </div>
   </div>
 </div>
@@ -28,7 +32,8 @@ import UserEdit from './UserEdit.vue';
 export default {
   data: function() {
     return {
-      name: 'Wojciech'
+      name: 'Wojciech',
+      age: 27
     }
   },
   methods: {

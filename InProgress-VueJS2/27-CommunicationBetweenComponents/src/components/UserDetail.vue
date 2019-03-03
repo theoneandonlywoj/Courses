@@ -3,6 +3,7 @@
   <h3>You may view the User Details here</h3>
   <p>Many Details</p>
   <p>User Name: {{ switchName() }}</p>
+  <p>User Age: {{ userAge }}</p>
   <button v-on:click="resetName">Reset Name</button>
   <!-- Adding a button triggering the callback. -->
   <button v-on:click="resetFn()">Reset Name From Parent Function</button>
@@ -19,7 +20,8 @@ export default {
       type: String,
       required: true
     },
-    resetFn: Function
+    resetFn: Function,
+    userAge: Number
   },
   methods: {
     switchName() {
