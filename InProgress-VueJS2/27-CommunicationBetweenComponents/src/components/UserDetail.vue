@@ -3,6 +3,7 @@
   <h3>You may view the User Details here</h3>
   <p>Many Details</p>
   <p>User Name: {{ switchName() }}</p>
+  <button v-on:click="resetName">Reset Name</button>
 </div>
 </template>
 
@@ -20,6 +21,11 @@ export default {
   methods: {
     switchName() {
       return this.name.split("").reverse().join("");
+    },
+    resetName(){
+      this.name = 'Wojciech';
+      // Emmiting an event
+      this.$emit('nameWasReset', {name: this.name});
     }
   }
 }

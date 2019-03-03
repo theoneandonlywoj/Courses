@@ -3,11 +3,13 @@
   <h1>The User Component</h1>
   <p>I'm an awesome User!</p>
   <button v-on:click="changeName">Change My Name</button>
+  {{ name }}
   <hr>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <!-- Passing a property dynamically from data -->
-      <app-user-detail v-bind:name="name"></app-user-detail>
+      <!-- Listening to changes from the child component -->
+      <app-user-detail v-bind:name="name" v-on:nameWasReset="name=$event.name"></app-user-detail>
     </div>
     <div class="col-xs-12 col-sm-6">
       <app-user-edit></app-user-edit>
