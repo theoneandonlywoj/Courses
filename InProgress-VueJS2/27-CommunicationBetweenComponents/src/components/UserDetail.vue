@@ -4,6 +4,8 @@
   <p>Many Details</p>
   <p>User Name: {{ switchName() }}</p>
   <button v-on:click="resetName">Reset Name</button>
+  <!-- Adding a button triggering the callback. -->
+  <button v-on:click="resetFn()">Reset Name From Parent Function</button>
 </div>
 </template>
 
@@ -16,7 +18,8 @@ export default {
     name: {
       type: String,
       required: true
-    }
+    },
+    resetFn: Function
   },
   methods: {
     switchName() {

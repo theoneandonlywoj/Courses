@@ -9,7 +9,10 @@
     <div class="col-xs-12 col-sm-6">
       <!-- Passing a property dynamically from data -->
       <!-- Listening to changes from the child component -->
-      <app-user-detail v-bind:name="name" v-on:nameWasReset="name=$event.name"></app-user-detail>
+      <app-user-detail v-bind:name="name"
+                      v-on:nameWasReset="name=$event.name"
+                      v-bind:resetFn="resetNameFromParent"
+                      ></app-user-detail>
     </div>
     <div class="col-xs-12 col-sm-6">
       <app-user-edit></app-user-edit>
@@ -31,6 +34,9 @@ export default {
   methods: {
     changeName() {
       this.name = 'Changed';
+    },
+    resetNameFromParent() {
+      this.name = 'Change From Parent with a Callback';
     }
   },
   components: {
