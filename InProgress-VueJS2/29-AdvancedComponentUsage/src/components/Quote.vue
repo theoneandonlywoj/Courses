@@ -3,6 +3,13 @@
     <!-- Using VueJS slot -->
     <div class="title">
       <slot name="title"></slot>
+      <span style="color: #ccc">
+        <slot name="subtitle">
+          <!-- Passing default content of the slot.
+          It will be used if no values are provided. -->
+          Default content
+        </slot>
+      </span>
     </div>
     <div class="content">
       <slot name="content"></slot>
