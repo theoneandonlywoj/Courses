@@ -5,8 +5,8 @@
               <appQuote>
                 <!-- The slot is styled on the child component side,
                 but the data is passed from parent component. -->
-                <h2>{{ quoteTitle }}</h2>
-                <p>My amazing quote by me.</p>
+                <h2 slot="title">{{ quoteTitle }}</h2>
+                <p slot="content">My amazing quote by me.</p>
               </appQuote>
             </div>
         </div>
