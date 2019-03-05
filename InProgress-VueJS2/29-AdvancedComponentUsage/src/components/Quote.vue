@@ -1,6 +1,7 @@
 <template lang="html">
   <div>
-    <p>A wonderful Quote!</p>
+    <!-- Using VueJS slot -->
+    <<slot></slot>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ export default {
     border: 1px solid #ccc;
     box-shadow: 1px 1px 2px black;
     padding: 30px;
-    margin: auto;
+    margin: 30px auto;
+    text-align: center;
   }
 </style>
