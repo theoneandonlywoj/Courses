@@ -15,6 +15,13 @@ export default {
   },
   destroyed(){
     console.log("Component New Destroyed!");
+  },
+  // Access to new stages of the life cycle - activated and deactivated
+  deactivated() {
+    console.log("Component New Deactivated!");
+  },
+  activated() {
+    console.log("Component New Activated!");
   }
 }
 </script>
