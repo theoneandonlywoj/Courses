@@ -7,11 +7,13 @@
               <button v-on:click="selectedComponent='app-new'">New</button>
               <hr>
               <p>{{ selectedComponent }}</p>
-              <!-- Dynamic component -->
-              <component v-bind:is="selectedComponent">
-                <p>Default</p>
-              </component>
-
+              <!-- Keeping the component alive -->
+              <keep-alive>
+                <!-- Dynamic component -->
+                <component v-bind:is="selectedComponent">
+                  <p>Default</p>
+                </component>
+              </keep-alive>
             </div>
         </div>
     </div>
