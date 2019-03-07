@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <appNewQuote v-on:quoteAdded="newQuoteArrived"></appNewQuote>
-      <appQuoteGrid v-bind:quotes=quotes></appQuoteGrid>
+      <appQuoteGrid v-bind:quotes=quotes v-on:quoteDeleted="deleteQuote"></appQuoteGrid>
       <div class="row">
         <div class="col-sm-12 text-center">
           <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
@@ -25,7 +25,10 @@
       methods: {
         newQuoteArrived(event) {
           console.log(event.quote);
-          this.quotes.push(event.quote)
+          this.quotes.push(event.quote);
+        },
+        deleteQuote(index){
+          this.quotes.splice(index, 1);
         }
       },
       components: {
