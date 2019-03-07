@@ -2,7 +2,12 @@
     <div class="container">
       <appNewQuote v-on:quoteAdded="newQuoteArrived"></appNewQuote>
       <appQuoteGrid v-bind:quotes=quotes></appQuoteGrid>
-    </div>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
+        </div>
+      </div>
+    </div> 
 </template>
 
 <script>
