@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      <appProgressBar v-bind:quoteCount="quotes.length" v-bind:maxQuotes="maxQuotes"></appProgressBar>
       <appNewQuote v-on:quoteAdded="newQuoteArrived"></appNewQuote>
       <appQuoteGrid v-bind:quotes=quotes v-on:quoteDeleted="deleteQuote"></appQuoteGrid>
       <div class="row">
@@ -7,12 +8,14 @@
           <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
         </div>
       </div>
-    </div> 
+    </div>
 </template>
 
 <script>
   import QuoteGrid from './components/QuoteGrid.vue';
   import NewQuote from './components/NewQuote.vue';
+  import Header from './components/Header.vue'
+
   export default {
       data: function() {
         return {
@@ -33,7 +36,8 @@
       },
       components: {
         appQuoteGrid: QuoteGrid,
-        appNewQuote: NewQuote
+        appNewQuote: NewQuote,
+        appProgressBar: Header
       }
   }
 </script>
