@@ -28,7 +28,11 @@
       methods: {
         newQuoteArrived(event) {
           console.log(event.quote);
-          this.quotes.push(event.quote);
+          if (this.quotes.length >= this.maxQuotes){
+            return alert("Please delete a Quote first!")
+          } else {
+            this.quotes.push(event.quote);
+          }
         },
         deleteQuote(index){
           this.quotes.splice(index, 1);
