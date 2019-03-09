@@ -75,16 +75,22 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
                     <label for="male">
+                      <!-- For radio buttons: VueJS will automatically recognise the buttons
+                           are connected to the same value and allow only one value to be checked -->
                         <input
                                 type="radio"
                                 id="male"
-                                value="Male"> Male
+                                value="Male"
+                                v-model="gender"
+                                > Male
                     </label>
                     <label for="female">
                         <input
                                 type="radio"
                                 id="female"
-                                value="Female"> Female
+                                value="Female"
+                                v-model="gender"
+                                > Female
                     </label>
                 </div>
             </div>
@@ -124,7 +130,7 @@
                         <ul>
                             <li v-for="item in sendMail">{{ item }}</li>
                         </ul>
-                        <p>Gender:</p>
+                        <p>Gender: {{ gender }}</p>
                         <p>Priority:</p>
                         <p>Switched:</p>
                     </div>
@@ -144,7 +150,8 @@
             age: ''
           },
           message: '',
-          sendMail:[]
+          sendMail:[],
+          gender: 'Undefined'
         }
       }
     }
