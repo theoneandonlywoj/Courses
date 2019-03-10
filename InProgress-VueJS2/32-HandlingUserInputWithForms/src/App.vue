@@ -109,6 +109,11 @@
                     </select>
                 </div>
             </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <appSwitch></appSwitch>
+              </div>
+            </div>
             <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -146,6 +151,7 @@
 </template>
 
 <script>
+    import Switch from './Switch.vue'
     export default {
       data() {
         return {
@@ -158,8 +164,12 @@
           sendMail:[],
           gender: 'Undefined',
           priorities: ['High', 'Medium', 'Low'],
-          selectedPriority: priorities[0]
+          selectedPriority: 'High',
+          dataSwitch: true
         }
+      },
+      components: {
+        appSwitch: Switch
       }
     }
 </script>
