@@ -2,26 +2,24 @@
   <div>
     <div id="on"
       v-on:click="logIsOnChange(true)"
-      v-bind:class="{active: isOn}"
+      v-bind:class="{active: value}"
     >On</div>
     <div id="off"
       v-on:click="logIsOnChange(false)"
-      v-bind:class="{active: !isOn}"
+      v-bind:class="{active: !value}"
     >Off</div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      isOn: true
-    }
-  },
+  props: ['value'],
   methods:{
     logIsOnChange(value){
-      this.isOn = value
-      console.log(this.isOn);
+      this.value = value
+      // v-model expects 'input' event
+      this.$emit('input', value);
+      console.log(this.value);
     }
   }
 }
