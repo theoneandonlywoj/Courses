@@ -10,7 +10,8 @@
             <hr>
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Custom Directives</h1>
-                <p v-highlight>Color this</p>
+                <!-- Setting a value to the directive -->
+                <p v-highlight="'red'">Color this</p>
             </div>
         </div>
     </div>
