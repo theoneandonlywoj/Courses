@@ -12,8 +12,10 @@ import App from './App.vue'
 */
 Vue.directive('highlight', {
   bind(el, binding, vnode) {
-    // Setting the style from the input value
-    el.style.backgroundColor=binding.value;
+    // Setting the style from the input arguments
+    if (binding.arg == 'background'){
+      el.style.backgroundColor=binding.value;
+    }
   }
 });
 new Vue({
