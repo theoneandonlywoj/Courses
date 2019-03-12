@@ -13,9 +13,17 @@ import App from './App.vue'
 Vue.directive('highlight', {
   bind(el, binding, vnode) {
     // Setting the style from the input arguments
-    if (binding.arg == 'background'){
-      el.style.backgroundColor=binding.value;
+    var delay = 0;
+    // Passing a modifier
+    if (binding.modifiers['delayed']){
+      delay = 3000;
     }
+    setTimeout(() => {
+      if (binding.arg == 'background'){
+        el.style.backgroundColor=binding.value;
+      }
+    }, delay);
+
   }
 });
 new Vue({

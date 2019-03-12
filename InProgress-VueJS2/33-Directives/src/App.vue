@@ -11,7 +11,8 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Custom Directives</h1>
                 <!-- Setting a value to the directive -->
-                <p v-highlight:background="'green'">Color this</p>
+                <!-- Using a modifier. Modifiers can be chained. -->
+                <p v-highlight:background.delayed="'green'">Color this</p>
             </div>
         </div>
     </div>
