@@ -13,7 +13,7 @@
                 <!-- Setting a value to the directive -->
                 <!-- Using a modifier. Modifiers can be chained. -->
                 <p v-highlight:background.delayed="'green'">Color this</p>
-                <p v-local-highlight:background.delayed.blink="'red'">Color this (local directive)</p>
+                <p v-local-highlight:background.delayed.blink="{mainColor: 'red', secondColor: 'green', blinkDelay: 500}">Color this (local directive)</p>
             </div>
         </div>
     </div>
@@ -32,8 +32,8 @@
               delay = 1000;
             }
             if (binding.modifiers['blink']){
-              let mainColor = binding.value;
-              let secondColor = 'gray';
+              let mainColor = binding.value.mainColor;
+              let secondColor = binding.value.secondColor;
               let currentColor = mainColor;
               setTimeout(() => {
                 setInterval(() => {
@@ -41,14 +41,13 @@
                   if (binding.arg == 'background'){
                     el.style.backgroundColor = currentColor;
                   }
-                }, 1000);
-
+                }, binding.value.blinkDelay);
               }, delay);
 
             } else {
               setTimeout(() => {
                 if (binding.arg == 'background'){
-                  el.style.backgroundColor=binding.value;
+                  el.style.backgroundColor=binding.value.mainColor;
                 }
               }, delay);
             }
