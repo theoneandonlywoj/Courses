@@ -13,6 +13,7 @@
                 <!-- Setting a value to the directive -->
                 <!-- Using a modifier. Modifiers can be chained. -->
                 <p v-highlight:background.delayed="'green'">Color this</p>
+                <p v-local-highlight:background.delayed="'red'">Color this (local directive)</p>
             </div>
         </div>
     </div>
@@ -20,6 +21,25 @@
 
 <script>
     export default {
+      // Registering local directives
+      directives: {
+        'local-highlight': {
+          bind(el, binding, vnode) {
+            // Setting the style from the input arguments
+            var delay = 0;
+            // Passing a modifier
+            if (binding.modifiers['delayed']){
+              delay = 1000;
+            }
+            setTimeout(() => {
+              if (binding.arg == 'background'){
+                el.style.backgroundColor=binding.value;
+              }
+            }, delay);
+
+          }
+        }
+      }
     }
 </script>
 
