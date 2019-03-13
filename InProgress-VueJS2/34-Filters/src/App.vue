@@ -6,6 +6,11 @@
                 <!-- Adding a filter using | -->
                 <!-- Chaining local and global filters together -->
                 <p>{{ text | toUppercase | to-lowercase }}</p>
+                <hr>
+                <input v-model="filterText">
+                <ul>
+                  <li v-for="fruit in filteredFruits">{{ fruit }}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -15,13 +20,22 @@
     export default {
       data() {
         return {
-          text: 'Hello there'
+          text: 'Hello there',
+          fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
+          filterText: ''
         }
       },
       // Creating filter locally
       filters: {
         toUppercase(value) {
           return value.toUpperCase();
+        }
+      },
+      computed: {
+        filteredFruits() {
+          return this.fruits.filter((element) => {
+            return element.match(this.filterText);
+          });
         }
       }
     }
