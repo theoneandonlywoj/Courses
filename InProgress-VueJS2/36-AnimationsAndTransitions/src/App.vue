@@ -11,7 +11,9 @@
                     Some Info
                   </div>
                 </transition>
-                <transition name="slideElement">
+                <!-- Using type animation makes the animation
+                     to dictate the length of the changes -->
+                <transition name="slideElement" type="animation">
                   <div class="alert alert-info" v-if="show">
                     Slide
                   </div>
@@ -51,11 +53,12 @@
   }
 
   .slideElement-enter {
-
+    opacity: 0;
   }
 
   .slideElement-enter-active {
     animation: slideAnimation-in 1s ease-out forwards;
+    transition: opacity 0.5s;
   }
 
   .slideElement-leave {
@@ -64,6 +67,8 @@
 
   .slideElement-leave-active {
     animation: slideAnimation-out 1s ease-out forwards;
+    transition: opacity 3s;
+    opacity: 0;
   }
 
   @keyframes slideAnimation-in {
