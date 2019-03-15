@@ -11,6 +11,12 @@
                     Some Info
                   </div>
                 </transition>
+                <transition name="slideElement">
+                  <div class="alert alert-info" v-if="show">
+                    Slide
+                  </div>
+                </transition>
+
             </div>
         </div>
     </div>
@@ -42,5 +48,37 @@
   .myElement-leave-active {
     transition: opacity 1s;
     opacity: 0;
+  }
+
+  .slideElement-enter {
+
+  }
+
+  .slideElement-enter-active {
+    animation: slideAnimation-in 1s ease-out forwards;
+  }
+
+  .slideElement-leave {
+
+  }
+
+  .slideElement-leave-active {
+    animation: slideAnimation-out 1s ease-out forwards;
+  }
+
+  @keyframes slideAnimation-in {
+    from {
+      transform: translateY(20px);
+    } to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideAnimation-out {
+    from {
+      transform: translateY(0);
+    } to {
+      transform: translateY(20px);
+    }
   }
 </style>
