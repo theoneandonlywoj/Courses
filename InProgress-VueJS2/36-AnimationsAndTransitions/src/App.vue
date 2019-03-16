@@ -18,7 +18,12 @@
                     Slide
                   </div>
                 </transition>
-
+                <!-- Transition on creation using 'appear'-->
+                <transition name="myElement" appear>
+                  <div class="alert alert-info" v-if="show">
+                    On Creation
+                  </div>
+                </transition>
             </div>
         </div>
     </div>
@@ -28,7 +33,7 @@
     export default {
         data() {
             return {
-              show: false
+              show: true
             }
         }
     }
