@@ -24,6 +24,21 @@
                     On Creation
                   </div>
                 </transition>
+                <!-- Using AnimateCSS -->
+                <!-- Forcing Vue to use specific classes, without 'v-' prefix -->
+                <!-- Possible options:
+                     - enter-class
+                     - enter-active-class
+                     - leave-class
+                     - leave-active-class -->
+                <transition
+                  appear
+                  enter-active-class="animated bounce"
+                  leave-active-class="animated bounce">
+                  <div class="alert alert-info" v-show="show">
+                    Animated with AnimateCSS
+                  </div>
+                </transition>
             </div>
         </div>
     </div>
