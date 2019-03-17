@@ -39,6 +39,19 @@
                     Animated with AnimateCSS
                   </div>
                 </transition>
+                <!-- Using dynamic name -->
+                <hr>
+                <select v-model="alertAnimation">
+                  <option value="myElement">Fade</option>
+                  <option value="slideElement">Slide</option>
+                </select>
+                <transition
+                  appear
+                  v-bind:name="alertAnimation">
+                  <div class="alert alert-info" v-show="show">
+                    Animated from dropdown!
+                  </div>
+                </transition>
             </div>
         </div>
     </div>
@@ -48,7 +61,8 @@
     export default {
         data() {
             return {
-              show: true
+              show: true,
+              alertAnimation: 'myElement'
             }
         }
     }
