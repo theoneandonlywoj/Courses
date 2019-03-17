@@ -52,6 +52,22 @@
                     Animated from dropdown!
                   </div>
                 </transition>
+                <!-- Transitioning between Multiple Elements -->
+                <!-- v-show will not work, we need to use v-if -->
+                <!-- We need to specify a unique key to each element -->
+                <!-- Mode changes the default behaviour:
+                     - out-in => let the old element animate out
+                                 and then animate the incoming element
+                     - in-out => let the new element animate in
+                                 and then animate out the new element-->
+                <transition v-bind:name="alertAnimation" mode="out-in">
+                  <div class="alert alert-info" v-if="show" key="element1">
+                    Info!
+                  </div>
+                  <div class="alert alert-warning" v-if="!show" key="element2">
+                    Warning!
+                  </div>
+                </transition>
             </div>
         </div>
     </div>
