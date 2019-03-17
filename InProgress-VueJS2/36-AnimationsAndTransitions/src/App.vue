@@ -68,6 +68,32 @@
                     Warning!
                   </div>
                 </transition>
+                <hr>
+                <button class="btn btn-primary" v-on:click="load = !load">Load / Remove Element</button>
+                <br><br>
+                <!-- Listening to transition events:
+                    1.before-enter
+                    2.enter
+                    3.enter-cancelled (optional)
+                    4.after-enter
+                    5.before-leave
+                    6.leave
+                    7.leave-cancelled (optional)
+                    8.after-leave
+                -->
+                <transition
+                  v-on:before-enter="beforeEnter"
+                  v-on:enter="enter"
+                  v-on:after-enter="afterEnter"
+                  v-on:enter-cancelled="enterCancelled"
+
+                  v-on:before-leave="beforeLeave"
+                  v-on:leave="leave"
+                  v-on:after-leave="afterLeave"
+                  v-on:leave-cancelled="leaveCancelled"
+                >
+                  <div style="width: 100px; height: 100px; background-color: lightgreen;" v-if="load"></div>
+                </transition>
             </div>
         </div>
     </div>
@@ -77,9 +103,41 @@
     export default {
         data() {
             return {
-              show: true,
-              alertAnimation: 'myElement'
+              show: false,
+              alertAnimation: 'myElement',
+              load: true
             }
+        },
+        methods: {
+          beforeEnter(el){
+            console.log('Before Enter!');
+          },
+          enter(el, done) {
+            console.log('Enter!');
+            // Using done methods, we communicate to VueJS that we have finished
+            // Done does not need to be called when a CSS animation is used.
+            done();
+          },
+          afterEnter(el) {
+            console.log('After Done!');
+          },
+          enterCancelled(el){
+            console.log('Enter Cancelled!');
+          },
+          beforeLeave(el){
+            console.log('Before Leave!');
+          }
+          ,
+          leave(el, done){
+            console.log('Leave!');
+            done();
+          },
+          afterLeave(el){
+            console.log('After Leave!');
+          },
+          leaveCancelled(){
+            console.log('Leave Cancelled!');
+          }
         }
     }
 </script>
