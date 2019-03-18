@@ -92,7 +92,7 @@
                   v-on:after-leave="afterLeave"
                   v-on:leave-cancelled="leaveCancelled"
                 >
-                  <div style="width: 100px; height: 100px; background-color: lightgreen;" v-if="load"></div>
+                  <div style="width: 300px; height: 100px; background-color: lightgreen;" v-if="load"></div>
                 </transition>
             </div>
         </div>
@@ -105,18 +105,29 @@
             return {
               show: false,
               alertAnimation: 'myElement',
-              load: true
+              load: true,
+              elementWidth: 100
             }
         },
         methods: {
           beforeEnter(el){
             console.log('Before Enter!');
+            this.elementWidth = 100;
+            el.style.width = this.elementWidth + 'px';
           },
           enter(el, done) {
             console.log('Enter!');
             // Using done methods, we communicate to VueJS that we have finished
             // Done does not need to be called when a CSS animation is used.
-            done();
+            let round = 1;
+            const interval = setInterval(() => {
+              el.style.width = (this.elementWidth +  10 * round) + 'px';
+              round ++;
+              if (round > 20){
+                clearInterval(interval);
+                done();
+              }
+            }, 20);
           },
           afterEnter(el) {
             console.log('After Done!');
@@ -126,11 +137,21 @@
           },
           beforeLeave(el){
             console.log('Before Leave!');
+            this.elementWidth = 300;
+            el.style.width = this.elementWidth + 'px';
           }
           ,
           leave(el, done){
             console.log('Leave!');
-            done();
+            let round = 1;
+            const interval = setInterval(() => {
+              el.style.width = (this.elementWidth -  10 * round) + 'px';
+              round ++;
+              if (round > 30){
+                clearInterval(interval);
+                done();
+              }
+            }, 20);
           },
           afterLeave(el){
             console.log('After Leave!');
