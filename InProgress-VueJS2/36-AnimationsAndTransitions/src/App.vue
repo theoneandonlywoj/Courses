@@ -94,19 +94,34 @@
                 >
                   <div style="width: 300px; height: 100px; background-color: lightgreen;" v-if="load"></div>
                 </transition>
+                <hr>
+                <button class="btn btn-primary" v-on:click="selectedComponent == 'app-success-alert'
+                                                            ? selectedComponent = 'app-danger-alert'
+                                                            : selectedComponent = 'app-success-alert'">Toggle Component</button>
+                <hr>
+                <transition name="myElement" mode="out-in">
+                  <component v-bind:is="selectedComponent"></component>
+                </transition>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import DangerAlert from './DangerAlert.vue'
+    import SuccessAlert from './SuccessAlert.vue'
     export default {
+        components: {
+          'app-danger-alert': DangerAlert,
+          'app-success-alert': SuccessAlert
+        },
         data() {
             return {
               show: false,
               alertAnimation: 'myElement',
               load: true,
-              elementWidth: 100
+              elementWidth: 100,
+              selectedComponent: 'app-success-alert'
             }
         },
         methods: {
