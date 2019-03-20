@@ -102,6 +102,18 @@
                 <transition name="myElement" mode="out-in">
                   <component v-bind:is="selectedComponent"></component>
                 </transition>
+                <hr>
+                <button class="btn btn-primary" v-on:click="addItem">Add Item</button>
+                <ul class="list-group">
+                    <transition-group name="slideElement">
+                      <li class="list-group-item"
+                          v-for="(number, index) in numbers"
+                          v-on:click="removeItem(index)"
+                          style="cursor: pointer"
+                          v-bind:key="number"
+                          >{{ number }}</li>
+                    </transition-group>
+                </ul>
             </div>
         </div>
     </div>
@@ -121,10 +133,18 @@
               alertAnimation: 'myElement',
               load: true,
               elementWidth: 100,
-              selectedComponent: 'app-success-alert'
+              selectedComponent: 'app-success-alert',
+              numbers: [1, 2, 3, 4, 5]
             }
         },
         methods: {
+          addItem(){
+            const pos = Math.floor(Math.random() * this.numbers.length);
+            this.numbers.splice(pos, 0, this.numbers.length + 1);
+          },
+          removeItem(index){
+            this.numbers.splice(index, 1);
+          },
           beforeEnter(el){
             console.log('Before Enter!');
             this.elementWidth = 100;
@@ -213,6 +233,11 @@
     animation: slideAnimation-out 1s ease-out forwards;
     transition: opacity 3s;
     opacity: 0;
+    position: absolute;
+  }
+
+  .slideElement-move {
+    transition: transform 1s;
   }
 
   @keyframes slideAnimation-in {
