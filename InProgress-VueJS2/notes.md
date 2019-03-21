@@ -23,3 +23,8 @@ npm run build
 ```
 ## Serve in production with Docker
 https://cli.vuejs.org/guide/deployment.html#bitbucket-cloud
+
+## Installing Vue-resource as a production dependency
+```bash
+npm install --save vue-resource
+```
