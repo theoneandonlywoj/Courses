@@ -12,6 +12,15 @@
                   <input class="form-control" type="text" v-model="user.email">
                 </div>
                 <button class="btn btn-primary" v-on:click="submit">Submit</button>
+                <hr>
+                <button class="btn btn-primary" v-on:click="fetchData">Get Data</button>
+                <ul class="list-group">
+                  <li class="list-group-item"
+                      v-for="u in users"
+                      v-bind:key="u">
+                      {{ u.username }} - {{ u.email }}
+                  </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -24,7 +33,8 @@
           user:{
             username: '',
             email: ''
-          }
+          },
+          users: []
         }
       },
       methods: {
@@ -39,6 +49,22 @@
               console.log('Error:');
               console.log(error);
             });
+        },
+        fetchData(){
+          this.$http.get('https://myvueproject-8a8df.firebaseio.com/myDataPackage.json')
+          .then(response => {
+            return response.json();
+          }, error => {
+            console.log('Error:');
+            console.log(error);
+          }).then(data => {
+            // Key-value pair to Array
+            let resultArray = [];
+            for (let key in data){
+              resultArray.push(data[key]);
+            }
+            this.users = resultArray;
+          });
         }
       }
     }
