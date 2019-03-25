@@ -28,3 +28,8 @@ https://cli.vuejs.org/guide/deployment.html#bitbucket-cloud
 ```bash
 npm install --save vue-resource
 ```
+
+## Installing Vue-Router
+```bash
+npm install --save vue-router
+```
