@@ -41,7 +41,7 @@
         submit(){
           console.log(this.user);
           // HTTP from vue-resource
-          this.$http.post('https://myvueproject-8a8df.firebaseio.com/myDataPackage.json', this.user)
+          this.$http.post('', this.user)
             .then(response => {
               console.log('Response:');
               console.log(response);
@@ -51,7 +51,7 @@
             });
         },
         fetchData(){
-          this.$http.get('https://myvueproject-8a8df.firebaseio.com/myDataPackage.json')
+          this.$http.get('')
           .then(response => {
             return response.json();
           }, error => {
