@@ -1,11 +1,21 @@
 <template lang="html">
   <ul class="nav nav-pills">
-    <li role="presentation">
-      <router-link :to="{ name: 'home', params: {} }">Home</router-link>
-    </li>
-    <li role="presentation">
-      <router-link :to="{ name: 'user', params: {} }">User</router-link>
-    </li>
-
+      <!--
+        Replacing a list element containing a router-link with
+        a router-link with a tag "li".
+        "exact" means that the active-class will be on if the current path
+        is exactly the same as the path the user is currently using.
+      -->
+      <router-link :to="{ name: 'home', params: {} }"
+       tag="li"
+       active-class="active"
+       exact>
+        <a>Home</a>
+      </router-link>
+      <router-link :to="{ name: 'user', params: {} }"
+       tag="li"
+       active-class="active">
+       <a>User</a>
+      </router-link>
   </ul>
 </template>
