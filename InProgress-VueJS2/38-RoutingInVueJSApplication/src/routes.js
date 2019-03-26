@@ -3,5 +3,6 @@ import Home from './components/Home.vue'
 
 export const routes = [
   { name: "home", path: '', component: Home},
-  { name: "user", path: '/user', component: User}
+  // Passing parameters
+  { name: "user", path: '/user/:id', component: User}
 ]

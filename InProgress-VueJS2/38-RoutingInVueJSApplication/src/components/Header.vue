@@ -12,7 +12,7 @@
        exact>
         <a>Home</a>
       </router-link>
-      <router-link :to="{ name: 'user', params: {} }"
+      <router-link :to="{ name: 'user', params: {id: 10} }"
        tag="li"
        active-class="active">
        <a>User</a>
