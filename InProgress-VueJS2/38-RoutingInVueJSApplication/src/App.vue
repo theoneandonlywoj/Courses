@@ -6,13 +6,18 @@
                 <hr>
                 <!-- Components from the routes will be rendered in <router-view> -->
                 <router-view></router-view>
+                <appHeader></appHeader>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Header from './components/Header.vue'
     export default {
+      components: {
+        appHeader: Header
+      }
     }
 </script>
 
