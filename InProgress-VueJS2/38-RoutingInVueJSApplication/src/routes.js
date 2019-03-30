@@ -9,7 +9,7 @@ export const routes = [
   //{ name: "user", path: '/user/:id', component: User}
   // Configuring subroutes using "children" key
   { name: "user", path: '/user', component: User, children: [
-    { name: 'userStart', path: '', component: UserStart },
+    { name: 'userStart', path: '/userStart', component: UserStart },
     { name: 'userDetail', path: ':id', component: UserDetail },
     { name: 'userEdit', path: ':id/edit', component: UserEdit }
   ]}

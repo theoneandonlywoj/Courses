@@ -12,7 +12,7 @@
        exact>
         <a>Home</a>
       </router-link>
-      <router-link v-bind:to="{ name: 'user', params: {} }"
+      <router-link v-bind:to="{ name: 'userStart', params: {} }"
        tag="li"
        active-class="active">
        <a>User</a>
