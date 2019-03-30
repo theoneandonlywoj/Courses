@@ -6,13 +6,13 @@
         "exact" means that the active-class will be on if the current path
         is exactly the same as the path the user is currently using.
       -->
-      <router-link :to="{ name: 'home', params: {} }"
+      <router-link v-bind:to="{ name: 'home', params: {} }"
        tag="li"
        active-class="active"
        exact>
         <a>Home</a>
       </router-link>
-      <router-link :to="{ name: 'user', params: {} }"
+      <router-link v-bind:to="{ name: 'user', params: {} }"
        tag="li"
        active-class="active">
        <a>User</a>
