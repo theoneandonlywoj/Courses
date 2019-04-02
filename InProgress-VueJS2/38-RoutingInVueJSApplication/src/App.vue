@@ -5,8 +5,9 @@
                 <h1>Routing</h1>
                 <hr>
                 <!-- Components from the routes will be rendered in <router-view> -->
+                <router-view name="header-top"></router-view>
                 <router-view></router-view>
-                <appHeader></appHeader>
+                <router-view name="header-bottom"></router-view>
             </div>
         </div>
     </div>
