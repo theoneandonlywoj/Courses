@@ -46,5 +46,10 @@ export const routes = [{
     redirect: {
       name: 'userStart'
     }
+  },
+  // Catching all non-existing routes
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
