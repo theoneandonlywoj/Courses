@@ -38,5 +38,13 @@ export const routes = [{
         component: UserEdit
       }
     ]
+  },
+  // Redirecting
+  {
+    name: 'redirecting',
+    path: '/redirect-me',
+    redirect: {
+      name: 'userStart'
+    }
   }
 ]
