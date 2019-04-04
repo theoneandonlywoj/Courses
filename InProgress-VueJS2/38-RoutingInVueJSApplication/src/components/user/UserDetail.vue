@@ -21,6 +21,11 @@
                 hash: "#data"
               }
       }
+    },
+    beforeRouteEnter(to, from , next){
+      console.log("BeforeRouteEnter");
+      // This component has not been fully initialized until called next
+      next();
     }
   }
 </script>
