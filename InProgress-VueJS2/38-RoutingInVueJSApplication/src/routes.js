@@ -30,7 +30,12 @@ export const routes = [{
       {
         name: 'userDetail',
         path: ':id',
-        component: UserDetail
+        component: UserDetail,
+        // Protecting a specific path
+        beforeEnter: (to, from, next) => {
+          console.log("Checking access to the User Detail Page.");
+          next();
+        }
       },
       {
         name: 'userEdit',
