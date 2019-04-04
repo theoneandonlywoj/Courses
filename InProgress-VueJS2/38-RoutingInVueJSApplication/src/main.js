@@ -27,6 +27,17 @@ const router = new VueRouter({
   }
 });
 
+router.beforeEach((to, from, next) => {
+  console.log("Global beforeEach");
+  /* Next() accepts multiple values:
+  - false -> to abort
+  - path -> to redirect
+  - router link object -> f.e. name of the path
+  - nothing -> it will simply continue the operations
+  */
+  next();
+});
+
 new Vue({
   el: '#app',
   router: router,
