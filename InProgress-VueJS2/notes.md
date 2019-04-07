@@ -33,3 +33,8 @@ npm install --save vue-resource
 ```bash
 npm install --save vue-router
 ```
+
+## Installing Vuex
+```bash
+npm install --save vuex
+```
