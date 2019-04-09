@@ -21,7 +21,7 @@
         components: {
             appCounter: Counter,
             appResult: Result,
-            appAnotherResult: Result,
+            appAnotherResult: AnotherResult,
         }
     }
 </script>

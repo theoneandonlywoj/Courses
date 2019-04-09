@@ -38,3 +38,8 @@ npm install --save vue-router
 ```bash
 npm install --save vuex
 ```
+
+## Adding support for ES6
+```bash
+npm install --save-dev babel-preset-stage-2
+```
