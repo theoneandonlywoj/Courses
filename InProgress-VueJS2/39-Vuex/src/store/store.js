@@ -16,11 +16,23 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
-    increment: state => {
-      state.counter++;
+    increment: (state, payload) => {
+      state.counter += payload;
     },
     decrement: state => {
       state.counter--;
+    }
+  },
+  actions: {
+    asyncIncrement: (context, payload) => {
+      setTimeout(() => {
+        context.commit('increment', payload);
+      }, 1000);
+    },
+    asyncDecrement: context => {
+      setTimeout(() => {
+        context.commit('decrement');
+      }, 1000);
     }
   }
 });
