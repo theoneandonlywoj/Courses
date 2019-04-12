@@ -43,3 +43,8 @@ npm install --save vuex
 ```bash
 npm install --save-dev babel-preset-stage-2
 ```
+
+## Installing Axios
+```bash
+npm install --save axios
+```
