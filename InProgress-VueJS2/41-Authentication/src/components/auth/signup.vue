@@ -69,8 +69,6 @@
 </template>
 
 <script>
-  import axios from '../../axios-auth';
-
   export default {
     data () {
       return {
@@ -104,14 +102,10 @@
           hobbies: this.hobbyInputs.map(hobby => hobby.value),
           terms: this.terms
         }
-        const firebaseExpectedSignUpData = {
-          email: this.email,
-          password: this.password,
-          returnSecureToken: true
-        }
-        axios.post('/signupNewUser?key=AIzaSyCKWv_aD1daU9hn3e4NpRXUxlRx9lJMxTw', firebaseExpectedSignUpData)
-          .then(res => console.log(res))
-          .catch(error => console.log(error))
+        this.$store.dispatch('signup', {
+          email: formData.email,
+          password: formData.password
+        })
       }
     }
   }
