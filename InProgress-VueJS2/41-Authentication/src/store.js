@@ -10,7 +10,10 @@ export default new Vuex.Store({
     userId: null
   },
   mutations: {
-
+    authUser(state, userData){
+      state.idToken = userData.token;
+      state.userId = userData.userId;
+    }
   },
   actions: {
     signup({commit}, authData){
@@ -20,7 +23,13 @@ export default new Vuex.Store({
         returnSecureToken: true
       }
       axios.post('/signupNewUser?key=AIzaSyCKWv_aD1daU9hn3e4NpRXUxlRx9lJMxTw', firebaseExpectedSignUpData)
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res)
+          commit('authUser', {
+            token: res.data.idToken,
+            userId: res.data.localId
+          })
+        })
         .catch(error => console.log(error))
     },
     login({commit}, authData){
@@ -30,7 +39,13 @@ export default new Vuex.Store({
         returnSecureToken: true
       }
       axios.post('/verifyPassword?key=AIzaSyCKWv_aD1daU9hn3e4NpRXUxlRx9lJMxTw', firebaseExpectedSignInData)
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res)
+          commit('authUser', {
+            token: res.data.idToken,
+            userId: res.data.localId
+          })
+        })
         .catch(error => console.log(error))
     }
   },
