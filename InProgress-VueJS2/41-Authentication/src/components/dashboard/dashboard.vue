@@ -12,7 +12,7 @@
   export default {
     computed: {
       email(){
-        return this.$store.getters.user.email;
+        return !this.$store.getters.user ? 'Please login': this.$store.getters.user.email;
       }
     },
     created () {
