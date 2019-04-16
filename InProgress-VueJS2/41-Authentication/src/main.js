@@ -5,7 +5,7 @@ import axios from 'axios'
 import router from './router'
 import store from './store'
 
-axios.defaults.baseURL = 'https://axios-9dd80.firebaseio.com/'
+axios.defaults.baseURL = 'https://axios-9dd80.firebaseio.com'
 
 new Vue({
   el: '#app',

@@ -102,10 +102,7 @@
           hobbies: this.hobbyInputs.map(hobby => hobby.value),
           terms: this.terms
         }
-        this.$store.dispatch('signup', {
-          email: formData.email,
-          password: formData.password
-        })
+        this.$store.dispatch('signup', formData)
       }
     }
   }

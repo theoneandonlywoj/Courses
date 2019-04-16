@@ -12,40 +12,37 @@ export default new Vuex.Store({
     user: null
   },
   mutations: {
-    authUser(state, userData){
-      state.idToken = userData.token;
-      state.userId = userData.userId;
+    authUser(state, userData) {
+      state.idToken = userData.token
+      state.userId = userData.userId
     },
-    storeuser(state, user){
-      state.user = user;
+    storeUser(state, user) {
+      state.user = user
     }
   },
   actions: {
-    signup({commit, dispatch}, authData){
-      const firebaseExpectedSignUpData = {
+    signup({commit, dispatch}, authData) {
+      axios.post('/signupNewUser?key=AIzaSyCKWv_aD1daU9hn3e4NpRXUxlRx9lJMxTw', {
         email: authData.email,
         password: authData.password,
         returnSecureToken: true
-      }
-      axios.post('/signupNewUser?key=AIzaSyCKWv_aD1daU9hn3e4NpRXUxlRx9lJMxTw', firebaseExpectedSignUpData)
+      })
         .then(res => {
           console.log(res)
           commit('authUser', {
             token: res.data.idToken,
             userId: res.data.localId
-          });
-          console.log('Dispatching storeuser');
-          dispatch('storeUser', authData);
+          })
+          dispatch('storeUser', authData)
         })
         .catch(error => console.log(error))
     },
-    login({commit}, authData){
-      const firebaseExpectedSignInData = {
+    login({commit}, authData) {
+      axios.post('/verifyPassword?key=AIzaSyCKWv_aD1daU9hn3e4NpRXUxlRx9lJMxTw', {
         email: authData.email,
         password: authData.password,
         returnSecureToken: true
-      }
-      axios.post('/verifyPassword?key=AIzaSyCKWv_aD1daU9hn3e4NpRXUxlRx9lJMxTw', firebaseExpectedSignInData)
+      })
         .then(res => {
           console.log(res)
           commit('authUser', {
@@ -55,16 +52,18 @@ export default new Vuex.Store({
         })
         .catch(error => console.log(error))
     },
-    storeUser({commit, state}, userData){
-      // If the idToken is not null
-      if (!state.idToken){
+    storeUser({commit, state}, userData) {
+      if (!state.idToken) {
         return
       }
-      globalAxios('/users.json' + '?auth=' + state.idToken, userData)
+      globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
         .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .catch(error => console.log(error))
     },
-    fetchUser({commit}){
+    fetchUser({commit, state}) {
+      if (!state.idToken) {
+        return
+      }
       globalAxios.get('/users.json' + '?auth=' + state.idToken)
         .then(res => {
           console.log(res)
@@ -82,7 +81,7 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    user(state){
+    user (state) {
       return state.user
     }
   }
