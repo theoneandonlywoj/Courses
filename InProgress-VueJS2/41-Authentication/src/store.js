@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import axios from './axios-auth'
 import globalAxios from 'axios'
 
+import router from './router'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -18,6 +20,10 @@ export default new Vuex.Store({
     },
     storeUser(state, user) {
       state.user = user
+    },
+    clearAuthData(state){
+      state.idToken = null;
+      state.userId = null;
     }
   },
   actions: {
@@ -78,6 +84,10 @@ export default new Vuex.Store({
           commit('storeUser', users[0])
         })
         .catch(error => console.log(error))
+    },
+    logout({commit}){
+      commit('clearAuthData')
+      router.push('/signin')
     }
   },
   getters: {
