@@ -15,26 +15,26 @@
           <router-link to="/dashboard">Dashboard</router-link>
         </li>
         <li v-if="auth">
-          <button @click="onLogout" class="logout">Logout</button>
+          <button class="logout" v-on:click="onLogout">Logout</button>
         </li>
       </ul>
     </nav>
   </header>
 </template>
-
 <script>
-  export default {
-    computed: {
-      auth () {
-        return this.$store.getters.isAuthenticated
-      }
-    },
-    methods: {
-      onLogout() {
-        this.$store.dispatch('logout')
-      }
+export default {
+  computed: {
+    auth(){
+      return this.$store.getters.isAuthenticated
+    }
+  },
+  methods: {
+    onLogout(){
+      this.$store.dispatch('logout')
     }
   }
+}
+
 </script>
 
 <style scoped>
