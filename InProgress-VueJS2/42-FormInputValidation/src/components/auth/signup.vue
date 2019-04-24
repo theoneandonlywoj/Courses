@@ -7,7 +7,12 @@
           <input
                   type="email"
                   id="email"
-                  v-model="email">
+                  v-model="email"
+                  v-on:input="$v.email.$touch()"
+                  >
+          <div class="">
+            {{ $v }}
+          </div>
         </div>
         <div class="input">
           <label for="age">Your Age</label>
@@ -69,6 +74,7 @@
 </template>
 
 <script>
+  import { required, email } from 'vuelidate/lib/validators'
   export default {
     data () {
       return {
@@ -79,6 +85,15 @@
         country: 'usa',
         hobbyInputs: [],
         terms: false
+      }
+    },
+    validations: {
+      // Name of the validation must be the same as the name of the property
+      // (in this case 'email')
+      // Validator 'required' check if the property is not empty
+      email: {
+        req: required,
+        mail: email
       }
     },
     methods: {
