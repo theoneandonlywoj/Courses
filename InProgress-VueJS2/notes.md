@@ -48,3 +48,8 @@ npm install --save-dev babel-preset-stage-2
 ```bash
 npm install --save axios
 ```
+
+## Installing Vuelidate
+```bash
+npm install --save vuelidate
+```
