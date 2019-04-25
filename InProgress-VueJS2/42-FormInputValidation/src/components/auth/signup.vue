@@ -21,11 +21,12 @@
           </div>
           -->
         </div>
-        <div class="input">
+        <div class="input" v-bind:class="{'invalid': $v.age.$error}">
           <label for="age">Your Age</label>
           <input
                   type="number"
                   id="age"
+                  v-on:blur="$v.age.$touch()"
                   v-model.number="age">
         </div>
         <div class="input">
@@ -81,7 +82,7 @@
 </template>
 
 <script>
-  import { required, email } from 'vuelidate/lib/validators'
+  import { required, email, numeric, minValue } from 'vuelidate/lib/validators'
   export default {
     data () {
       return {
@@ -101,6 +102,11 @@
       email: {
         req: required,
         mail: email
+      },
+      age: {
+        req: required,
+        num: numeric,
+        minVal: minValue(18)
       }
     },
     methods: {
