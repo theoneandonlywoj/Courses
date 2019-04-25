@@ -45,6 +45,7 @@
                   id="confirm-password"
                   v-on:blur="$v.confirmPassword.$touch()"
                   v-model="confirmPassword">
+          <p>{{ $v.confirmPassword }}</p>
         </div>
         <div class="input">
           <label for="country">Country</label>
@@ -72,9 +73,17 @@
             </div>
           </div>
         </div>
-        <div class="input inline">
-          <input type="checkbox" id="terms" v-model="terms">
+        <div class="input inline" v-bind:class="{'invalid': $v.terms.$invalid}">
+          <!-- Required unless condition -->
+          <input
+                 type="checkbox"
+                 id="terms"
+                 v-model="terms"
+                 v-on:change="$v.terms.$touch()">
           <label for="terms">Accept Terms of Use</label>
+          <p>{{ country }}</p>
+          <p>{{ $v.terms }}</p>
+          <p>{{ terms }}</p>
         </div>
         <div class="submit">
           <button type="submit">Submit</button>
@@ -85,7 +94,7 @@
 </template>
 
 <script>
-  import { required, email, numeric, minValue, minLength, sameAs } from 'vuelidate/lib/validators'
+  import { required, email, numeric, minValue, minLength, sameAs, requiredUnless } from 'vuelidate/lib/validators'
   export default {
     data () {
       return {
@@ -121,6 +130,11 @@
         // Using an arrow function and passing the Vue instance
         sameAs: sameAs(vm => {
           return vm.password
+        })
+      },
+      terms: {
+        required: requiredUnless(vm => {
+          return vm.terms === true
         })
       }
     },
@@ -192,11 +206,6 @@
     background-color: #eee;
   }
 
-  .input select {
-    border: 1px solid #ccc;
-    font: inherit;
-  }
-
   .input.invalid label {
     color: red;
   }
@@ -204,6 +213,11 @@
   .input.invalid input {
     border: 1px solid red;
     background-color: #ffc9aa;
+  }
+
+  .input select {
+    border: 1px solid #ccc;
+    font: inherit;
   }
 
   .hobbies button {
