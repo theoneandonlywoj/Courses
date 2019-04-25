@@ -8,8 +8,11 @@
                   type="email"
                   id="email"
                   v-model="email"
-                  v-on:input="$v.email.$touch()"
+                  v-on:blur="$v.email.$touch()"
                   >
+          <!-- Using v-on:input will check the validation on every input.
+               Using v-on:blur will check the validation when the user leaves the input field.
+          -->
           <p v-if="!$v.email.mail">Please provide a valid email address.</p>
           <p v-if="!$v.email.req">Please provide minimal required information.</p>
           <!--
