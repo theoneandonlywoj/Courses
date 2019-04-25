@@ -2,7 +2,7 @@
   <div id="signup">
     <div class="signup-form">
       <form @submit.prevent="onSubmit">
-        <div class="input">
+        <div class="input" v-bind:class="{'invalid': $v.email.$error}">
           <label for="email">Mail</label>
           <input
                   type="email"
@@ -10,9 +10,13 @@
                   v-model="email"
                   v-on:input="$v.email.$touch()"
                   >
+          <p v-if="!$v.email.mail">Please provide a valid email address.</p>
+          <p v-if="!$v.email.req">Please provide minimal required information.</p>
+          <!--
           <div class="">
             {{ $v }}
           </div>
+          -->
         </div>
         <div class="input">
           <label for="age">Your Age</label>
@@ -167,6 +171,15 @@
   .input select {
     border: 1px solid #ccc;
     font: inherit;
+  }
+
+  .input.invalid label {
+    color: red;
+  }
+
+  .input.invalid input {
+    border: 1px solid red;
+    background-color: #ffc9aa;
   }
 
   .hobbies button {
