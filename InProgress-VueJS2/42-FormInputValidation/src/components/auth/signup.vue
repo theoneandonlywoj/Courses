@@ -116,7 +116,13 @@
       // Validator 'required' check if the property is not empty
       email: {
         req: required,
-        mail: email
+        mail: email,
+        unique: value => {
+          // Custom validator must return true or false
+          // true - the input is valid
+          // false - the input is invalid
+          return value !== 'test@test.com'
+        }
       },
       age: {
         req: required,
