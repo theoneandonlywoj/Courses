@@ -7,10 +7,21 @@ npm install -g @vue/cli
 ``` bash
 npm install -g @vue/cli-init
 ```
-## Creating projects with Vue CLI and Webpack Simple Template
+## Creating projects with Vue CLI and Webpack Simple Template (version 2)
 ``` bash
 vue init webpack-simple projectName
 ```
+
+## Creating projects with Vue CLI (version 3)
+``` bash
+vue create project-name
+```
+
+## Linting
+``` bash
+npm run lint
+```
+
 ## Go to the folder, install the dependencies and run it in the dev mode
 ``` bash
 cd projectName
@@ -52,4 +63,17 @@ npm install --save axios
 ## Installing Vuelidate
 ```bash
 npm install --save vuelidate
+```
+
+## Asset Management
+- Assets should be stored in `src\assets`, because Webpack will optimize the usage of them, unlike if they were stored in `public\img`.
+
+## Adding plugins (must have name vue-cli-plugin-pluginName)
+```bash
+vue add pluginName
+```
+
+## Installing SASS loader
+```bash
+npm install sass-loader node-sass
 ```
