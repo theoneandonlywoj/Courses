@@ -77,3 +77,16 @@ vue add pluginName
 ```bash
 npm install sass-loader node-sass
 ```
+
+## Enviroment variables
+- Create a file ```.env```
+- Add variable with all capital letters with ```VUE_APP_``` as follows: ```VUE_APP_VARIABLE_NAME="some_value" ```
+- Create a parameter in the data() part of the component that uses the variables.
+- Assign the value with ```process.env.VUE_APP_VARIABLE_NAME``` to the parameter.
+- You can use different modes with ```.env.development``` or ```.env.production``` or ```.env.test```
+- The modes will overwrite only those values that change in a given mode (comparing to the ```.env.``` file).
+
+## Build targets
+- Vue App - ```bash vue build --target app```
+- Vue Library - ```bash vue build --target lib```
+- Web Component - ```bash vue build --target wc```
