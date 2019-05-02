@@ -28,3 +28,8 @@ Add following line to .babelrc's preset:
 ```bash
 ["stage-2"]
 ```
+
+### Install Vue Router
+```bash
+npm install vue-router
+```
