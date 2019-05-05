@@ -4,7 +4,7 @@
       <div class="navbar-header">
         <router-link
           class="navbar-brand"
-          :to="{ name: 'Home', params: {} }">Stock Trader</router-link>
+          :to="{ name: 'home', params: {} }">Stock Trader</router-link>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
