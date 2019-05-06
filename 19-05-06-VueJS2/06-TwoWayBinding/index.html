@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Two way binding. -->
+    <h1>Name</h1>
+    <input type="text" v-model="name">
+    <p>{{ name }}</p>
+    <button type="button" v-on:click="setNameToWojciech">Set Name to Wojciech</button>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

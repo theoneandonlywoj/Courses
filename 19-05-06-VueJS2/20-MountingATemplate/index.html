@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mounting templates</title>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app1">
+    <h1 ref="heading">{{ title }}</h1>
+    <!--  Adding a reference using ref -->
+    <button v-on:click="show" ref="myButton">Show Paragraph</button>
+    <p v-if="showParagraph">This is not always visible</p>
+  </div>
+  <div id="app2">
+
+  </div>
+  <script src="app.js"></script>
+</body>

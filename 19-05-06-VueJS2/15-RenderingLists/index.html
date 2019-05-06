@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>V-for</h1>
+    <ul>
+      <li v-for="ingredient in ingredients"> {{ ingredient }}</li>
+    </ul>
+    <h1>Accessing the index</h1>
+    <ul>
+      <!-- Syntax: "(element, index) in elements" -->
+      <li v-for="(ingredient, i) in ingredients"> ({{ i }}) {{ ingredient }} </li>
+    </ul>
+    <h1>Using a template</h1>
+    <template v-for="(ingredient, index) in ingredients">
+      <h4>{{ ingredient }}</h4>
+      <p>{{ index }}</p>
+      <hr>
+    </template>
+    <hr>
+    <h1>Looping through objects</h1>
+    <ul>
+      <li v-for="person in people">
+        <!-- Accessing the key and value. The order is important! -->
+        <div v-for="(value, key, index) in person"> {{ index }} - {{ key }}: {{ value }} </div>
+      </li>
+    </ul>
+    <h1>Looping through numbers</h1>
+    <ul>
+      <li v-for="n in 10">{{ n }}</li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

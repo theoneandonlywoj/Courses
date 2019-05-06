@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="example">
+      <!-- Adding a field with a directive -->
+      <!-- :input with fire the method on each key press -->
+      <input type="text" v-on:input="changeText">
+      <p>{{ hello }}</p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

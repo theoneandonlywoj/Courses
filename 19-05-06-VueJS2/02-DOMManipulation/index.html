@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- {{}} is called string interpolation -->
+      <!-- The value inside can come from a function,
+           only if it can be shown as a string -->
+      <!-- v-once makes the value not being re-rendered
+           if it changes later in the Javascript code. -->
+      <h1 v-once>{{ title }}</h1>
+      <!-- Adding a binding directive -->
+      <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+      <hr>
+      <p v-html='finishedLink'></p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
