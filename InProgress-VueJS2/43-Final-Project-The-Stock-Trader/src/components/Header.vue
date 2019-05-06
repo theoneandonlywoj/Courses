@@ -34,12 +34,13 @@
               aria-haspopop="true"
               aria-expanded="false"
             >Save & Load <span class="caret"></span></a>
+            <!--Example of a dropdown -->
+            <!-- Feature is not implemented -->
             <ul class="dropdown-menu">
               <li><a href="#">Save Data</a></li>
               <li><a href="#">Load Data</a></li>
             </ul>
           </li>
-
         </ul>
       </div>
     </div>
