@@ -30,3 +30,8 @@ npm i express --save
 ```bash
 npm i body-parser --save
 ```
+
+## Install Websocket
+```bash
+npm i ws --save
+```
