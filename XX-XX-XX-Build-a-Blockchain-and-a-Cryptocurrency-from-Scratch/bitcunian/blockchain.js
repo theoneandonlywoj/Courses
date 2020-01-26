@@ -27,6 +27,10 @@ class Blockchain {
             if(block.lastHash !== previousBlock.hash) {
                 return false;
             }
+
+            if(block.hash !== Block.blockHash(block)) {
+                return false;
+            }
         }
 
         return true;
