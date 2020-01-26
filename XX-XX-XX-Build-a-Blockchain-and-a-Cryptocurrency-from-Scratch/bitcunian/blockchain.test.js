@@ -61,4 +61,14 @@ describe('Blockchain', () => {
         bc2.replaceChain(bc.chain);
         expect(bc2.chain).not.toEqual(bc.chain);
     });
+
+    it('does not replace the chain with a longer, yet corrupted, chain', () => {
+        bc2.addBlock('first');
+        bc2.addBlock('second');
+
+        bc2.chain[1].data = 'some random incorrect data';
+
+        bc.replaceChain(bc2.chain);
+        expect(bc.chain).not.toEqual(bc2.chain);
+    });
 });
