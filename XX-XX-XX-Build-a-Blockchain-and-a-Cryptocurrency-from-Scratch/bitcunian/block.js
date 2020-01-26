@@ -13,8 +13,17 @@ class Block {
         Hash     : ${this.hash.substring(0, 10)}
         Data     : ${this.data}`;
     }
+
     static genesis() {
         return new this("genesis", "l4sth4sh", "g3n3sis-h4sh", []);
+    }
+
+    static mineBlock(lastBlock, data) {
+        const timestamp = Date.now();
+        const lastHash = lastBlock.hash;
+        const hash = "todo-hash";
+
+        return new this(timestamp, lastHash, hash, data);
     }
 }
 
