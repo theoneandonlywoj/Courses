@@ -35,7 +35,7 @@ class Blockchain {
     replaceChain(newChain) {
         if(newChain.length <= this.chain.length) {
             return;
-        } else if (!this.isChainValid(newChain) {
+        } else if (!this.isChainValid(newChain)) {
             return;
         }
 
