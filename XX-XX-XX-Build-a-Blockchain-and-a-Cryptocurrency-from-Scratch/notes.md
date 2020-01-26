@@ -17,6 +17,11 @@ SHA 256 is a one-way hash that produces an unique 32 byte (256 bit) hash value f
 npm i crypto-js --save
 ```
 ## Install JEST
-```
+```bash
 npm i jest --save-dev
+```
+
+## Install Express
+```bash
+npm i express
 ```
