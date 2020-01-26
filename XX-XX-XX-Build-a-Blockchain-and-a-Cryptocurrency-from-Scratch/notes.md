@@ -25,3 +25,8 @@ npm i jest --save-dev
 ```bash
 npm i express --save
 ```
+
+## Install Body Parser
+```bash
+npm i body-parser --save
+```
