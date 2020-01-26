@@ -35,3 +35,11 @@ npm i body-parser --save
 ```bash
 npm i ws --save
 ```
+
+## Run two peers example
+```bash
+HTTP_PORT=3001 P2P_PORT=5001 npm run dev
+```
+```bash
+HTTP_PORT=3002 P2P_PORT=5002 PEERS=ws://localhost:5001 npm run dev
+```
