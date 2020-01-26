@@ -23,5 +23,5 @@ npm i jest --save-dev
 
 ## Install Express
 ```bash
-npm i express
+npm i express --save
 ```
