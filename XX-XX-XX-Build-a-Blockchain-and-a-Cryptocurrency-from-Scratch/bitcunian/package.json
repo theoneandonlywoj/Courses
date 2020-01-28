@@ -7,7 +7,8 @@
     "test": "jest --watchAll",
     "dev-test": "nodemon dev-test",
     "start": "node ./app",
-    "dev": "nodemon ./app"
+    "dev": "nodemon ./app",
+    "show-dynamic-diff": "nodemon show-dynamic-diff"
   },
   "keywords": [],
   "author": "",
