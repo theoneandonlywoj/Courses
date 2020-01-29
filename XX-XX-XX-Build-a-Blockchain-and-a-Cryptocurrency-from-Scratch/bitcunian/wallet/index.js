@@ -14,6 +14,10 @@ class Wallet {
         publicKey: ${this.publicKey}
         balance  : ${this.balance}`
     }
+
+    sign(dataHash) {
+        return this.keyPair.sign(dataHash);
+    }
 }
 
 module.exports = Wallet;
