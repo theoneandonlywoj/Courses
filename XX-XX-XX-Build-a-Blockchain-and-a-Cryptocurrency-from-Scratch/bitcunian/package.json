@@ -11,6 +11,9 @@
     "show-dynamic-diff": "nodemon show-dynamic-diff",
     "show-wallet": "nodemon show-wallet"
   },
+  "jest": {
+    "testEnvironment": "node"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
