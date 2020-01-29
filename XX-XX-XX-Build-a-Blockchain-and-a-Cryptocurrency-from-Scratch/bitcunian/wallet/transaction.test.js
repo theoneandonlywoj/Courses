@@ -44,5 +44,23 @@ describe('Transaction', () => {
     it('does not create the transaction', () => {
       expect(transaction).toEqual(undefined);
     });
-});
+  });
+
+  describe('and updating a transaction', () => {
+    let nextAmount, nextRecipient;
+
+    beforeEach(() => {
+      nextAmount = 20;
+      nextRecipient = "n3xtAddr3ss";
+      transaction = transaction.update(wallet, nextRecipient, nextAmount);
+    });
+
+    it("subtracts the next amount from the senders's output", () => {
+      const sendersBalance = 
+        transaction.outputs.find(output => output.address === wallet.publicKey).amount;
+      const balanceAfterAllTransactions = wallet.balance - amount - nextAmount;
+
+      expect(sendersBalance).toEqual(balanceAfterAllTransactions);
+    })
+  });
 });
