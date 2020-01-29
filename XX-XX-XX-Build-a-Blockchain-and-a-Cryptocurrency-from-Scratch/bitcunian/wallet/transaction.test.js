@@ -61,6 +61,12 @@ describe('Transaction', () => {
       const balanceAfterAllTransactions = wallet.balance - amount - nextAmount;
 
       expect(sendersBalance).toEqual(balanceAfterAllTransactions);
-    })
+    });
+
+    it('outputs the amount for the new recipient', () => {
+      const transactionForTheNextRecipient = 
+        transaction.outputs.find(output => output.address === nextRecipient)
+      expect(transactionForTheNextRecipient.amount).toEqual(nextAmount);
+    });
   });
 });
