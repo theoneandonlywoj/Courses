@@ -9,7 +9,8 @@
     "start": "node ./app",
     "dev": "nodemon ./app",
     "show-dynamic-diff": "nodemon show-dynamic-diff",
-    "show-wallet": "nodemon show-wallet"
+    "show-wallet": "nodemon show-wallet",
+    "show-verified-transaction": "nodemon show-verified-transaction"
   },
   "jest": {
     "testEnvironment": "node"
