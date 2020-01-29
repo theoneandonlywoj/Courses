@@ -18,10 +18,10 @@ class Transaction {
         // Second is the recipient and his / her additional balance
         // ... is ES6 decomposition functionality
         transaction.outputs.push(...[
-            { amount: senderWallet - amount,
+            { amount: senderWallet.balance - amount,
               address: senderWallet.publicKey },
             { amount: amount, 
-              address: recipient.publicKey}
+              address: recipient}
         ])
 
         return transaction;
