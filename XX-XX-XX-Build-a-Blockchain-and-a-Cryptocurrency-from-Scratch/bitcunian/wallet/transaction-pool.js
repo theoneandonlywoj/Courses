@@ -16,6 +16,10 @@ class TransactionPool {
             this.transactions.push(transaction);
         }
     }
+
+    existingTransaction(senderAddress) {
+        return this.transactions.find(t => t.input.address = senderAddress);
+    }
 }
 
 module.exports = TransactionPool;
