@@ -20,6 +20,28 @@ class TransactionPool {
     existingTransaction(senderAddress) {
         return this.transactions.find(t => t.input.address = senderAddress);
     }
+
+    validTransactions() {
+        return this.transactions.filter(transaction => {
+            const outputTotal = transaction.outputs.reduce((total, output) => {
+                return total + output.amount;
+            }, 0);
+
+            if(transaction.input.amount !== outputTotal) {
+                console.log(`Invalid transaction from ${transaction.input.address}!.
+                             Reason: corrupted transaction amount!`)
+                return;
+            }
+
+            if(!Transaction.verifyTransaction(transaction)) {
+                console.log(`Invalid transaction from ${transaction.input.address}!.
+                             Reason: verification failed!`);
+                return;
+            }
+
+            return transaction;
+        })
+    }
 }
 
 module.exports = TransactionPool;
