@@ -1,47 +1,47 @@
-const Transaction = require('./transaction');
+const Transaction = require('../wallet/transaction');
 
 class TransactionPool {
-    constructor() {
-        this.transactions = [];
+  constructor() {
+    this.transactions = [];
+  }
+
+  updateOrAddTransaction(transaction) {
+    let transactionWithId = this.transactions.find(t => t.id === transaction.id);
+
+    if (transactionWithId) {
+      this.transactions[this.transactions.indexOf(transactionWithId)] = transaction;
+    } else {
+      this.transactions.push(transaction);
     }
+  }
 
-    updateOrAddTransaction(transaction) {
-        const transactionWithId = 
-            this.transactions.find(t => t.id === transaction.id);
+  existingTransaction(address) {
+    return this.transactions.find(t => t.input.address === address);
+  }
 
-        if(transactionWithId) {
-            const transactionWithIdIndex = this.transactions.indexOf(transactionWithId);
-            this.transactions[transactionWithIdIndex] = transaction;
-        } else {
-            this.transactions.push(transaction);
-        }
-    }
+  validTransactions() {
+    return this.transactions.filter(transaction => {
+      const outputTotal = transaction.outputs.reduce((total, output) => {
+        return total + output.amount;
+      }, 0);
 
-    existingTransaction(senderAddress) {
-        return this.transactions.find(t => t.input.address = senderAddress);
-    }
+      if (transaction.input.amount !== outputTotal) {
+        console.log(`Invalid transaction from ${transaction.input.address}.`);
+        return;
+      }
 
-    validTransactions() {
-        return this.transactions.filter(transaction => {
-            const outputTotal = transaction.outputs.reduce((total, output) => {
-                return total + output.amount;
-            }, 0);
+      if (!Transaction.verifyTransaction(transaction)) {
+        console.log(`Invalid signature from ${transaction.input.address}.`);
+        return;
+      }
 
-            if(transaction.input.amount !== outputTotal) {
-                console.log(`Invalid transaction from ${transaction.input.address}!.
-                             Reason: corrupted transaction amount!`)
-                return;
-            }
+      return transaction;
+    });
+  }
 
-            if(!Transaction.verifyTransaction(transaction)) {
-                console.log(`Invalid transaction from ${transaction.input.address}!.
-                             Reason: verification failed!`);
-                return;
-            }
-
-            return transaction;
-        })
-    }
+  clear() {
+    this.transactions = [];
+  }
 }
 
 module.exports = TransactionPool;
