@@ -46,6 +46,15 @@ class Transaction {
         return transaction;
     }
 
+    static rewardTransaction(minerWallet, blockchainWallet) {
+        const transaction = Transaction.transactionWithOutputs(blockchainWallet, [
+            { amount: MINING_REWARD,
+              address: minerWallet.publicKey }
+        ]);
+
+        return transaction;
+    }
+
     static signTransaction(transaction, senderWallet) {
         transaction.input = {
             timestamp: Date.now(),
