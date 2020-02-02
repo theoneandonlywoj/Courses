@@ -65,7 +65,7 @@ class Wallet {
             startTime = recentInputTransaction.input.timestamp;
             // Adding all currency values that come after that record.
         }
-        transactions.forEach(transactions => {
+        transactions.forEach(transaction => {
             if(transaction.input.timestamp > startTime) {
                 transaction.outputs.forEach(output => {
                     if(output.address === this.publicKey) {
