@@ -1,0 +1,33 @@
+{
+  "name": "bitcunian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "dev-test": "nodemon dev-test",
+    "start": "node ./app",
+    "dev": "nodemon ./app",
+    "show-dynamic-diff": "nodemon show-dynamic-diff",
+    "show-wallet": "nodemon show-wallet",
+    "show-verified-transaction": "nodemon show-verified-transaction"
+  },
+  "jest": {
+    "testEnvironment": "node"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "crypto-js": "^3.1.9-1",
+    "elliptic": "^6.5.2",
+    "express": "^4.17.1",
+    "uuid": "^3.4.0",
+    "ws": "^7.2.1"
+  }
+}
