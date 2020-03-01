@@ -4,16 +4,7 @@
       v-if="$q.platform.is.desktop"
       elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
-        <q-toolbar-title>
+        <q-toolbar-title class="absolute-center">
           Awesome Todo
         </q-toolbar-title>
       </q-toolbar>
@@ -32,14 +23,15 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
+      :width="250"
       show-if-above
       bordered
-      content-class="bg-grey-1"
+      content-class="bg-primary"
     >
-      <q-list>
+      <q-list dark>
         <q-item-label
           header
-          class="text-grey-8"
+          class="text-grey-4"
         >
           Navigation
         </q-item-label>
@@ -50,6 +42,7 @@
             clickable
             exact
             :to="{ name: nav.toByName}"
+            class="text-grey-4"
           >
             <q-item-section
               avatar
@@ -99,3 +92,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .q-drawer .q-router-link--active {
+    color: white !important;
+  }
+</style>
