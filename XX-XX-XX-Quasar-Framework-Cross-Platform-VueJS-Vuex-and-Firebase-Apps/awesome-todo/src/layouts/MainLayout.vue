@@ -1,6 +1,8 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="hHh lpR fFf">
+    <q-header
+      v-if="$q.platform.is.desktop"
+      elevated>
       <q-toolbar>
         <q-btn
           flat
@@ -17,7 +19,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-footer >
+    <q-footer v-if="!$q.platform.is.desktop">
       <q-tabs>
         <q-route-tab
           v-for="nav in navs"
