@@ -93,8 +93,10 @@ export default {
 }
 </script>
 
-<style>
-  .q-drawer .q-router-link--active {
-    color: white !important;
+<style lang="scss">
+  .q-drawer {
+    .q-router-link--active {
+      color: white !important;
+    }
   }
 </style>
