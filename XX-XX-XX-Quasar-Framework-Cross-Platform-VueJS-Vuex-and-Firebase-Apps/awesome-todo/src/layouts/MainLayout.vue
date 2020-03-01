@@ -18,7 +18,16 @@
     </q-header>
 
     <q-footer >
-      Footer
+      <q-tabs>
+        <q-route-tab
+          :to="{ name: 'PageTodo'}"
+          icon="list"
+          label="Todo" />
+        <q-route-tab
+          :to="{ name: 'Settings'}"
+          icon="settings"
+          label="Settings" />
+      </q-tabs>
     </q-footer>
 
     <q-drawer
