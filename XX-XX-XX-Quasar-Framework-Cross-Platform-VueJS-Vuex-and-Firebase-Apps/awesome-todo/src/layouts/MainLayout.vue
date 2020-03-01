@@ -20,13 +20,11 @@
     <q-footer >
       <q-tabs>
         <q-route-tab
-          :to="{ name: 'PageTodo'}"
-          icon="list"
-          label="Todo" />
-        <q-route-tab
-          :to="{ name: 'Settings'}"
-          icon="settings"
-          label="Settings" />
+          v-for="nav in navs"
+          :key="nav.id"
+          :to="{ name: nav.toByName}"
+          :icon="nav.icon"
+          :label="nav.label" />
       </q-tabs>
     </q-footer>
 
@@ -45,36 +43,23 @@
         </q-item-label>
 
          <q-item
+            v-for="nav in navs"
+            :key="nav.id"
             clickable
             exact
-            :to="{ name: 'PageTodo'}"
+            :to="{ name: nav.toByName}"
           >
             <q-item-section
               avatar
             >
-              <q-icon name="list" />
+              <q-icon :name="nav.icon" />
             </q-item-section>
 
             <q-item-section>
-              <q-item-label>Todo</q-item-label>
+              <q-item-label>{{ nav.label }}</q-item-label>
             </q-item-section>
           </q-item>
 
-          <q-item
-            clickable
-            exact
-            :to="{ name: 'Settings'}"
-          >
-            <q-item-section
-              avatar
-            >
-              <q-icon name="settings" />
-            </q-item-section>
-
-            <q-item-section>
-              <q-item-label>Settings</q-item-label>
-            </q-item-section>
-          </q-item>
       </q-list>
     </q-drawer>
 
@@ -93,7 +78,21 @@ export default {
 
   data () {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+      navs: [
+        {
+          id: 1,
+          label: 'Todo',
+          icon: 'list',
+          toByName: 'PageTodo'
+        },
+        {
+          id: 2,
+          label: 'Settings',
+          icon: 'settings',
+          toByName: 'Settings'
+        }
+      ]
     }
   }
 }
