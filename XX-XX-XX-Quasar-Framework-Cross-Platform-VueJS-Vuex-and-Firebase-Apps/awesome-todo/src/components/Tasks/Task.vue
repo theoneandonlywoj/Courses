@@ -5,7 +5,9 @@
     v-ripple
     :class="!task.completed ? 'bg-orange-1' : 'bg-green-1' ">
     <q-item-section side top>
-        <q-checkbox v-model="task.completed" />
+        <q-checkbox
+            :value="task.completed"
+            class="no-pointer-events"/>
     </q-item-section>
 
     <q-item-section>
