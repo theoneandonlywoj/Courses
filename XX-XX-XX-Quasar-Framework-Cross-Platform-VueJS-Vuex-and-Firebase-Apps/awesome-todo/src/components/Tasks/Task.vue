@@ -1,6 +1,10 @@
 <template>
   <q-item
-    @click="task.completed = !task.completed"
+    @click="updateTask({
+        id: taskId,
+        updates: {
+            completed: !task.completed
+        }})"
     clickable
     v-ripple
     :class="!task.completed ? 'bg-orange-1' : 'bg-green-1' ">
@@ -51,7 +55,13 @@
 <script>
 export default {
   name: 'Task',
-  props: ['task', 'taskId']
+  props: ['task', 'taskId'],
+  methods: {
+    updateTask (taskUpdatesObject) {
+      console.log('taskId', this.taskId)
+      this.$store.dispatch('tasks/updateTaskAction', taskUpdatesObject)
+    }
+  }
 }
 </script>
 

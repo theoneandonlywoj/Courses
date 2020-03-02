@@ -1,2 +1,3 @@
-export function someAction (/* context */) {
+export function updateTaskAction ({ commit }, payload) {
+  commit('updateTaskMutation', payload)
 }
