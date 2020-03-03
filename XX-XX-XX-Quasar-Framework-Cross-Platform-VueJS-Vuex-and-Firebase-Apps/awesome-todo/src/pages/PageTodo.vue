@@ -12,6 +12,18 @@
       </Task>
 
     </q-list>
+
+    <div
+      class="absolute-bottom
+             text-center
+             q-mb-lg">
+      <q-btn
+        round
+        color="primary"
+        size="24px"
+        icon="add">
+      </q-btn>
+    </div>
   </q-page>
 </template>
 
