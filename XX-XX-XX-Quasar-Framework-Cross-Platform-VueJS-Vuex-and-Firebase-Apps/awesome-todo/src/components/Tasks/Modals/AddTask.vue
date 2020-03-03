@@ -1,7 +1,16 @@
 <template>
   <q-card>
-    <q-card-section>
+    <q-card-section class="row">
         <div class="text-h6">Add Task</div>
+        <q-space/>
+        <q-btn
+            flat
+            round
+            dense
+            icon="close"
+            v-close-popup
+        >
+        </q-btn>
     </q-card-section>
 
     <q-card-section class="q-pt-none">
@@ -9,7 +18,12 @@
     </q-card-section>
 
     <q-card-actions align="right">
-        <q-btn flat label="OK" color="primary" v-close-popup />
+        <q-btn
+            flat
+            label="Save"
+            color="primary"
+            v-close-popup
+        />
     </q-card-actions>
   </q-card>
 </template>
