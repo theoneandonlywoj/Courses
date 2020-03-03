@@ -16,20 +16,22 @@
 
     <q-item-section>
         <q-item-label
-        :class="{
-            'text-strike': task.completed
-        }">
-        {{ task.name }}
+          :class="{
+              'text-strike': task.completed
+          }">
+          {{ task.name }}
         </q-item-label>
     </q-item-section>
 
-        <q-item-section side>
-        <div class="row">
+    <q-item-section
+      v-if="task.dueDate"
+      side>
+      <div class="row">
         <div class="column justify-center">
             <q-icon
-            name="event"
-            size="18px"
-            class="q-mr-xs"
+              name="event"
+              size="18px"
+              class="q-mr-xs"
             ></q-icon>
         </div>
         <div class="column">
@@ -37,7 +39,7 @@
                 caption
                 class="row justify-end"
             >
-            {{ task.dueDate}}
+              {{ task.dueDate}}
             </q-item-label>
             <q-item-label
                 caption
@@ -46,7 +48,7 @@
             <small>{{ task.dueTime }}</small>
             </q-item-label>
         </div>
-        </div>
+      </div>
     </q-item-section>
     <q-item-section side>
         <q-btn

@@ -18,6 +18,8 @@
         <div class="row q-mb-sm">
             <!-- Task Name -->
             <q-input
+                clearable
+                autofocus
                 outlined
                 v-model="taskToSubmit.name"
                 label="Task Name"
@@ -29,6 +31,7 @@
         <div class="row q-mb-sm">
         <!-- Task Due Date -->
         <q-input
+            clearable
             outlined
             label="Due Date"
             v-model="taskToSubmit.dueDate"
@@ -50,9 +53,13 @@
         <div class="row q-mb-sm">
         <!-- Task Due Time -->
         <q-input
+            v-if="taskToSubmit.dueDate"
+            v-model="taskToSubmit.dueTime"
+            clearable
             outlined
             label="Due Time"
-            v-model="taskToSubmit.dueTime">
+            class="col"
+            >
             <template v-slot:append>
                 <q-icon name="access_time" class="cursor-pointer">
                     <q-popup-proxy transition-show="scale" transition-hide="scale">

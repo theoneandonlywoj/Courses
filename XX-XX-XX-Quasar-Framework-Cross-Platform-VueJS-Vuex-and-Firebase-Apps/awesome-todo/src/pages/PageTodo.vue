@@ -1,6 +1,7 @@
 <template>
   <q-page class="q-pa-md">
     <q-list
+      v-if="Object.keys(tasks).length"
       separator
       bordered>
 
