@@ -7,3 +7,7 @@ export function updateTaskMutation (state, payload) {
 export function deleteTaskMutation (state, id) {
   Vue.delete(state.tasks, id)
 }
+
+export function addTaskMutation (state, payload) {
+  Vue.set(state.tasks, payload.id, payload.task)
+}

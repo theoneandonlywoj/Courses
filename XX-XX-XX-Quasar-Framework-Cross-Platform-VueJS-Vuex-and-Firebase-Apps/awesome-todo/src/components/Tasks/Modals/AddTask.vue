@@ -100,6 +100,8 @@ export default {
     },
     submitTask () {
       console.log('Submit Task')
+      this.$store.dispatch('tasks/addTaskAction', this.taskToSubmit)
+      this.$emit('closeAddTaskDialog')
     }
   }
 }
