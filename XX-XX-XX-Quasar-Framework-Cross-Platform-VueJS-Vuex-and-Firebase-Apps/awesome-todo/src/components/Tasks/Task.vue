@@ -34,21 +34,31 @@
         </div>
         <div class="column">
             <q-item-label
-            caption
-            class="row justify-end"
+                caption
+                class="row justify-end"
             >
             {{ task.dueDate}}
             </q-item-label>
             <q-item-label
-            caption
-            class="row justify-end"
+                caption
+                class="row justify-end"
             >
             <small>{{ task.dueTime }}</small>
             </q-item-label>
         </div>
         </div>
     </q-item-section>
-
+    <q-item-section side>
+        <q-btn
+            flat
+            dense
+            rounded
+            color="red"
+            icon="delete"
+            @click.stop="promptToDelete(taskId)"
+            >
+        </q-btn>
+    </q-item-section>
     </q-item>
 </template>
 
@@ -58,8 +68,20 @@ export default {
   props: ['task', 'taskId'],
   methods: {
     updateTask (taskUpdatesObject) {
-      console.log('taskId', this.taskId)
       this.$store.dispatch('tasks/updateTaskAction', taskUpdatesObject)
+    },
+    promptToDelete (taskId) {
+      this.$q.dialog({
+        title: 'Confirm',
+        message: 'Really deleted?',
+        cancel: {
+          push: true,
+          color: 'negative'
+        },
+        persistent: true
+      }).onOk(() => {
+        console.log('>>>> OK, received', taskId)
+      })
     }
   }
 }
