@@ -70,6 +70,9 @@ export default {
     updateTask (taskUpdatesObject) {
       this.$store.dispatch('tasks/updateTaskAction', taskUpdatesObject)
     },
+    deleteTask (taskId) {
+      this.$store.dispatch('tasks/deleteTaskAction', taskId)
+    },
     promptToDelete (taskId) {
       this.$q.dialog({
         title: 'Confirm',
@@ -80,7 +83,7 @@ export default {
         },
         persistent: true
       }).onOk(() => {
-        console.log('>>>> OK, received', taskId)
+        this.deleteTask(taskId)
       })
     }
   }
