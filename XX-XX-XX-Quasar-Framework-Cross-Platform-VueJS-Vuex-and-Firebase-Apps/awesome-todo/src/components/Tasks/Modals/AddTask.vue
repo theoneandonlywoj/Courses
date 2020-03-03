@@ -13,7 +13,8 @@
         </q-btn>
     </q-card-section>
 
-    <q-card-section class="q-pt-none">
+    <q-form @submit.prevent="submitForm()">
+        <q-card-section class="q-pt-none">
         <div class="row q-mb-sm">
             <!-- Task Name -->
             <q-input
@@ -21,6 +22,8 @@
                 v-model="taskToSubmit.name"
                 label="Task Name"
                 class="col"
+                ref="newTaskName"
+                :rules="[val => !!val || 'Field is required']"
             />
         </div>
         <div class="row q-mb-sm">
@@ -61,15 +64,16 @@
         </div>
     </q-card-section>
 
-    <q-card-actions align="right">
+    <q-card-actions
+        align="right"
+        class="q-mb-md">
         <q-btn
-            flat
             label="Save"
             color="primary"
-            @click="save()"
-            v-close-popup
+            type="submit"
         />
     </q-card-actions>
+    </q-form>
   </q-card>
 </template>
 
@@ -86,8 +90,16 @@ export default {
     }
   },
   methods: {
-    save () {
+    submitForm () {
       console.log(this.taskToSubmit)
+      // Validation
+      this.refs.newTaskName.validate()
+      if (!this.refs.hasError) {
+        this.submitTask()
+      }
+    },
+    submitTask () {
+      console.log('Submit Task')
     }
   }
 }
