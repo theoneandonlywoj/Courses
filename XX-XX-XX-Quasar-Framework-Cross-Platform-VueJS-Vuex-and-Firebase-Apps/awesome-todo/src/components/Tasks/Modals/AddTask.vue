@@ -93,8 +93,8 @@ export default {
     submitForm () {
       console.log(this.taskToSubmit)
       // Validation
-      this.refs.newTaskName.validate()
-      if (!this.refs.hasError) {
+      this.$refs.newTaskName.validate()
+      if (!this.$refs.newTaskName.hasError) {
         this.submitTask()
       }
     },
