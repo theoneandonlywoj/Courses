@@ -21,19 +21,31 @@
         round
         color="primary"
         size="24px"
-        icon="add">
+        icon="add"
+        @click="showAddTask = true">
       </q-btn>
     </div>
+
+    <q-dialog v-model="showAddTask">
+      <AddTask></AddTask>
+    </q-dialog>
   </q-page>
 </template>
 
 <script>
 import Task from '../components/Tasks/Task'
+import AddTask from '../components/Tasks/Modals/AddTask'
 
 export default {
   name: 'PageTodo',
   components: {
-    Task
+    Task,
+    AddTask
+  },
+  data () {
+    return {
+      showAddTask: false
+    }
   },
   computed: {
     tasks () {
