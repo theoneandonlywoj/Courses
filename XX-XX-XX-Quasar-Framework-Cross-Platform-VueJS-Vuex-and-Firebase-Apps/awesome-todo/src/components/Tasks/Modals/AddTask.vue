@@ -1,19 +1,9 @@
 <template>
   <q-card>
-    <q-card-section class="row">
-        <div class="text-h6">Add Task</div>
-        <q-space/>
-        <q-btn
-            flat
-            round
-            dense
-            icon="close"
-            v-close-popup
-        >
-        </q-btn>
-    </q-card-section>
-
-    <q-form @submit.prevent="submitForm()">
+    <ModalHeader>
+      Add Task
+    </ModalHeader>
+      <q-form @submit.prevent="submitForm()">
         <q-card-section class="q-pt-none">
         <div class="row q-mb-sm">
             <!-- Task Name -->
@@ -85,7 +75,11 @@
 </template>
 
 <script>
+import ModalHeader from './Shared/ModalHeader'
 export default {
+  components: {
+    ModalHeader
+  },
   data () {
     return {
       taskToSubmit: {
