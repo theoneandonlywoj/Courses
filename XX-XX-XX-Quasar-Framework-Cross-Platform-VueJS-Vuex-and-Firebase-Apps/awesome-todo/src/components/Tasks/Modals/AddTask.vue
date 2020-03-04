@@ -6,28 +6,9 @@
       <q-form @submit.prevent="submitForm()">
         <q-card-section class="q-pt-none">
         <ModalTaskName :taskName.sync="taskToSubmit.name"/>
-        <div class="row q-mb-sm">
-        <!-- Task Due Date -->
-        <q-input
-            clearable
-            outlined
-            label="Due Date"
-            v-model="taskToSubmit.dueDate"
-        >
-            <template v-slot:append>
-                <q-icon name="event" class="cursor-pointer">
-                <q-popup-proxy
-                    ref="qDateProxy"
-                    transition-show="scale"
-                    transition-hide="scale">
-                    <q-date
-                        v-model="taskToSubmit.dueDate"
-                        @input="() => $refs.qDateProxy.hide()" />
-                </q-popup-proxy>
-                </q-icon>
-            </template>
-        </q-input>
-        </div>
+        <ModalDueDate
+          :taskDueDate.sync="taskToSubmit.dueDate"
+          @clearDueDate="clearDateFunction()"/>
         <div class="row q-mb-sm">
         <!-- Task Due Time -->
         <q-input
@@ -65,10 +46,12 @@
 <script>
 import ModalHeader from './Shared/ModalHeader'
 import ModalTaskName from './Shared/ModalTaskName'
+import ModalDueDate from './Shared/ModalDueDate'
 export default {
   components: {
     ModalHeader,
-    ModalTaskName
+    ModalTaskName,
+    ModalDueDate
   },
   data () {
     return {
@@ -93,6 +76,10 @@ export default {
       console.log('Submit Task')
       this.$store.dispatch('tasks/addTaskAction', this.taskToSubmit)
       this.$emit('closeAddTaskDialog')
+    },
+    clearDateFunction () {
+      this.taskToSubmit.dueDate = ''
+      this.taskToSubmit.dueTime = ''
     }
   }
 }
