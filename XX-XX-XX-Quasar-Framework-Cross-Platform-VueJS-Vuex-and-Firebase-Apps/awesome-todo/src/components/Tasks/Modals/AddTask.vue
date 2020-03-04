@@ -5,19 +5,7 @@
     </ModalHeader>
       <q-form @submit.prevent="submitForm()">
         <q-card-section class="q-pt-none">
-        <div class="row q-mb-sm">
-            <!-- Task Name -->
-            <q-input
-                clearable
-                autofocus
-                outlined
-                v-model="taskToSubmit.name"
-                label="Task Name"
-                class="col"
-                ref="newTaskName"
-                :rules="[val => !!val || 'Field is required']"
-            />
-        </div>
+        <ModalTaskName :taskName.sync="taskToSubmit.name"/>
         <div class="row q-mb-sm">
         <!-- Task Due Date -->
         <q-input
@@ -76,9 +64,11 @@
 
 <script>
 import ModalHeader from './Shared/ModalHeader'
+import ModalTaskName from './Shared/ModalTaskName'
 export default {
   components: {
-    ModalHeader
+    ModalHeader,
+    ModalTaskName
   },
   data () {
     return {
