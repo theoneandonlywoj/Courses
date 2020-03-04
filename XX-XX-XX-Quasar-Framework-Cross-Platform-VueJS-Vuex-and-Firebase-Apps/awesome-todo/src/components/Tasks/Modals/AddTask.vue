@@ -5,7 +5,9 @@
     </ModalHeader>
       <q-form @submit.prevent="submitForm()">
         <q-card-section class="q-pt-none">
-        <ModalTaskName :taskName.sync="taskToSubmit.name"/>
+        <ModalTaskName
+          :taskName.sync="taskToSubmit.name"
+          ref="modalTaskName"/>
         <ModalDueDate
           :taskDueDate.sync="taskToSubmit.dueDate"
           @clearDueDate="clearDueDate()"/>
@@ -16,15 +18,7 @@
         />
     </q-card-section>
 
-    <q-card-actions
-        align="right"
-        class="q-mb-md">
-        <q-btn
-            label="Save"
-            color="primary"
-            type="submit"
-        />
-    </q-card-actions>
+    <ModalButtons />
     </q-form>
   </q-card>
 </template>
@@ -34,13 +28,15 @@ import ModalHeader from './Shared/ModalHeader'
 import ModalTaskName from './Shared/ModalTaskName'
 import ModalDueDate from './Shared/ModalDueDate'
 import ModalDueTime from './Shared/ModalDueTime'
+import ModalButtons from './Shared/ModalButtons'
 
 export default {
   components: {
     ModalHeader,
     ModalTaskName,
     ModalDueDate,
-    ModalDueTime
+    ModalDueTime,
+    ModalButtons
   },
   data () {
     return {
@@ -56,8 +52,8 @@ export default {
     submitForm () {
       console.log(this.taskToSubmit)
       // Validation
-      this.$refs.newTaskName.validate()
-      if (!this.$refs.newTaskName.hasError) {
+      this.$refs.modalTaskName.$refs.newTaskName.validate()
+      if (!this.$refs.modalTaskName.$refs.newTaskName.hasError) {
         this.submitTask()
       }
     },
