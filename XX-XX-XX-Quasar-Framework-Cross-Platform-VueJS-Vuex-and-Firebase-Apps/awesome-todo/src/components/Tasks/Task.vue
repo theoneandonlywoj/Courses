@@ -49,25 +49,52 @@
             </q-item-label>
         </div>
       </div>
-    </q-item-section>
-    <q-item-section side>
-        <q-btn
-            flat
-            dense
-            rounded
-            color="red"
-            icon="delete"
-            @click.stop="promptToDelete(taskId)"
-            >
-        </q-btn>
-    </q-item-section>
+      </q-item-section>
+      <q-item-section side>
+        <div class="row">
+          <q-btn
+              flat
+              dense
+              rounded
+              color="primary"
+              icon="edit"
+              @click.stop="showEditTask = true"
+              >
+          </q-btn>
+          <q-btn
+              flat
+              dense
+              rounded
+              color="red"
+              icon="delete"
+              @click.stop="promptToDelete(taskId)"
+              >
+          </q-btn>
+        </div>
+      </q-item-section>
+      <q-dialog v-model="showEditTask">
+        <EditTask
+          :task="task"
+          :taskId="taskId"
+          @closeEditTaskDialog="showEditTask = false"
+        />
+      </q-dialog>
     </q-item>
 </template>
 
 <script>
+import EditTask from './Modals/EditTask'
 export default {
   name: 'Task',
+  components: {
+    EditTask
+  },
   props: ['task', 'taskId'],
+  data () {
+    return {
+      showEditTask: false
+    }
+  },
   methods: {
     updateTask (taskUpdatesObject) {
       this.$store.dispatch('tasks/updateTaskAction', taskUpdatesObject)
