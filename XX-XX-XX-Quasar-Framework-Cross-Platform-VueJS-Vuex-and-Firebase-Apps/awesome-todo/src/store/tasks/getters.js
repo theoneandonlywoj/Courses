@@ -7,7 +7,9 @@ export function tasksFilteredGetter (state) {
   if (state.search) {
     Object.keys(state.tasks).forEach(key => {
       const task = state.tasks[key]
-      if (task.name.includes(state.search)) {
+      const taskNameLowercase = task.name.toLowerCase()
+      const searchLowercase = state.search.toLowerCase()
+      if (taskNameLowercase.includes(searchLowercase)) {
         tasksFiltered[key] = task
       }
     })
