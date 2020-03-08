@@ -1,7 +1,6 @@
 <template>
   <q-page class="q-pa-md">
     <TasksTodo />
-    <hr>
     <TasksCompleted />
     <div
       class="absolute-bottom

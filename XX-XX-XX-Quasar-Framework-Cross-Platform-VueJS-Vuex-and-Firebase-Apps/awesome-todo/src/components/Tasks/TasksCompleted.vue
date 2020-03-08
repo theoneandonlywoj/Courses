@@ -1,14 +1,9 @@
 <template>
-  <div>
-    <q-banner
-    dense
-    class="text-white
-          bg-green-4
-          text-center">
-      <span class="text-bold text-subtitle-1">
-          Completed
-      </span>
-    </q-banner>
+  <div class="q-mt-lg">
+    <ListHeader
+      headerTitle="Completed"
+      bgColor="bg-green-4"
+    />
     <q-list
       v-if="Object.keys(tasksCompleted).length"
       separator
@@ -26,9 +21,12 @@
 
 <script>
 import Task from './Task'
+import ListHeader from './Shared/ListHeader'
+
 export default {
   components: {
-    Task
+    Task,
+    ListHeader
   },
   computed: {
     tasksCompleted () {
