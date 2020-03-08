@@ -1,6 +1,7 @@
 export function tasksGetter (state) {
   return state.tasks
 }
+
 export function tasksTodoGetter (state) {
   const tasksToDo = {}
   Object.keys(state.tasks).forEach(key => {
@@ -21,4 +22,8 @@ export function tasksCompletedGetter (state) {
     }
   })
   return tasksCompleted
+}
+
+export function searchGetter (state) {
+  return state.search
 }

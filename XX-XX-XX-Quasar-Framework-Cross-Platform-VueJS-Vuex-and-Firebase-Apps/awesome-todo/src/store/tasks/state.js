@@ -1,5 +1,6 @@
 export default function () {
   return {
+    search: 'Test1',
     tasks: {
       ID1: {
         name: 'Fix stuff',

@@ -11,3 +11,7 @@ export function deleteTaskMutation (state, id) {
 export function addTaskMutation (state, payload) {
   Vue.set(state.tasks, payload.id, payload.task)
 }
+
+export function setSearchValueMutation (state, payload) {
+  state.search = payload
+}

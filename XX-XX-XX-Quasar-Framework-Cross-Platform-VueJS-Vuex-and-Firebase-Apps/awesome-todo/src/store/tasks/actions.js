@@ -16,3 +16,7 @@ export function addTaskAction ({ commit }, task) {
   }
   commit('addTaskMutation', payload)
 }
+
+export function setSearchValueAction ({ commit }, value) {
+  commit('setSearchValueMutation', value)
+}
