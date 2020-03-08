@@ -1,7 +1,7 @@
 export function tasksGetter (state) {
   return state.tasks
 }
-export function tasksToDoGetter (state) {
+export function tasksTodoGetter (state) {
   const tasksToDo = {}
   Object.keys(state.tasks).forEach(key => {
     const task = state.tasks[key]

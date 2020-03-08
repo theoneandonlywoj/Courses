@@ -1,19 +1,8 @@
 <template>
   <q-page class="q-pa-md">
-    <q-list
-      v-if="Object.keys(tasks).length"
-      separator
-      bordered>
-
-      <Task
-        v-for="(task, key) in tasks"
-        :key="key"
-        :task="task"
-        :taskId="key">
-      </Task>
-
-    </q-list>
-
+    <TasksTodo />
+    <hr>
+    <TasksCompleted />
     <div
       class="absolute-bottom
              text-center
@@ -34,23 +23,20 @@
 </template>
 
 <script>
-import Task from '../components/Tasks/Task'
 import AddTask from '../components/Tasks/Modals/AddTask'
+import TasksTodo from '../components/Tasks/TasksTodo'
+import TasksCompleted from '../components/Tasks/TasksCompleted'
 
 export default {
   name: 'PageTodo',
   components: {
-    Task,
-    AddTask
+    AddTask,
+    TasksTodo,
+    TasksCompleted
   },
   data () {
     return {
       showAddTask: false
-    }
-  },
-  computed: {
-    tasks () {
-      return this.$store.getters['tasks/tasksGetter']
     }
   }
 }
