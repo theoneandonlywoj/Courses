@@ -2,11 +2,33 @@ export function tasksGetter (state) {
   return state.tasks
 }
 
-export function tasksFilteredGetter (state) {
+export function tasksSortedGetter (state) {
+  const tasksSorted = {}
+  const keysOrdered = Object.keys(state.tasks)
+  // If we return a positive value, a will be placed after b.
+  keysOrdered.sort((a, b) => {
+    const taskAName = state.tasks[a].name.toLowerCase()
+    const taskBName = state.tasks[b].name.toLowerCase()
+    if (taskAName > taskBName) {
+      return 1
+    } else if (taskAName < taskBName) {
+      return -1
+    } else {
+      return 0
+    }
+  })
+  keysOrdered.forEach(key => {
+    tasksSorted[key] = state.tasks[key]
+  })
+  console.log('tasksSorted', tasksSorted)
+  return tasksSorted
+}
+export function tasksFilteredGetter (state, getters) {
+  const tasksSorted = getters.tasksSortedGetter
   const tasksFiltered = {}
   if (state.search) {
-    Object.keys(state.tasks).forEach(key => {
-      const task = state.tasks[key]
+    Object.keys(tasksSorted).forEach(key => {
+      const task = tasksSorted[key]
       const taskNameLowercase = task.name.toLowerCase()
       const searchLowercase = state.search.toLowerCase()
       if (taskNameLowercase.includes(searchLowercase)) {
@@ -15,7 +37,7 @@ export function tasksFilteredGetter (state) {
     })
     return tasksFiltered
   } else {
-    return state.tasks
+    return tasksSorted
   }
 }
 
