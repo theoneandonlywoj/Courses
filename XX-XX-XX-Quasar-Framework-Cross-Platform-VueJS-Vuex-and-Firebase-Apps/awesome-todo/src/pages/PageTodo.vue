@@ -2,6 +2,7 @@
   <q-page class="q-pa-md">
     <div class="row q-mb-lg">
       <Search />
+      <Sort />
     </div>
     <TasksTodo />
     <TasksCompleted />
@@ -29,6 +30,7 @@ import AddTask from '../components/Tasks/Modals/AddTask'
 import TasksTodo from '../components/Tasks/TasksTodo'
 import TasksCompleted from '../components/Tasks/TasksCompleted'
 import Search from '../components/Tasks/Tools/Search'
+import Sort from '../components/Tasks/Tools/Sort'
 
 export default {
   name: 'PageTodo',
@@ -36,7 +38,8 @@ export default {
     AddTask,
     TasksTodo,
     TasksCompleted,
-    Search
+    Search,
+    Sort
   },
   data () {
     return {
