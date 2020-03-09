@@ -7,8 +7,8 @@ export function tasksSortedGetter (state) {
   const keysOrdered = Object.keys(state.tasks)
   // If we return a positive value, a will be placed after b.
   keysOrdered.sort((a, b) => {
-    const taskAName = state.tasks[a].name.toLowerCase()
-    const taskBName = state.tasks[b].name.toLowerCase()
+    const taskAName = state.tasks[a][state.sortBy].toLowerCase()
+    const taskBName = state.tasks[b][state.sortBy].toLowerCase()
     if (taskAName > taskBName) {
       return 1
     } else if (taskAName < taskBName) {

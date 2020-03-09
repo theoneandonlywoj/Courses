@@ -1,6 +1,7 @@
 export default function () {
   return {
     search: '',
+    sortBy: 'name',
     tasks: {
       ID1: {
         name: 'a',
