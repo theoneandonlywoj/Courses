@@ -1,6 +1,7 @@
 <template>
   <q-input
     outlined
+    v-select-all
     v-model="searchField"
     label="Search"
     class="col">
@@ -27,6 +28,7 @@ export default {
       }
     }
   }
+
 }
 </script>
 

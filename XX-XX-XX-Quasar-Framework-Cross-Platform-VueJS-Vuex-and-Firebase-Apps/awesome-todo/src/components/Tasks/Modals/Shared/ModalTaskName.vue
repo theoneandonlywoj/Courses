@@ -18,20 +18,7 @@
 
 <script>
 export default {
-  props: ['taskName'],
-  directives: {
-    selectAll: {
-      inserted (el) {
-        // When the element is insterted and the length of the value > 0, select all.
-        const input = el.querySelector('.q-field__native')
-        input.addEventListener('focus', () => {
-          if (input.value.length) {
-            input.select()
-          }
-        })
-      }
-    }
-  }
+  props: ['taskName']
 }
 </script>
 
