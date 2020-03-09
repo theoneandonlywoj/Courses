@@ -20,7 +20,6 @@ export function tasksSortedGetter (state) {
   keysOrdered.forEach(key => {
     tasksSorted[key] = state.tasks[key]
   })
-  console.log('tasksSorted', tasksSorted)
   return tasksSorted
 }
 export function tasksFilteredGetter (state, getters) {
@@ -67,4 +66,8 @@ export function tasksCompletedGetter (state, getters) {
 
 export function searchGetter (state) {
   return state.search
+}
+
+export function sortByGetter (state) {
+  return state.sortBy
 }

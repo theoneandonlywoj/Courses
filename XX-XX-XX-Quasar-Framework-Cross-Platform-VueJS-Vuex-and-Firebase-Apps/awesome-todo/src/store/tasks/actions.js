@@ -20,3 +20,7 @@ export function addTaskAction ({ commit }, task) {
 export function setSearchValueAction ({ commit }, value) {
   commit('setSearchValueMutation', value)
 }
+
+export function setSortByAction ({ commit }, value) {
+  commit('setSortByMutation', value)
+}

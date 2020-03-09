@@ -15,3 +15,7 @@ export function addTaskMutation (state, payload) {
 export function setSearchValueMutation (state, payload) {
   state.search = payload
 }
+
+export function setSortByMutation (state, value) {
+  state.sortBy = value
+}

@@ -15,7 +15,6 @@
 export default {
   data () {
     return {
-      sortBy: 'name',
       options: [
         {
           label: 'Name',
@@ -26,6 +25,16 @@ export default {
           value: 'dueDate'
         }
       ]
+    }
+  },
+  computed: {
+    sortBy: {
+      get () {
+        return this.$store.getters['tasks/sortByGetter']
+      },
+      set (value) {
+        this.$store.dispatch('tasks/setSortByAction', value)
+      }
     }
   }
 }
