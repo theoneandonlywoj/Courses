@@ -1,5 +1,6 @@
 <template>
   <q-item
+    v-touch-hold:1000.mouse="showEditTaskModal"
     @click="updateTask({
         id: taskId,
         updates: {
@@ -58,7 +59,7 @@
               rounded
               color="primary"
               icon="edit"
-              @click.stop="showEditTask = true"
+              @click.stop="showEditTaskModal"
               >
           </q-btn>
           <q-btn
@@ -114,6 +115,9 @@ export default {
       }).onOk(() => {
         this.deleteTask(taskId)
       })
+    },
+    showEditTaskModal () {
+      this.showEditTask = true
     }
   }
 }
