@@ -1,3 +1,3 @@
-export function setSettingsAction ({ commit }, value) {
-  commit('setSettingsMutation', value)
+export function setSomeLocalStorageSettingAction ({ commit }, value) {
+  commit('setSomeLocalStorageSettingMutation', value)
 }
