@@ -1,55 +1,60 @@
 <template>
-  <q-item
-    v-touch-hold:1000.mouse="showEditTaskModal"
-    @click="updateTask({
-        id: taskId,
-        updates: {
-            completed: !task.completed
-        }})"
-    clickable
-    v-ripple
-    :class="!task.completed ? 'bg-orange-1' : 'bg-green-1' ">
-    <q-item-section side top>
-        <q-checkbox
-            :value="task.completed"
-            class="no-pointer-events"/>
-    </q-item-section>
+  <transition
+      appear
+      enter-active-class="animated fadeInLeft"
+      leave-active-class="animated fadeOutRight"
+    >
+    <q-item
+      v-touch-hold:1000.mouse="showEditTaskModal"
+      @click="updateTask({
+          id: taskId,
+          updates: {
+              completed: !task.completed
+          }})"
+      clickable
+      v-ripple
+      :class="!task.completed ? 'bg-orange-1' : 'bg-green-1' ">
+      <q-item-section side top>
+          <q-checkbox
+              :value="task.completed"
+              class="no-pointer-events"/>
+      </q-item-section>
 
-    <q-item-section>
-        <q-item-label
-          :class="{
-              'text-strike': task.completed
-          }">
-          {{ task.name }}
-        </q-item-label>
-    </q-item-section>
+      <q-item-section>
+          <q-item-label
+            :class="{
+                'text-strike': task.completed
+            }">
+            {{ task.name }}
+          </q-item-label>
+      </q-item-section>
 
-    <q-item-section
-      v-if="task.dueDate"
-      side>
-      <div class="row">
-        <div class="column justify-center">
-            <q-icon
-              name="event"
-              size="18px"
-              class="q-mr-xs"
-            ></q-icon>
+      <q-item-section
+        v-if="task.dueDate"
+        side>
+        <div class="row">
+          <div class="column justify-center">
+              <q-icon
+                name="event"
+                size="18px"
+                class="q-mr-xs"
+              ></q-icon>
+          </div>
+          <div class="column">
+              <q-item-label
+                  caption
+                  class="row justify-end"
+              >
+                {{ task.dueDate}}
+              </q-item-label>
+              <q-item-label
+                  caption
+                  class="row justify-end"
+              >
+              <small>{{ task.dueTime }}</small>
+              </q-item-label>
+          </div>
         </div>
-        <div class="column">
-            <q-item-label
-                caption
-                class="row justify-end"
-            >
-              {{ task.dueDate}}
-            </q-item-label>
-            <q-item-label
-                caption
-                class="row justify-end"
-            >
-            <small>{{ task.dueTime }}</small>
-            </q-item-label>
-        </div>
-      </div>
       </q-item-section>
       <q-item-section side>
         <div class="row">
@@ -81,6 +86,7 @@
         />
       </q-dialog>
     </q-item>
+  </transition>
 </template>
 
 <script>
