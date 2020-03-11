@@ -7,6 +7,15 @@
         <q-toolbar-title class="absolute-center">
           Awesome Todo
         </q-toolbar-title>
+
+      <q-btn
+        flat
+        icon-right="account_circle"
+        label="Login"
+        :to="{ name: 'Auth' }"
+        class="absolute-right"
+      >
+      </q-btn>
       </q-toolbar>
     </q-header>
 
@@ -15,7 +24,7 @@
         <q-route-tab
           v-for="nav in navs"
           :key="nav.id"
-          :to="{ name: nav.toByName}"
+          :to="{ name: nav.toByName }"
           :icon="nav.icon"
           :label="nav.label" />
       </q-tabs>
@@ -41,7 +50,7 @@
             :key="nav.id"
             clickable
             exact
-            :to="{ name: nav.toByName}"
+            :to="{ name: nav.toByName }"
             class="text-grey-4"
           >
             <q-item-section
@@ -67,10 +76,6 @@
 <script>
 export default {
   name: 'MainLayout',
-
-  components: {
-  },
-
   data () {
     return {
       leftDrawerOpen: false,
