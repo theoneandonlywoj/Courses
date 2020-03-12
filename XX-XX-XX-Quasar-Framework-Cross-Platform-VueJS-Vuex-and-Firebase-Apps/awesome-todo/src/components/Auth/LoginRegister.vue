@@ -62,7 +62,7 @@ export default {
       this.$refs.password.validate()
       if (!this.$refs.email.hasError && !this.$refs.password.hasError) {
         if (this.tab === 'login') {
-          console.log('login the user')
+          this.$store.dispatch('auth/loginUserAction', this.formData)
         } else {
           this.$store.dispatch('auth/registerUserAction', this.formData)
         }

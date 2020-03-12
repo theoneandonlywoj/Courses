@@ -10,3 +10,13 @@ export function registerUserAction ({ commit }, payload) {
       console.log('Register Error', e)
     })
 }
+
+export function loginUserAction ({ commit }, payload) {
+  firebaseAuth.signInWithEmailAndPassword(payload.email, payload.password)
+    .then(res => {
+      console.log('res', res)
+    })
+    .catch(e => {
+      console.log('Register Error', e)
+    })
+}
