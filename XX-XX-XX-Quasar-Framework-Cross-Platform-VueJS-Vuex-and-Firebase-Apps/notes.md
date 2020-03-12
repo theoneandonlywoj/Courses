@@ -13,3 +13,13 @@ quasar create <project_name>
 - When we have a parent div or section that has a click attached to, clicking on the child section will trigger that click event. 
 - If we want to stop that behaviour (click event propagation), we need to add .stop to the click event on the child section.
 - Example in the src/compontents/Tasks/Task.vue
+
+## Adding a boot file
+```bash
+quasar new boot <name>
+```
+
+## Install Firebase Package
+```bash
+npm install --save firebase
+```
