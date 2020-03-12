@@ -1,3 +1,3 @@
-export function setSortByMutation (state, value) {
-  state.sortBy = value
+export function setLoggedInMutation (state, value) {
+  state.loggedIn = value
 }

@@ -20,3 +20,14 @@ export function loginUserAction ({ commit }, payload) {
       console.log('Register Error', e)
     })
 }
+
+export function handleAuthStateChangeAction ({ commit }) {
+  console.log('State change')
+  firebaseAuth.onAuthStateChanged((user) => {
+    if (user) {
+      this.commit('setLoggedInMutation', true)
+    } else {
+      this.commit('setLoggedInMutation', false)
+    }
+  })
+}

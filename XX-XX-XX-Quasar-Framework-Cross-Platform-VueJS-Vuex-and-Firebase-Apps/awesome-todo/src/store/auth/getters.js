@@ -1,3 +1,3 @@
-export function tasksGetter (state) {
-  return state.tasks
+export function loggedInGetter (state) {
+  return state.loggedIn
 }

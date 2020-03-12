@@ -9,6 +9,7 @@ export default {
   name: 'App',
   mounted () {
     this.$store.dispatch('settings/loadSettingsFromLocalStorageAction')
+    this.$store.dispatch('auth/handleAuthStateChangeAction')
   }
 }
 </script>

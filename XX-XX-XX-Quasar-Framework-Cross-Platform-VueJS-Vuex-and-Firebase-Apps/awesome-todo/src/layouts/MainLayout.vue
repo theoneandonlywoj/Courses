@@ -9,9 +9,19 @@
         </q-toolbar-title>
 
       <q-btn
+        v-if="!loggedIn"
         flat
         icon-right="account_circle"
         label="Login"
+        :to="{ name: 'Auth' }"
+        class="absolute-right"
+      >
+      </q-btn>
+      <q-btn
+        v-else
+        flat
+        icon-right="account_circle"
+        label="Logout"
         :to="{ name: 'Auth' }"
         class="absolute-right"
       >
@@ -93,6 +103,13 @@ export default {
           toByName: 'Settings'
         }
       ]
+    }
+  },
+  computed: {
+    loggedIn: {
+      get () {
+        return this.$store.getters['auth/loggedInGetter']
+      }
     }
   }
 }
