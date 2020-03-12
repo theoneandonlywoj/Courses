@@ -21,13 +21,18 @@ export function loginUserAction ({ commit }, payload) {
     })
 }
 
+export function logoutUserAction ({ commit }) {
+  firebaseAuth.signOut()
+}
+
 export function handleAuthStateChangeAction ({ commit }) {
   console.log('State change')
   firebaseAuth.onAuthStateChanged((user) => {
     if (user) {
-      this.commit('setLoggedInMutation', true)
+      console.log('userStatusChanged')
+      commit('setLoggedInMutation', true)
     } else {
-      this.commit('setLoggedInMutation', false)
+      commit('setLoggedInMutation', false)
     }
   })
 }

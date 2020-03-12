@@ -22,7 +22,7 @@
         flat
         icon-right="account_circle"
         label="Logout"
-        :to="{ name: 'Auth' }"
+        @click="signout()"
         class="absolute-right"
       >
       </q-btn>
@@ -110,6 +110,11 @@ export default {
       get () {
         return this.$store.getters['auth/loggedInGetter']
       }
+    }
+  },
+  methods: {
+    signout () {
+      this.$store.dispatch('auth/logoutUserAction')
     }
   }
 }
