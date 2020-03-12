@@ -64,7 +64,7 @@ export default {
         if (this.tab === 'login') {
           console.log('login the user')
         } else {
-          console.log('register the user')
+          this.$store.dispatch('auth/registerUserAction', this.formData)
         }
       }
     }
