@@ -1,5 +1,6 @@
 import { LocalStorage } from 'quasar'
 import { firebaseAuth } from './../../boot/firebase'
+import { showErrorMessage } from './../../functions/function-error-show-message'
 
 export function registerUserAction ({ commit }, payload) {
   // commit('registerUserMutation', value)
@@ -8,7 +9,7 @@ export function registerUserAction ({ commit }, payload) {
       console.log('res', res)
     })
     .catch(e => {
-      console.log('Register Error', e)
+      showErrorMessage(e.message)
     })
 }
 
@@ -18,7 +19,7 @@ export function loginUserAction ({ commit }, payload) {
       console.log('res', res)
     })
     .catch(e => {
-      console.log('Register Error', e)
+      showErrorMessage(e.message)
     })
 }
 
