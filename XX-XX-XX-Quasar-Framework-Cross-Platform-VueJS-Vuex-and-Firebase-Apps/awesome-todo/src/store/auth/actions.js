@@ -27,12 +27,14 @@ export function logoutUserAction ({ commit }) {
 
 export function handleAuthStateChangeAction ({ commit }) {
   console.log('State change')
-  firebaseAuth.onAuthStateChanged((user) => {
+  firebaseAuth.onAuthStateChanged(user => {
     if (user) {
       console.log('userStatusChanged')
       commit('setLoggedInMutation', true)
+      this.$router.push({ name: 'PageTodo' })
     } else {
       commit('setLoggedInMutation', false)
+      this.$router.replace({ name: 'Auth' })
     }
   })
 }
