@@ -31,7 +31,9 @@ export function handleAuthStateChangeAction ({ commit }) {
     if (user) {
       console.log('userStatusChanged')
       commit('setLoggedInMutation', true)
-      this.$router.push({ name: 'PageTodo' })
+      this.$router.push({ name: 'PageTodo' }).catch(() => {
+        console.log('Navigation duplication for already logged in users.')
+      })
     } else {
       commit('setLoggedInMutation', false)
       this.$router.replace({ name: 'Auth' })
