@@ -1,3 +1,4 @@
+import { LocalStorage } from 'quasar'
 import { firebaseAuth } from './../../boot/firebase'
 
 export function registerUserAction ({ commit }, payload) {
@@ -31,11 +32,13 @@ export function handleAuthStateChangeAction ({ commit }) {
     if (user) {
       console.log('userStatusChanged')
       commit('setLoggedInMutation', true)
+      LocalStorage.set('loggedIn', true)
       this.$router.push({ name: 'PageTodo' }).catch(() => {
         console.log('Navigation duplication for already logged in users.')
       })
     } else {
       commit('setLoggedInMutation', false)
+      LocalStorage.set('loggedIn', false)
       this.$router.replace({ name: 'Auth' })
     }
   })
