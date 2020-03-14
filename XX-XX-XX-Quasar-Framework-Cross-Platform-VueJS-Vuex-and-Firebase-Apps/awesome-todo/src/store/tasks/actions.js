@@ -48,4 +48,8 @@ export function firebaseReadDataAction ({ commit }) {
     }
     commit('updateTaskMutation', payload)
   })
+
+  userTasks.on('child_removed', snapshot => {
+    commit('deleteTaskMutation', snapshot.key)
+  })
 }
