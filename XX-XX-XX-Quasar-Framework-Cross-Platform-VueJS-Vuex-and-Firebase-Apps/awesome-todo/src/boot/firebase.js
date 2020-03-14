@@ -7,6 +7,8 @@ import 'firebase/analytics'
 // Add the Firebase products that you want to use
 import 'firebase/auth'
 
+import 'firebase/database'
+
 var firebaseConfig = {
   apiKey: 'AIzaSyAN_vXDc4hQhGM7ssouGzYk0T50IWhZw78',
   authDomain: 'awesome-todo-bfd64.firebaseapp.com',
@@ -21,5 +23,6 @@ var firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 const firebaseAuth = firebaseApp.auth()
+const firebaseDb = firebaseApp.database()
 
-export { firebaseAuth }
+export { firebaseAuth, firebaseDb }
