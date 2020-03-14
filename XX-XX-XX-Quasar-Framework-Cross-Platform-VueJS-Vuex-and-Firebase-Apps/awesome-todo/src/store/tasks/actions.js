@@ -1,8 +1,8 @@
 import { uid } from 'quasar'
 import { firebaseAuth, firebaseDb } from '../../boot/firebase'
 
-export function updateTaskAction ({ commit }, payload) {
-  commit('updateTaskMutation', payload)
+export function updateTaskAction ({ dispatch }, payload) {
+  dispatch('firebaseUpdateTaskAction', payload)
 }
 
 export function deleteTaskAction ({ commit }, id) {
@@ -56,8 +56,13 @@ export function firebaseReadDataAction ({ commit }) {
 export function firebaseAddTaskAction ({ commit }, payload) {
   // The listener will add the task to our state
   // so we need to only one thing - add the task to the Firebase database.
-  console.log('payload', payload)
   const userId = firebaseAuth.currentUser.uid
   const newTaskRef = firebaseDb.ref(`tasks/${userId}/${payload.id}`)
   newTaskRef.set(payload.task)
+}
+
+export function firebaseUpdateTaskAction ({ commit }, payload) {
+  const userId = firebaseAuth.currentUser.uid
+  const updatedTaskRef = firebaseDb.ref(`tasks/${userId}/${payload.id}`)
+  updatedTaskRef.update(payload.updates)
 }
