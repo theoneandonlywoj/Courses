@@ -1,9 +1,10 @@
-import { LocalStorage } from 'quasar'
+import { LocalStorage, Loading } from 'quasar'
 import { firebaseAuth } from './../../boot/firebase'
 import { showErrorMessage } from './../../functions/function-error-show-message'
 
 export function registerUserAction ({ commit }, payload) {
   // commit('registerUserMutation', value)
+  Loading.show()
   firebaseAuth.createUserWithEmailAndPassword(payload.email, payload.password)
     .then(res => {
       console.log('res', res)
@@ -14,6 +15,7 @@ export function registerUserAction ({ commit }, payload) {
 }
 
 export function loginUserAction ({ commit }, payload) {
+  Loading.show()
   firebaseAuth.signInWithEmailAndPassword(payload.email, payload.password)
     .then(res => {
       console.log('res', res)
@@ -30,8 +32,8 @@ export function logoutUserAction ({ commit }) {
 export function handleAuthStateChangeAction ({ commit }) {
   console.log('State change')
   firebaseAuth.onAuthStateChanged(user => {
+    Loading.hide()
     if (user) {
-      console.log('userStatusChanged')
       commit('setLoggedInMutation', true)
       LocalStorage.set('loggedIn', true)
       this.$router.push({ name: 'PageTodo' }).catch(() => {
