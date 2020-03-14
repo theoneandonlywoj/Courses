@@ -9,13 +9,13 @@ export function deleteTaskAction ({ commit }, id) {
   commit('deleteTaskMutation', id)
 }
 
-export function addTaskAction ({ commit }, task) {
+export function addTaskAction ({ dispatch }, task) {
   const taskId = uid()
   const payload = {
     id: taskId,
     task: task
   }
-  commit('addTaskMutation', payload)
+  dispatch('firebaseAddTaskAction', payload)
 }
 
 export function setSearchValueAction ({ commit }, value) {
@@ -27,7 +27,6 @@ export function setSortByAction ({ commit }, value) {
 }
 
 export function firebaseReadDataAction ({ commit }) {
-  console.log('Reading data from the Firebase database')
   const userId = firebaseAuth.currentUser.uid
   const userTasks = firebaseDb.ref(`tasks/${userId}`)
   // child added
@@ -52,4 +51,13 @@ export function firebaseReadDataAction ({ commit }) {
   userTasks.on('child_removed', snapshot => {
     commit('deleteTaskMutation', snapshot.key)
   })
+}
+
+export function firebaseAddTaskAction ({ commit }, payload) {
+  // The listener will add the task to our state
+  // so we need to only one thing - add the task to the Firebase database.
+  console.log('payload', payload)
+  const userId = firebaseAuth.currentUser.uid
+  const newTaskRef = firebaseDb.ref(`tasks/${userId}/${payload.id}`)
+  newTaskRef.set(payload.task)
 }
