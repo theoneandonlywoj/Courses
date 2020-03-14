@@ -29,13 +29,14 @@ export function logoutUserAction ({ commit }) {
   firebaseAuth.signOut()
 }
 
-export function handleAuthStateChangeAction ({ commit }) {
+export function handleAuthStateChangeAction ({ commit, dispatch }) {
   console.log('State change')
   firebaseAuth.onAuthStateChanged(user => {
     Loading.hide()
     if (user) {
       commit('setLoggedInMutation', true)
       LocalStorage.set('loggedIn', true)
+      dispatch('tasks/firebaseReadDataAction', null, { root: true })
       this.$router.push({ name: 'PageTodo' }).catch(() => {
         console.log('Navigation duplication for already logged in users.')
       })

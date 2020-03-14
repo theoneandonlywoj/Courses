@@ -24,3 +24,7 @@ export function setSearchValueAction ({ commit }, value) {
 export function setSortByAction ({ commit }, value) {
   commit('setSortByMutation', value)
 }
+
+export function firebaseReadDataAction ({ commit }) {
+  console.log('Reading data from the Firebase database')
+}
