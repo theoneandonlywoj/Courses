@@ -27,13 +27,17 @@ export function setSortByAction ({ commit }, value) {
   commit('setSortByMutation', value)
 }
 
-export function firebaseReadDataAction ({ commit }) {
+export function firebaseReadDataAction ({ commit, dispatch }) {
   const userId = firebaseAuth.currentUser.uid
   const userTasks = firebaseDb.ref(`tasks/${userId}`)
 
   // Change tasksDownloaded when values are downloaded
   userTasks.once('value', () => {
     commit('setTasksDownloadedMutation', true)
+  }, error => {
+    // Show the message and log the user out
+    showErrorMessage(error.message)
+    dispatch('auth/logoutUserAction', null, { root: true })
   })
 
   // child added
