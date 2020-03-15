@@ -82,3 +82,8 @@ cd src-cordova
 cordova platform add android
 cordova platform add ios
 ```
+
+## Check if Cordova requirements are fulfilled
+```bash
+cordova requirements
+```
