@@ -1,4 +1,4 @@
-import { uid } from 'quasar'
+import { uid, Notify } from 'quasar'
 import { showErrorMessage } from './../../functions/function-error-show-message'
 import { firebaseAuth, firebaseDb } from '../../boot/firebase'
 
@@ -72,6 +72,11 @@ export function firebaseAddTaskAction ({ commit }, payload) {
   newTaskRef.set(payload.task, error => {
     if (error) {
       showErrorMessage(error.message)
+    } else {
+      Notify.create({
+        message: 'Task added!',
+        timeout: 300
+      })
     }
   })
 }
@@ -82,6 +87,11 @@ export function firebaseUpdateTaskAction ({ commit }, payload) {
   updatedTaskRef.update(payload.updates, error => {
     if (error) {
       showErrorMessage(error.message)
+    } else {
+      Notify.create({
+        message: 'Task updated!',
+        timeout: 300
+      })
     }
   })
 }
@@ -92,6 +102,11 @@ export function firebaseDeleteTaskAction ({ commit }, taskId) {
   toBeDeletedTaskRef.remove(error => {
     if (error) {
       showErrorMessage(error.message)
+    } else {
+      Notify.create({
+        message: 'Task deleted!',
+        timeout: 300
+      })
     }
   })
 }
