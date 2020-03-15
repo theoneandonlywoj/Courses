@@ -44,3 +44,13 @@ npm install --save firebase
 ```bash
 quasar build
 ```
+
+## Adding Mac Platform
+```bash
+quasar mode add electron
+```
+
+## Run dev in Electron mode
+```bash
+quasar dev -m electron
+```
