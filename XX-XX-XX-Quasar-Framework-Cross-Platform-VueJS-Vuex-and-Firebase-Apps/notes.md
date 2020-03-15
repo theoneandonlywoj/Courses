@@ -54,3 +54,8 @@ quasar mode add electron
 ```bash
 quasar dev -m electron
 ```
+
+## Build for production (Electron)
+```bash
+quasar build -m electron
+```
