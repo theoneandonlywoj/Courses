@@ -1,4 +1,5 @@
 import { uid } from 'quasar'
+import { showErrorMessage } from './../../functions/function-error-show-message'
 import { firebaseAuth, firebaseDb } from '../../boot/firebase'
 
 export function updateTaskAction ({ dispatch }, payload) {
@@ -64,19 +65,31 @@ export function firebaseAddTaskAction ({ commit }, payload) {
   // so we need to only one thing - add the task to the Firebase database.
   const userId = firebaseAuth.currentUser.uid
   const newTaskRef = firebaseDb.ref(`tasks/${userId}/${payload.id}`)
-  newTaskRef.set(payload.task)
+  newTaskRef.set(payload.task, error => {
+    if (error) {
+      showErrorMessage(error.message)
+    }
+  })
 }
 
 export function firebaseUpdateTaskAction ({ commit }, payload) {
   const userId = firebaseAuth.currentUser.uid
   const updatedTaskRef = firebaseDb.ref(`tasks/${userId}/${payload.id}`)
-  updatedTaskRef.update(payload.updates)
+  updatedTaskRef.update(payload.updates, error => {
+    if (error) {
+      showErrorMessage(error.message)
+    }
+  })
 }
 
 export function firebaseDeleteTaskAction ({ commit }, taskId) {
   const userId = firebaseAuth.currentUser.uid
   const toBeDeletedTaskRef = firebaseDb.ref(`tasks/${userId}/${taskId}`)
-  toBeDeletedTaskRef.remove()
+  toBeDeletedTaskRef.remove(error => {
+    if (error) {
+      showErrorMessage(error.message)
+    }
+  })
 }
 
 export function setTasksDownloadedAction ({ commit }, value) {
