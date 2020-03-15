@@ -71,3 +71,7 @@ export function searchGetter (state) {
 export function sortByGetter (state) {
   return state.sortBy
 }
+
+export function tasksDownloadedGetter (state) {
+  return state.tasksDownloaded
+}

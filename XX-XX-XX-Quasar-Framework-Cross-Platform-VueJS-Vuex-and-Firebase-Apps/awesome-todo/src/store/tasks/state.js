@@ -2,6 +2,7 @@ export default function () {
   return {
     search: '',
     sortBy: 'name',
-    tasks: {}
+    tasks: {},
+    tasksDownloaded: false
   }
 }

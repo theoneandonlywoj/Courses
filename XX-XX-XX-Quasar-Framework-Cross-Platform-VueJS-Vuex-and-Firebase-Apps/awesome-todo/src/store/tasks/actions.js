@@ -72,3 +72,7 @@ export function firebaseDeleteTaskAction ({ commit }, taskId) {
   const toBeDeletedTaskRef = firebaseDb.ref(`tasks/${userId}/${taskId}`)
   toBeDeletedTaskRef.remove()
 }
+
+export function setTasksDownloadedAction ({ commit }, value) {
+  commit('setTasksDownloadedMutation', value)
+}

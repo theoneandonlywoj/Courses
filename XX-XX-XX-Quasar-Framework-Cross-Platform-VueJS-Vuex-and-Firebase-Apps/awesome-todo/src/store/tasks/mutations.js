@@ -19,3 +19,7 @@ export function setSearchValueMutation (state, payload) {
 export function setSortByMutation (state, value) {
   state.sortBy = value
 }
+
+export function setTasksDownloadedMutation (state, value) {
+  state.tasksDownloaded = value
+}

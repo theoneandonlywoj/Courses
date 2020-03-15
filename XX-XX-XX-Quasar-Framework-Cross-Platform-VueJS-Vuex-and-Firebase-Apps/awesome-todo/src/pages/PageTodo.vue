@@ -5,31 +5,42 @@
                 full-width
                 full-height
                 column">
-      <div class="row q-mb-lg">
+      <template v-if="tasksDownloaded">
+        <div class="row q-mb-lg">
         <Search />
         <Sort />
-      </div>
-      <q-scroll-area class="q-scroll-area-tasks">
-        <TasksTodo />
-        <TasksCompleted
-          class="q-mb-xl"
-        />
-      </q-scroll-area>
-      <div
-        class="absolute-bottom
-              text-center
-              q-mb-lg
-              q-mt-lg
-              no-pointer-events">
-        <q-btn
-          round
-          color="primary"
-          size="24px"
-          icon="add"
-          class="all-pointer-events"
-          @click="showAddTask = true">
-        </q-btn>
-      </div>
+        </div>
+        <q-scroll-area class="q-scroll-area-tasks">
+          <TasksTodo />
+          <TasksCompleted
+            class="q-mb-xl"
+          />
+        </q-scroll-area>
+        <div
+          class="absolute-bottom
+                text-center
+                q-mb-lg
+                q-mt-lg
+                no-pointer-events">
+          <q-btn
+            round
+            color="primary"
+            size="24px"
+            icon="add"
+            class="all-pointer-events"
+            @click="showAddTask = true">
+          </q-btn>
+        </div>
+      </template>
+
+      <template v-else>
+        <span class="absolute-center">
+          <q-spinner
+            color="primary"
+            size="3em"
+          />
+        </span>
+      </template>
     </div>
     <q-dialog v-model="showAddTask">
       <AddTask @closeAddTaskDialog="showAddTask = false"></AddTask>
@@ -56,6 +67,16 @@ export default {
   data () {
     return {
       showAddTask: false
+    }
+  },
+  computed: {
+    tasksDownloaded: {
+      get () {
+        return this.$store.getters['tasks/tasksDownloadedGetter']
+      },
+      set (value) {
+        this.$store.dispatch('tasks/setTasksDownloadedAction', value)
+      }
     }
   }
 }
