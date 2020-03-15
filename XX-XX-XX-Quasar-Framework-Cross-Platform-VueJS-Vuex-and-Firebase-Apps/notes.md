@@ -90,3 +90,7 @@ cordova requirements
 
 ## Splash Screen Configuration
 https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
+
+## Android
+### Installation
+https://quasar.dev/quasar-cli/developing-cordova-apps/preparation
