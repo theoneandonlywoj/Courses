@@ -5,8 +5,8 @@ export function updateTaskAction ({ dispatch }, payload) {
   dispatch('firebaseUpdateTaskAction', payload)
 }
 
-export function deleteTaskAction ({ commit }, id) {
-  commit('deleteTaskMutation', id)
+export function deleteTaskAction ({ dispatch }, id) {
+  dispatch('firebaseDeleteTaskAction', id)
 }
 
 export function addTaskAction ({ dispatch }, task) {
@@ -65,4 +65,10 @@ export function firebaseUpdateTaskAction ({ commit }, payload) {
   const userId = firebaseAuth.currentUser.uid
   const updatedTaskRef = firebaseDb.ref(`tasks/${userId}/${payload.id}`)
   updatedTaskRef.update(payload.updates)
+}
+
+export function firebaseDeleteTaskAction ({ commit }, taskId) {
+  const userId = firebaseAuth.currentUser.uid
+  const toBeDeletedTaskRef = firebaseDb.ref(`tasks/${userId}/${taskId}`)
+  toBeDeletedTaskRef.remove()
 }
