@@ -94,3 +94,7 @@ https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
 ## Android
 ### Installation
 https://quasar.dev/quasar-cli/developing-cordova-apps/preparation
+
+## Icon Genie
+### Installation and usage
+https://quasar.dev/quasar-cli/app-icons
