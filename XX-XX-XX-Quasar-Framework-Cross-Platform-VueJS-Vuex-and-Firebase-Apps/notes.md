@@ -59,3 +59,26 @@ quasar dev -m electron
 ```bash
 quasar build -m electron
 ```
+
+## Install Cordova
+```bash
+sudo npm install -g cordova
+```
+
+## Instal Xcode (for iOS)
+- Go to developer.apple.com/download/more
+- Sign in with you Apple ID
+- Download Xcode
+- Extract and install it
+
+## Add the Cordova mode to the project
+```bash
+quasar mode add cordova
+```
+
+## Add iOS and Android modes
+```bash
+cd src-cordova
+cordova platform add android
+cordova platform add ios
+```
