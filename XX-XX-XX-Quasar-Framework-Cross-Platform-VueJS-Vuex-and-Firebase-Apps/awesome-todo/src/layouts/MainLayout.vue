@@ -1,7 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
     <q-header
-      v-if="$q.platform.is.desktop"
       elevated>
       <q-toolbar>
         <q-toolbar-title class="absolute-center">
@@ -43,7 +42,6 @@
     <q-drawer
       v-model="leftDrawerOpen"
       :width="250"
-      show-if-above
       bordered
       content-class="bg-primary"
     >
@@ -88,7 +86,7 @@ export default {
   name: 'MainLayout',
   data () {
     return {
-      leftDrawerOpen: false,
+      leftDrawerOpen: this.$q.platform.is.desktop,
       navs: [
         {
           id: 1,
