@@ -39,3 +39,8 @@ npm install --save firebase
 ```
 <link rel="icon" type="image/ico" href="statics/icons/favicon.ico">
 ```
+
+## Build for production (Web)
+```bash
+quasar build
+```
