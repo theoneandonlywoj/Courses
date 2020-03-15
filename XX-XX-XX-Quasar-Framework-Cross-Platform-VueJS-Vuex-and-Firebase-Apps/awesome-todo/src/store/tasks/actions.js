@@ -29,6 +29,12 @@ export function setSortByAction ({ commit }, value) {
 export function firebaseReadDataAction ({ commit }) {
   const userId = firebaseAuth.currentUser.uid
   const userTasks = firebaseDb.ref(`tasks/${userId}`)
+
+  // Change tasksDownloaded when values are downloaded
+  userTasks.once('value', () => {
+    commit('setTasksDownloadedMutation', true)
+  })
+
   // child added
   userTasks.on('child_added', snapshot => {
     const task = snapshot.val()

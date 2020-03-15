@@ -43,6 +43,8 @@ export function handleAuthStateChangeAction ({ commit, dispatch }) {
     } else {
       commit('setLoggedInMutation', false)
       LocalStorage.set('loggedIn', false)
+      // Set tasksDownloaded to false when the user logs out
+      dispatch('tasks/setTasksDownloadedAction', false, { root: true })
       this.$router.replace({ name: 'Auth' })
     }
   })
