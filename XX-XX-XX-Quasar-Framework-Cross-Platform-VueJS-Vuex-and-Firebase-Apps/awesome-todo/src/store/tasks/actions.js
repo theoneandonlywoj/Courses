@@ -82,3 +82,7 @@ export function firebaseDeleteTaskAction ({ commit }, taskId) {
 export function setTasksDownloadedAction ({ commit }, value) {
   commit('setTasksDownloadedMutation', value)
 }
+
+export function clearTasksAction ({ commit }) {
+  commit('clearTasksMutation')
+}

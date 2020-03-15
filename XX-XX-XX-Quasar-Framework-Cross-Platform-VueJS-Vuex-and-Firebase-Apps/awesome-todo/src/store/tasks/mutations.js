@@ -23,3 +23,7 @@ export function setSortByMutation (state, value) {
 export function setTasksDownloadedMutation (state, value) {
   state.tasksDownloaded = value
 }
+
+export function clearTasksMutation (state) {
+  state.tasks = {}
+}

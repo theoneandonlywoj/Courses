@@ -45,6 +45,8 @@ export function handleAuthStateChangeAction ({ commit, dispatch }) {
       LocalStorage.set('loggedIn', false)
       // Set tasksDownloaded to false when the user logs out
       dispatch('tasks/setTasksDownloadedAction', false, { root: true })
+      // Clear tasks when the user logs out
+      dispatch('tasks/clearTasksAction', null, { root: true })
       this.$router.replace({ name: 'Auth' })
     }
   })
