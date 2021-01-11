@@ -89,3 +89,24 @@
   display: block;
   margin: -1rem 0 2rem;
 }
+
+.meter {
+  display: flex;
+  overflow: hidden;
+  background-color: #e2e8f0;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+  height: 4rem;
+
+  span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #faf089;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: width 2s ease;
+  }
+}
