@@ -10,3 +10,8 @@ sudo npm install -g @quasar/cli
 ```bash
 quasar create note-app --branch next
 ```
+
+## Start dev server
+```bash
+quasar dev
+```
