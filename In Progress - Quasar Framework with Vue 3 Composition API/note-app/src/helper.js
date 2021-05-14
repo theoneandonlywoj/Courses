@@ -6,7 +6,7 @@ const useLocalStorage = (key, defaultValue) => {
     // Loading the initial value if it exists.
     const read = () => {
         const v = window.localStorage.getItem(key)
-        if (v != null) value.value = JSON.parsev(v)
+        if (v != null) value.value = JSON.parse(v)
     }
 
     read()
