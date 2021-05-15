@@ -1,12 +1,13 @@
 <script>
 import Container from 'src/components/Container.vue'
+import NoteCard from 'src/components/NoteCard.vue'
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLocalNotes } from 'src/helper'
 
 
 export default defineComponent({
-  components: { Container },
+  components: { Container, NoteCard },
   name: 'Index',
   setup() {
     const notes = useLocalNotes();
