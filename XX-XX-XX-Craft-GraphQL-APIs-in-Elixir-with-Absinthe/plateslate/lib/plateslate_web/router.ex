@@ -5,6 +5,15 @@ defmodule PlateSlateWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: PlateSlateWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: PlateSlateWeb.Endpoint}
+  end
+
   scope "/api", PlateSlateWeb do
     pipe_through :api
   end
