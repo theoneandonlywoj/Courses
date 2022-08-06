@@ -51,3 +51,104 @@ end
 ```sh
 mix ecto.migrate
 ```
+
+##### Create a folder to organise the code
+```sh
+mkdir lib/plateslate/menu
+```
+
+##### Create a file for the Category
+```sh
+touch lib/plateslate/menu/category.ex
+```
+
+##### Category (lib/plateslate/menu/category.ex)
+```elixir
+defmodule PlateSlate.Menu.Category do
+  use Ecto.Schema
+  import Ecto.Changeset
+  alias PlateSlate.Menu.Category
+
+  schema "categories" do
+    field :description, :string
+    field :name, :string
+
+    timestamps()
+  end
+
+  @doc false
+  def changeset(%Category{} = category, attrs) do
+    category
+    |> cast(attrs, [:description, :name])
+    |> validate_required([:name])
+  end
+end
+```
+
+##### Add a Category in the seeds for testing (lib/priv/repo.seeds.ex)
+```elixir
+# Script for populating the database. You can run it as:
+#
+#     mix run priv/repo/seeds.exs
+#
+# Inside the script, you can read and write to any of your
+# repositories directly:
+#
+#     PlateSlate.Repo.insert!(%PlateSlate.SomeSchema{})
+#
+# We recommend using the bang functions (`insert!`, `update!`
+# and so on) as they will fail if something goes wrong.
+
+alias PlateSlate.Repo
+alias PlateSlate.Menu.Category
+
+%Category{name: "Category1", description: "Description1"} |> Repo.insert!()
+```
+
+##### Create a file for the Absinthe Schema
+```sh
+touch lib/plateslate_web/schema.ex
+```
+
+##### Absinthe Schema file (lib/plateslate_web/schema.ex)
+```elixir
+defmodule PlateSlateWeb.Schema do
+  use Absinthe.Schema
+
+  alias PlateSlate.{Menu, Repo}
+
+  object :category do
+    field :id, :id
+    field :name, :string
+    field :description, :string
+  end
+
+  query do
+    field :categories, list_of(:category) do
+      resolve(fn _, _, _ ->
+        {:ok, Repo.all(Menu.Category)}
+      end)
+    end
+  end
+end
+
+```
+
+##### Adapt the router
+Put the following:
+```elixir
+  scope "/" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: PlateSlateWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: PlateSlateWeb.Endpoint}
+  end
+```
+after:
+```elixir
+  pipeline :api do
+    plug :accepts, ["json"]
+  end
+```
