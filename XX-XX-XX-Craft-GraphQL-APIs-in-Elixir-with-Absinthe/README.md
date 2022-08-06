@@ -152,3 +152,22 @@ after:
     plug :accepts, ["json"]
   end
 ```
+
+##### Adding obtaining a category by id (lib/plateslate_web/schema.ex)
+Paste the following:
+```elixir
+field :category, :category do
+    arg :id, non_null(:integer)
+    resolve(fn _, args, _ ->
+    {:ok, Repo.get!(Menu.Category, args.id)}
+    end)
+end
+```
+after:
+```elixir
+field :categories, list_of(:category) do
+    resolve(fn _, _, _ ->
+    {:ok, Repo.all(Menu.Category)}
+    end)
+end
+```

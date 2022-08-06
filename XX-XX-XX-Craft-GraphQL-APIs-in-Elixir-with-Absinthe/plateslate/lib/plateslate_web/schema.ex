@@ -15,5 +15,12 @@ defmodule PlateSlateWeb.Schema do
         {:ok, Repo.all(Menu.Category)}
       end)
     end
+
+    field :category, :category do
+      arg :id, non_null(:integer)
+      resolve(fn _, args, _ ->
+        {:ok, Repo.get!(Menu.Category, args.id)}
+      end)
+    end
   end
 end
