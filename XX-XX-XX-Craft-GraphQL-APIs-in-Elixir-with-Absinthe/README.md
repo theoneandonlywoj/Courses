@@ -25,3 +25,29 @@ mix ecto.setup
 {:absinthe_phoenix, "~> 2.0.0"},
 {:absinthe_relay, "~> 1.5.0"}
 ```
+
+##### Create first migration
+```sh
+mix ecto.gen.migration create_categories_table
+```
+
+##### Migration: create_categories_table (priv/repo/migrations/20220806161658_create_categories_table.exs)
+```elixir
+defmodule PlateSlate.Repo.Migrations.CreateCategoriesTable do
+  use Ecto.Migration
+
+  def change do
+    create table(:categories) do
+      add :name, :string, null: false
+      add :description, :string
+
+      timestamps()
+    end
+  end
+end
+```
+
+##### Migrate
+```sh
+mix ecto.migrate
+```
