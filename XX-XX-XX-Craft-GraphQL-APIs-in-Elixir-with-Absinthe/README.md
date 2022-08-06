@@ -17,3 +17,11 @@ mix phx.new plateslate --module PlateStale --no-assets --no-html
 ```sh
 mix ecto.setup
 ```
+
+##### Adding dependencies to the mix.exs file
+```elixir
+{:absinthe, "~> 1.6.0"},
+{:absinthe_plug, "~> 1.5"},
+{:absinthe_phoenix, "~> 2.0.0"},
+{:absinthe_relay, "~> 1.5.0"}
+```
