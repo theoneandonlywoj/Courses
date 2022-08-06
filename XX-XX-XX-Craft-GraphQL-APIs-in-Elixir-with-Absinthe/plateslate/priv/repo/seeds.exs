@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias PlateSlate.Repo
+alias PlateSlate.Menu.Category
+
+%Category{name: "Category1", description: "Description1"} |> Repo.insert!()
