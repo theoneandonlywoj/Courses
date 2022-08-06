@@ -1,5 +1,5 @@
-defmodule PlateStaleWeb.ErrorView do
-  use PlateStaleWeb, :view
+defmodule PlateSlateWeb.ErrorView do
+  use PlateSlateWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

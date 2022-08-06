@@ -8,15 +8,15 @@
 import Config
 
 config :plateslate,
-  namespace: PlateStale,
-  ecto_repos: [PlateStale.Repo]
+  namespace: PlateSlate,
+  ecto_repos: [PlateSlate.Repo]
 
 # Configures the endpoint
-config :plateslate, PlateStaleWeb.Endpoint,
+config :plateslate, PlateSlateWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: PlateStaleWeb.ErrorView, accepts: ~w(json), layout: false],
-  pubsub_server: PlateStale.PubSub,
-  live_view: [signing_salt: "8slYtwaM"]
+  render_errors: [view: PlateSlateWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: PlateSlate.PubSub,
+  live_view: [signing_salt: "MidN49Tu"]
 
 # Configures the mailer
 #
@@ -25,7 +25,7 @@ config :plateslate, PlateStaleWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :plateslate, PlateStale.Mailer, adapter: Swoosh.Adapters.Local
+config :plateslate, PlateSlate.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

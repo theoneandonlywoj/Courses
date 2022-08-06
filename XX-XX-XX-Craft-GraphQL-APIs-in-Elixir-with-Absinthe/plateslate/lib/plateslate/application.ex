@@ -1,4 +1,4 @@
-defmodule PlateStale.Application do
+defmodule PlateSlate.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule PlateStale.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      PlateStale.Repo,
+      PlateSlate.Repo,
       # Start the Telemetry supervisor
-      PlateStaleWeb.Telemetry,
+      PlateSlateWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: PlateStale.PubSub},
+      {Phoenix.PubSub, name: PlateSlate.PubSub},
       # Start the Endpoint (http/https)
-      PlateStaleWeb.Endpoint
-      # Start a worker by calling: PlateStale.Worker.start_link(arg)
-      # {PlateStale.Worker, arg}
+      PlateSlateWeb.Endpoint
+      # Start a worker by calling: PlateSlate.Worker.start_link(arg)
+      # {PlateSlate.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: PlateStale.Supervisor]
+    opts = [strategy: :one_for_one, name: PlateSlate.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule PlateStale.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    PlateStaleWeb.Endpoint.config_change(changed, removed)
+    PlateSlateWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

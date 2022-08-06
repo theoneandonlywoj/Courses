@@ -1,11 +1,11 @@
-defmodule PlateStaleWeb.Router do
-  use PlateStaleWeb, :router
+defmodule PlateSlateWeb.Router do
+  use PlateSlateWeb, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", PlateStaleWeb do
+  scope "/api", PlateSlateWeb do
     pipe_through :api
   end
 
@@ -22,7 +22,7 @@ defmodule PlateStaleWeb.Router do
     scope "/" do
       pipe_through [:fetch_session, :protect_from_forgery]
 
-      live_dashboard "/dashboard", metrics: PlateStaleWeb.Telemetry
+      live_dashboard "/dashboard", metrics: PlateSlateWeb.Telemetry
     end
   end
 

@@ -1,4 +1,4 @@
-defmodule PlateStaleWeb.Endpoint do
+defmodule PlateSlateWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :plateslate
 
   # The session will be stored in the cookie and signed,
@@ -7,7 +7,7 @@ defmodule PlateStaleWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_plateslate_key",
-    signing_salt: "mrOvlyFK"
+    signing_salt: "gugZ6Z7R"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -44,5 +44,5 @@ defmodule PlateStaleWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug PlateStaleWeb.Router
+  plug PlateSlateWeb.Router
 end

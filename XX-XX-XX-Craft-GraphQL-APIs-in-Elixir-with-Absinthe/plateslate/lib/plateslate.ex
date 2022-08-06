@@ -1,6 +1,6 @@
-defmodule PlateStale do
+defmodule PlateSlate do
   @moduledoc """
-  PlateStale keeps the contexts that define your domain
+  PlateSlate keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

@@ -1,12 +1,12 @@
-defmodule PlateStaleWeb do
+defmodule PlateSlateWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use PlateStaleWeb, :controller
-      use PlateStaleWeb, :view
+      use PlateSlateWeb, :controller
+      use PlateSlateWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule PlateStaleWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: PlateStaleWeb
+      use Phoenix.Controller, namespace: PlateSlateWeb
 
       import Plug.Conn
-      import PlateStaleWeb.Gettext
-      alias PlateStaleWeb.Router.Helpers, as: Routes
+      import PlateSlateWeb.Gettext
+      alias PlateSlateWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule PlateStaleWeb do
     quote do
       use Phoenix.View,
         root: "lib/plateslate_web/templates",
-        namespace: PlateStaleWeb
+        namespace: PlateSlateWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -54,7 +54,7 @@ defmodule PlateStaleWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import PlateStaleWeb.Gettext
+      import PlateSlateWeb.Gettext
     end
   end
 
@@ -63,9 +63,9 @@ defmodule PlateStaleWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import PlateStaleWeb.ErrorHelpers
-      import PlateStaleWeb.Gettext
-      alias PlateStaleWeb.Router.Helpers, as: Routes
+      import PlateSlateWeb.ErrorHelpers
+      import PlateSlateWeb.Gettext
+      alias PlateSlateWeb.Router.Helpers, as: Routes
     end
   end
 

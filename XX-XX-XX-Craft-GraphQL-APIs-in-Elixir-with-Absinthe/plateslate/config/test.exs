@@ -5,7 +5,7 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :plateslate, PlateStale.Repo,
+config :plateslate, PlateSlate.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
@@ -15,13 +15,13 @@ config :plateslate, PlateStale.Repo,
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :plateslate, PlateStaleWeb.Endpoint,
+config :plateslate, PlateSlateWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "Wlh0XYHHijPvi+Wx/Xn+xEEqmUztZNQNV9/VeTZjUqc5r1D6u3Too8JGzoF+W3Ey",
+  secret_key_base: "3vRwn0gzcWePzzcyTltscBY443H20A7mWcnrEC3aSZw4v5asoRgxFxb2GVk6BHvj",
   server: false
 
 # In test we don't send emails.
-config :plateslate, PlateStale.Mailer, adapter: Swoosh.Adapters.Test
+config :plateslate, PlateSlate.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
