@@ -10,7 +10,7 @@ elixir --version
 ```
 ##### Create a new project
 ```sh
-mix phx.new plateslate --module PlateStale --no-assets --no-html
+mix phx.new plateslate --module PlateSlate --no-assets --no-html
 ```
 
 ##### Setup a database
