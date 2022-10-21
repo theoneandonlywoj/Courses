@@ -18,3 +18,8 @@ mix phx.new getaways --module Getaways
 {:dataloader, "~> 1.0.6"}
 ...
 ```
+
+## Change the settings for the dev password if needed and create the database.
+```sh
+mix ecto.create
+```

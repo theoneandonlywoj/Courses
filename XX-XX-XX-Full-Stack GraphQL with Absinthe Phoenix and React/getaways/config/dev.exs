@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :getaways, Getaways.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "password",
   hostname: "localhost",
   database: "getaways_dev",
   stacktrace: true,
