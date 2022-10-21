@@ -6,3 +6,15 @@ https://pragmaticstudio.com/courses/unpacked-full-stack-graphql-with-absinthe-ph
 ```sh
 mix phx.new getaways --module Getaways
 ```
+
+## Add the following libraries (mix.exs)
+```elixir
+...
+{:absinthe, "~> 1.6.1"},
+{:absinthe_plug, "~> 1.5.8"},
+{:absinthe_phoenix, "~> 2.0.1"},
+{:pbkdf2_elixir, "~> 1.0"},
+{:cors_plug, "~> 2.0"},
+{:dataloader, "~> 1.0.6"}
+...
+```
