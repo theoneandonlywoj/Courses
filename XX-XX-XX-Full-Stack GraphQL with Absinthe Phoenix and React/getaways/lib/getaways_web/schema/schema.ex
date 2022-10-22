@@ -18,8 +18,36 @@ defmodule GetawaysWeb.Schema.Schema do
     field :places, list_of(:place) do
       arg(:limit, :integer)
       arg(:order, type: :sort_order, default_value: :asc)
+      arg(:filter, :place_filter)
       resolve(&Resolvers.Vacation.places/3)
     end
+  end
+
+  @desc "Filters for the list of places"
+  input_object :place_filter do
+    @desc "Matching a name, location, or description"
+    field :matching, :string
+
+    @desc "Has wifi"
+    field :wifi, :boolean
+
+    @desc "Allows pets"
+    field :pet_friendly, :boolean
+
+    @desc "Has a pool"
+    field :pool, :boolean
+
+    @desc "Number of guests"
+    field :guest_count, :integer
+
+    @desc "Available for booking between a start and end date"
+    field :available_between, :date_range
+  end
+
+  @desc "Start and end dates"
+  input_object :date_range do
+    field :start_date, non_null(:date)
+    field :end_date, non_null(:date)
   end
 
   enum :sort_order do
