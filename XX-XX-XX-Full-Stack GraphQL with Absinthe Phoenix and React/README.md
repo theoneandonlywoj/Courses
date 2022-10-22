@@ -109,5 +109,9 @@ defmodule Getaways.Vacation.Place do
     |> unique_constraint(:slug)
   end
 end
+```
 
+## Create the Users migration
+```sh
+mix ecto.gen.migration create_users_table
 ```
