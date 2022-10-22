@@ -145,7 +145,7 @@ mix ecto.migrate
 mix phx.gen.schema Vacation.Place places --no-migration
 ```
 
-## Content of the schema ()
+## Content of the schema (/getaways/vacation/place.ex)
 ```elixir
 defmodule Getaways.Vacation.Place do
   use Ecto.Schema
@@ -163,6 +163,9 @@ defmodule Getaways.Vacation.Place do
     field :pet_friendly, :boolean, default: false
     field :pool, :boolean, default: false
     field :wifi, :boolean, default: false
+
+    has_many :bookings, Getaways.Vacation.Booking
+    has_many :reviews, Getaways.Vacation.Review
 
     timestamps()
   end
@@ -187,4 +190,5 @@ defmodule Getaways.Vacation.Place do
     |> unique_constraint(:slug)
   end
 end
+
 ```

@@ -15,6 +15,9 @@ defmodule Getaways.Vacation.Place do
     field :pool, :boolean, default: false
     field :wifi, :boolean, default: false
 
+    has_many :bookings, Getaways.Vacation.Booking
+    has_many :reviews, Getaways.Vacation.Review
+
     timestamps()
   end
 
