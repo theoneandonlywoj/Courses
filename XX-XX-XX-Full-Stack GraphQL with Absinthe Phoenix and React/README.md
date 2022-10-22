@@ -1152,3 +1152,21 @@ defmodule Getaways.Accounts do
   end
 end
 ```
+
+## Create a file for the Absinthe Schema.
+```sh
+mkdir lib/getaways_web/schema
+touch lib/getaways_web/schema/schema.ex
+```
+
+## Initial content of the schema. (lib/getaways_web/schema/schema.ex)
+```elixir
+defmodule GetawaysWeb.Schema.Schema do
+  use Absinthe.Schema
+  alias Getaways.{Accounts, Vacation}
+
+  query do
+
+  end
+end
+```
