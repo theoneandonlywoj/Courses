@@ -1176,6 +1176,7 @@ end
 defmodule GetawaysWeb.Schema.Schema do
   use Absinthe.Schema
   alias Getaways.{Accounts, Vacation}
+  alias GetawaysWeb.Resolvers
 
   # Importing Custom types, f.e. decimal
   import_types(Absinthe.Type.Custom)
@@ -1203,4 +1204,39 @@ defmodule GetawaysWeb.Schema.Schema do
     field :image_thumbnail, non_null(:string)
   end
 end
+```
+
+## Create a file for the Vacations Resolver.
+```sh
+mkdir lib/getaways_web/resolvers
+touch lib/getaways_web/resolvers/vacation.ex
+```
+
+## Content (touch lib/getaways_web/resolvers/vacation.ex)
+```elixir
+defmodule GetawaysWeb.Resolvers.Vacation do
+  alias Getaways.Vacation
+
+  def place(_, %{slug: slug}, _) do
+    {:ok, Vacation.get_place_by_slug!(slug)}
+  end
+end
+```
+
+## You can test with IEX.
+```sh
+iex -S mix
+```
+```iex
+doc = """
+    query {
+        place(slug: "ski-cabin") {
+            id
+            name
+            location
+        }
+    }
+"""
+
+Absinthe.run(doc, GetawaysWeb.Schema.Schema)
 ```

@@ -2,6 +2,8 @@ defmodule GetawaysWeb.Schema.Schema do
   use Absinthe.Schema
   alias Getaways.{Accounts, Vacation}
 
+  alias GetawaysWeb.Resolvers
+
   # Importing Custom types, f.e. decimal
   import_types(Absinthe.Type.Custom)
 
