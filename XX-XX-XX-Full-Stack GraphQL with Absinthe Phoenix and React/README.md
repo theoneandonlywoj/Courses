@@ -1279,3 +1279,42 @@ query {
   }
 }
 ```
+
+## Add query for querying all places (lib/getaways/schema/schema.ex)
+```elixir
+...
+  query do
+    @desc "Get a place by its slug"
+    field :place, :place do
+      arg(:slug, non_null(:string))
+      resolve(&Resolvers.Vacation.place/3)
+    end
+
+    @desc "Get a list of places"
+    field :places, list_of(:place) do
+      arg(:limit, :integer)
+      resolve(&Resolvers.Vacation.places/3)
+    end
+  end
+...
+```
+
+## Implementation for Resolvers.Vacation.places/3 (lib/getaways/resolvers/vacation.ex)
+```elixir
+...
+  def places(_, args, _) do
+    {:ok, Vacation.list_places(args)}
+  end
+...
+```
+
+## Test it in the browser with the following query
+```graphql
+{
+  places(limit: 10) {
+    id
+    name
+    location
+  }
+}
+```

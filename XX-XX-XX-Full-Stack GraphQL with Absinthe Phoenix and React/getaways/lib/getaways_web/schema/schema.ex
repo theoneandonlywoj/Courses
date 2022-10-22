@@ -13,6 +13,12 @@ defmodule GetawaysWeb.Schema.Schema do
       arg(:slug, non_null(:string))
       resolve(&Resolvers.Vacation.place/3)
     end
+
+    @desc "Get a list of places"
+    field :places, list_of(:place) do
+      arg(:limit, :integer)
+      resolve(&Resolvers.Vacation.places/3)
+    end
   end
 
   object :place do
