@@ -57,6 +57,30 @@ defmodule Getaways.Repo.Migrations.CreatePlacesTable do
 end
 ```
 
+## Create the Users migration
+```sh
+mix ecto.gen.migration create_users_table
+```
+
+## Content of the migration (priv/repo/migrations/20221022164606_create_users_table.exs)
+```elixir
+defmodule Getaways.Repo.Migrations.CreateUsersTable do
+  use Ecto.Migration
+
+  def change do
+    create table(:users) do
+      add :username, :string, null: false
+      add :email, :string, null: false
+      add :password_hash, :string, null: false
+
+      timestamps()
+    end
+
+    create unique_index(:users, [:username, :email])
+  end
+end
+```
+
 ## Migrate
 ```sh
 mix ecto.migrate
@@ -109,9 +133,4 @@ defmodule Getaways.Vacation.Place do
     |> unique_constraint(:slug)
   end
 end
-```
-
-## Create the Users migration
-```sh
-mix ecto.gen.migration create_users_table
 ```
