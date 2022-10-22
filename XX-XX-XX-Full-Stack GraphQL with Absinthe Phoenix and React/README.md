@@ -1318,3 +1318,50 @@ query {
   }
 }
 ```
+
+## Adding sorting (lib/getaways/schema/schema.ex)
+```elixir
+...
+query do
+    @desc "Get a place by its slug"
+    field :place, :place do
+      arg(:slug, non_null(:string))
+      resolve(&Resolvers.Vacation.place/3)
+    end
+
+    @desc "Get a list of places"
+    field :places, list_of(:place) do
+      arg(:limit, :integer)
+      arg(:order, type: :sort_order, default_value: :asc)
+      resolve(&Resolvers.Vacation.places/3)
+    end
+  end
+
+  enum :sort_order do
+    value :asc
+    value :desc
+  end
+...
+```
+
+## Test it in the browser with two queries.
+```graphql
+{
+  places(limit: 10, order: ASC) {
+    id
+    name
+    location
+  }
+}
+
+```
+
+```graphql
+{
+  places(limit: 10, order: ASC) {
+    id
+    name
+    location
+  }
+}
+```
