@@ -81,6 +81,33 @@ defmodule Getaways.Repo.Migrations.CreateUsersTable do
 end
 ```
 
+## Create the Bookings migration
+```sh
+mix ecto.gen.migration create_bookings_table
+```
+
+## Content of the migration (priv/repo/migrations/20221022170710_create_bookings_table.exs)
+```elixir
+defmodule Getaways.Repo.Migrations.CreateBookingsTable do
+  use Ecto.Migration
+
+  def change do
+    create table(:bookings) do
+      add :start_date, :date, null: false
+      add :end_date, :date, null: false
+      add :state, :string, null: false
+      add :total_price, :decimal
+      add :place_id, references(:places), null: false
+      add :user_id, references(:users), null: false
+
+      timestamps()
+    end
+
+    create index(:bookings, [:place_id, :user_id])
+  end
+end
+```
+
 ## Migrate
 ```sh
 mix ecto.migrate
