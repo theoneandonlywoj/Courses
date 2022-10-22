@@ -49,8 +49,11 @@ defmodule Getaways.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+      # GraphQL Spec
       {:absinthe, "~> 1.6.1"},
+      # GraphQL Documents sent over HTTP
       {:absinthe_plug, "~> 1.5.8"},
+      # GraphQL Subscriptions
       {:absinthe_phoenix, "~> 2.0.1"},
       {:pbkdf2_elixir, "~> 1.0"},
       {:cors_plug, "~> 2.0"},

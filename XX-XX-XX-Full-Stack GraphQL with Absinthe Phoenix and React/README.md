@@ -1257,7 +1257,25 @@ defmodule GetawaysWeb.Router do
 
     forward "/graphiql", Absinthe.Plug.GraphiQL,
       schema: GetawaysWeb.Schema.Schema,
-      socket: GetawaysWeb.UserSocket
+      interface: :simple
   end
 end
+```
+
+## Test the GraphiQL GUI
+### Start the server
+```sh
+mix phx.server
+```
+
+### In your browser, go to localhost:4000/graphiql
+### In the left panel, paste the query and press the PLAY button.
+```graphql
+query {
+  place(slug: "ski-cabin") {
+    id
+    name
+    location
+  }
+}
 ```
