@@ -22,7 +22,7 @@ config :getaways, GetawaysWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
-  debug_errors: true,
+  debug_errors: false,
   secret_key_base: "kexM5U9OMiIrK4DsFS91GYTK/bxZ0HTpadVt1ZNX1K1xGmEA23VYk8xssYqIlHa3",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
