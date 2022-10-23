@@ -1722,5 +1722,20 @@ object :place do
 
 ## Test it!
 ```graphql
-
+{
+  places{
+    id
+    name
+    bookings {
+      state
+      totalPrice
+      user {
+        email
+        bookings {
+          state
+        }
+      }
+    }
+  }
+}
 ```
