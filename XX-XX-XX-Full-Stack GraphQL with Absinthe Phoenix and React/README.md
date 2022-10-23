@@ -1605,3 +1605,77 @@ object :place do
   end
 ...
 ```
+
+## Update / add other objects.
+```elixir
+    object :place do
+    field :id, non_null(:id)
+    field :name, non_null(:string)
+    field :location, non_null(:string)
+    field :slug, non_null(:string)
+    field :description, non_null(:string)
+    field :max_guests, non_null(:integer)
+    field :pet_friendly, non_null(:boolean)
+    field :pool, non_null(:boolean)
+    field :wifi, non_null(:boolean)
+    field :price_per_night, non_null(:decimal)
+    field :image, non_null(:string)
+    field :image_thumbnail, non_null(:string)
+    field :bookings, list_of(:booking), resolve(dataloader(Vacation))
+    field :reviews, list_of(:review), resolve: dataloader(Vacation)
+  end
+
+  object :booking do
+    field :id, non_null(:id)
+    field :start_date, non_null(:date)
+    field :end_date, non_null(:date)
+    field :state, non_null(:string)
+    field :total_price, non_null(:decimal)
+    field :user, non_null(:user), resolve: dataloader(Vacation)
+    field :place, non_null(:place), resolve: dataloader(Vacation)
+  end
+
+  object :review do
+    field :id, non_null(:id)
+    field :rating, non_null(:integer)
+    field :comment, non_null(:string)
+    field :inserted_at, non_null(:naive_datetime)
+    field :user, non_null(:user), resolve: dataloader(Vacation)
+    field :place, non_null(:place), resolve: dataloader(Vacation)
+  end
+
+  object :user do
+    field :username, non_null(:string)
+    field :email, non_null(:string)
+
+    field :bookings, list_of(:booking),
+      resolve: dataloader(Vacation)
+
+    field :reviews, list_of(:review), resolve: dataloader(Vacation)
+  end
+```
+
+### Now, you can query more complicated scenarios.
+```sh
+{
+  places{
+    id
+    name
+    bookings {
+      state
+      totalPrice
+      user {
+        email
+      }
+    }
+    reviews {
+      rating
+      comment
+      user {
+        username
+        email
+      }
+    }
+  }
+}
+```
