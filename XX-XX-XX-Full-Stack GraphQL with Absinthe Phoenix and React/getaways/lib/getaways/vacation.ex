@@ -96,6 +96,13 @@ defmodule Getaways.Vacation do
       where: is_nil(booking.place_id)
   end
 
+  def bookings_for_place(%Place{} = place) do
+    Booking
+    |> where(place_id: ^place.id)
+    |> where(state: "reserved")
+    |> Repo.all()
+  end
+
   @doc """
   Returns the booking with the given `id`.
 

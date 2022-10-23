@@ -1280,7 +1280,7 @@ query {
 }
 ```
 
-## Add query for querying all places (lib/getaways/schema/schema.ex)
+## Add query for querying all places (lib/getaways_web/schema/schema.ex)
 ```elixir
 ...
   query do
@@ -1319,7 +1319,7 @@ query {
 }
 ```
 
-## Adding sorting (lib/getaways/schema/schema.ex)
+## Adding sorting (lib/getaways_web/schema/schema.ex)
 ```elixir
 ...
 query do
@@ -1366,7 +1366,7 @@ query do
 }
 ```
 
-## Adding filters (lib/getaways/schema/schema.ex)
+## Adding filters (lib/getaways_web/schema/schema.ex)
 ```elixir
 ...
   query do
@@ -1463,4 +1463,99 @@ defmodule GetawaysWeb.Resolvers.Vacation do
   ...
 
 end
+```
+
+## Querying Bookings - Places relationship (the query won't work yet)
+```graphql
+{
+  place(slug: "dock-house") {
+    id
+    name
+    bookings {
+      state
+      totalPrice
+    }
+  }
+}
+```
+
+## Add the Booking object (lib/getaways_web/schema/schema.ex)
+```elixir
+...
+  object :booking do
+    field :id, non_null(:id)
+    field :start_date, non_null(:date)
+    field :end_date, non_null(:date)
+    field :state, non_null(:string)
+    field :total_price, non_null(:decimal)
+  end
+...
+```
+
+## Update the Places object(lib/getaways_web/schema/schema.ex)
+```elixir
+...
+  object :place do
+    field :id, non_null(:id)
+    field :name, non_null(:string)
+    field :location, non_null(:string)
+    field :slug, non_null(:string)
+    field :description, non_null(:string)
+    field :max_guests, non_null(:integer)
+    field :pet_friendly, non_null(:boolean)
+    field :pool, non_null(:boolean)
+    field :wifi, non_null(:boolean)
+    field :price_per_night, non_null(:decimal)
+    field :image, non_null(:string)
+    field :image_thumbnail, non_null(:string)
+    field :bookings, list_of(:booking) do
+      resolve &Resolvers.Vacation.bookings_for_place/3
+    end
+  end
+...
+```
+
+## Implement the resolver (lib/getaways_web/resolvers/vacation.ex)
+```elixir
+...
+  def bookings_for_place(place, _, _) do
+    {:ok, Vacation.bookings_for_place(place)}
+  end
+...
+```
+
+## Implement the function that will obtain the booking for a given place (lib/getaways/vacation.ex)
+```elixir
+...
+ def bookings_for_place(%Place{} = place) do
+    Booking
+    |> where(place_id: ^place.id)
+    |> where(state: "reserved")
+    |> Repo.all()
+  end
+...
+```
+
+## Now, you can test with the following queries (the 1st should have 2 queries, the 2nd only 1 query)
+```graphql
+{
+  place(slug: "dock-house") {
+    id
+    name
+    bookings {
+      state
+      totalPrice
+    }
+  }
+}
+
+```
+
+```graphql
+{
+  place(slug: "dock-house") {
+    id
+    name
+  }
+}
 ```
