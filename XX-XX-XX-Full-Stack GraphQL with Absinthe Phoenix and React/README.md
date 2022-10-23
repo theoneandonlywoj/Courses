@@ -1679,3 +1679,48 @@ object :place do
   }
 }
 ```
+
+## Filtering
+### Please review the query functions inside the Vacation module (lib/getaways/vacation.ex).
+```elixir
+  def query(Booking, %{scope: :place}) do
+    Booking
+    |> where(state: "reserved")
+    |> order_by(desc: :start_date)
+  end
+
+  def query(Booking, %{scope: :user}) do
+    Booking
+    |> order_by(asc: :start_date)
+  end
+```
+### We want to return only Bookings with status "reserved" when queried for a place.
+### Update the :place and :user objects (lib/getaways_web/schema/schema.ex)
+```elixir
+...
+  object :place do
+    field :id, non_null(:id)
+    field :name, non_null(:string)
+    field :location, non_null(:string)
+    field :slug, non_null(:string)
+    field :description, non_null(:string)
+    field :max_guests, non_null(:integer)
+    field :pet_friendly, non_null(:boolean)
+    field :pool, non_null(:boolean)
+    field :wifi, non_null(:boolean)
+    field :price_per_night, non_null(:decimal)
+    field :image, non_null(:string)
+    field :image_thumbnail, non_null(:string)
+
+    field :bookings, list_of(:booking),
+      resolve: dataloader(Vacation, :bookings, args: %{scope: :place})
+
+    field :reviews, list_of(:review), resolve: dataloader(Vacation)
+  end
+...
+```
+
+## Test it!
+```graphql
+
+```
