@@ -72,8 +72,10 @@ defmodule GetawaysWeb.Schema.Schema do
     field :image, non_null(:string)
     field :image_thumbnail, non_null(:string)
 
-    field :bookings, list_of(:booking),
-      resolve: dataloader(Vacation, :bookings, args: %{scope: :place})
+    field :bookings, list_of(:booking) do
+      arg(:limit, type: :integer, default_value: 100)
+      resolve(dataloader(Vacation, :bookings, args: %{scope: :place}))
+    end
 
     field :reviews, list_of(:review), resolve: dataloader(Vacation)
   end
@@ -84,7 +86,7 @@ defmodule GetawaysWeb.Schema.Schema do
     field :end_date, non_null(:date)
     field :state, non_null(:string)
     field :total_price, non_null(:decimal)
-    field :user, non_null(:user), resolve: dataloader(Vacation)
+    field :user, non_null(:user), resolve: dataloader(Accounts)
     field :place, non_null(:place), resolve: dataloader(Vacation)
   end
 
@@ -93,7 +95,7 @@ defmodule GetawaysWeb.Schema.Schema do
     field :rating, non_null(:integer)
     field :comment, non_null(:string)
     field :inserted_at, non_null(:naive_datetime)
-    field :user, non_null(:user), resolve: dataloader(Vacation)
+    field :user, non_null(:user), resolve: dataloader(Accounts)
     field :place, non_null(:place), resolve: dataloader(Vacation)
   end
 
@@ -108,11 +110,10 @@ defmodule GetawaysWeb.Schema.Schema do
   end
 
   def context(ctx) do
-    source = Dataloader.Ecto.new(Getaways.Repo)
-
     loader =
       Dataloader.new()
-      |> Dataloader.add_source(Vacation, source)
+      |> Dataloader.add_source(Vacation, Vacation.datasource())
+      |> Dataloader.add_source(Accounts, Accounts.datasource())
 
     Map.put(ctx, :loader, loader)
   end
