@@ -7,6 +7,9 @@ defmodule GetawaysWeb.Schema.Schema do
   # Importing Custom types, f.e. decimal
   import_types(Absinthe.Type.Custom)
 
+  # Import Dataloader macro
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1, dataloader: 3]
+
   query do
     @desc "Get a place by its slug"
     field :place, :place do
@@ -69,9 +72,7 @@ defmodule GetawaysWeb.Schema.Schema do
     field :image, non_null(:string)
     field :image_thumbnail, non_null(:string)
 
-    field :bookings, list_of(:booking) do
-      resolve(&Resolvers.Vacation.bookings_for_place/3)
-    end
+    field :bookings, list_of(:booking), resolve: dataloader(Vacation)
   end
 
   object :booking do
@@ -80,5 +81,19 @@ defmodule GetawaysWeb.Schema.Schema do
     field :end_date, non_null(:date)
     field :state, non_null(:string)
     field :total_price, non_null(:decimal)
+  end
+
+  def context(ctx) do
+    source = Dataloader.Ecto.new(Getaways.Repo)
+
+    loader =
+      Dataloader.new()
+      |> Dataloader.add_source(Vacation, source)
+
+    Map.put(ctx, :loader, loader)
+  end
+
+  def plugins do
+    [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
   end
 end

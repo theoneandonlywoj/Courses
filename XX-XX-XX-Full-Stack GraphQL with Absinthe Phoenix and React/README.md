@@ -1559,3 +1559,49 @@ end
   }
 }
 ```
+
+## Utilising the Dataloader (fixing N+1 problem).
+### You can delete the bookings_for_place function as we won't need it anymore. (lib/getaways/vacation.ex)
+### You can delete the bookings_for_place Resolver as we won't need it anymore. (lib/getaways_web/resolvers/vacation.ex)
+### Define context function (lib/getaways_web/schema/schema.ex)
+```
+...
+  def context(ctx) do
+    source = Dataloader.Ecto.new(Getaways.Repo)
+
+    loader =
+      Dataloader.new()
+      |> Dataloader.add_source(Vacation, source)
+
+    Map.put(ctx, :loader, loader)
+  end
+...
+```
+
+### Update the Place object (lib/getaways_web/schema/schema.ex) and import Absinthe Dataloader helper for easier macro
+```elixir
+...
+import Absinthe.Resolution.Helpers, only: [dataloader: 1, dataloader: 3]
+...
+object :place do
+    field :id, non_null(:id)
+    field :name, non_null(:string)
+    field :location, non_null(:string)
+    field :slug, non_null(:string)
+    field :description, non_null(:string)
+    field :max_guests, non_null(:integer)
+    field :pet_friendly, non_null(:boolean)
+    field :pool, non_null(:boolean)
+    field :wifi, non_null(:boolean)
+    field :price_per_night, non_null(:decimal)
+    field :image, non_null(:string)
+    field :image_thumbnail, non_null(:string)
+
+    field :bookings, list_of(:booking), resolve: dataloader(Vacation)
+  end
+...
+  def plugins do
+    [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
+  end
+...
+```
