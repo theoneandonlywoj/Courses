@@ -1856,3 +1856,84 @@ object :place do
     Map.put(ctx, :loader, loader)
   end
 ```
+
+## Add the first mutation for creating a booking. (lib/getaways_web/schema/schema.ex)
+```elixir
+  query do
+  ...
+  end
+
+  mutation do
+    @desc "Create a booking for a place"
+    field :create_booking, :booking do
+      arg :place_id, non_null(:id)
+      arg :start_date, non_null(:date)
+      arg :end_date, non_null(:date)
+      resolve &Resolvers.Vacation.create_booking/3
+    end
+  end
+```
+
+## Temporarily hardcode the user to be of id 1. (lib/getaways_web/schema/schema.ex)
+```elixir
+  def context(ctx) do
+    ctx = Map.put(ctx, :current_user, Getaways.Accounts.get_user(1))
+
+    loader =
+      Dataloader.new()
+      |> Dataloader.add_source(Vacation, Vacation.datasource())
+      |> Dataloader.add_source(Accounts, Accounts.datasource())
+
+    Map.put(ctx, :loader, loader)
+  end
+```
+
+## Add the create_booking resolver (lib/getaways_web/resolvers/vacation.ex)
+```elixir
+  ...
+  def create_booking(_, args, %{context: %{current_user: user}}) do
+    case Vacation.create_booking(user, args) do
+      {:error, changeset} ->
+        {:error,
+         message: "Could not create booking",
+         details: ChangesetErrors.error_details(changeset)
+        }
+
+      {:ok, booking} ->
+        {:ok, booking}
+    end
+  end
+  ...
+```
+
+## Test it!
+```graphql
+mutation{
+  createBooking(
+    placeId: 1,
+    startDate: "2022-10-26"
+    endDate: "2022-10-30") {
+      id
+      startDate
+      endDate
+      state
+      totalPrice
+    }
+}
+```
+
+## Test obtaining and error by swapping the startDate and endDate (endDate being before the startDate)
+```graphql
+mutation{
+  createBooking(
+    placeId: 1,
+    endDate: "2022-10-26"
+    startDate: "2022-10-30") {
+      id
+      startDate
+      endDate
+      state
+      totalPrice
+    }
+}
+```

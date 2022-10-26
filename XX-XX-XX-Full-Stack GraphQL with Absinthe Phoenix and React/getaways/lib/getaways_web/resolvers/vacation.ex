@@ -14,4 +14,15 @@ defmodule GetawaysWeb.Resolvers.Vacation do
   def bookings_for_place(place, _, _) do
     {:ok, Vacation.bookings_for_place(place)}
   end
+
+  def create_booking(_, args, %{context: %{current_user: user}}) do
+    case Vacation.create_booking(user, args) do
+      {:error, changeset} ->
+        {:error,
+         message: "Could not create booking", details: ChangesetErrors.error_details(changeset)}
+
+      {:ok, booking} ->
+        {:ok, booking}
+    end
+  end
 end
