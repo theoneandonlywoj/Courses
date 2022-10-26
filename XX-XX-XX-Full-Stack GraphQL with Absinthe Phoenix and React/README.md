@@ -1937,3 +1937,55 @@ mutation{
     }
 }
 ```
+
+## Add mutation for cancelling your booking. (lib/getaways_web/schema/schema.ex)
+```elixir
+  mutation do
+    ...
+
+    @desc "Cancel a booking"
+    field :cancel_booking, :booking do
+      arg :booking_id, non_null(:id)
+      resolve &Resolvers.Vacation.cancel_booking/3
+    end
+  end
+```
+
+## Add the resolver resolver (lib/getaways_web/resolvers/vacation.ex)
+```elixir
+  ...
+  def cancel_booking(_, args, %{context: %{current_user: user}}) do
+    booking = Vacation.get_booking!(args[:booking_id])
+
+    # Make sure the user owns the booking
+    if booking.user_id == user.id do
+      case Vacation.cancel_booking(booking) do
+        {:error, changeset} ->
+          {
+            :error,
+            message: "Could not cancel booking!",
+            details: ChangesetErrors.error_details(changeset)
+          }
+
+        {:ok, booking} ->
+          {:ok, booking}
+      end
+    else
+      {
+        :error,
+        message: "Hey, that's not your booking!"
+      }
+    end
+  end
+  ...
+```
+
+## Test it! (create a review and pick up its id)
+```graphql
+mutation{
+  cancelBooking(bookingId: 14){
+    id
+    state
+  }
+}
+```

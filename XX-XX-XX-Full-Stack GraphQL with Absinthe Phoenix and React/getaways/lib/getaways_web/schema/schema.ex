@@ -34,6 +34,12 @@ defmodule GetawaysWeb.Schema.Schema do
       arg(:end_date, non_null(:date))
       resolve(&Resolvers.Vacation.create_booking/3)
     end
+
+    @desc "Cancel a booking"
+    field :cancel_booking, :booking do
+      arg(:booking_id, non_null(:id))
+      resolve(&Resolvers.Vacation.cancel_booking/3)
+    end
   end
 
   @desc "Filters for the list of places"
