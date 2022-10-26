@@ -1989,3 +1989,81 @@ mutation{
   }
 }
 ```
+
+## Sign up mutation (lib/getaways_web/schema/schema.ex)
+```elixir
+  mutation do
+    ...
+    @desc "Create a user account"
+    field :signup, :session do
+      arg :username, non_null(:string)
+      arg :email, non_null(:string)
+      arg :password, non_null(:string)
+      resolve &Resolvers.Accounts.signup/3
+    end
+  end
+  ...
+  object :session do
+    field :user, non_null(:user)
+    field :token, non_null(:string)
+  end
+```
+
+## Add signup resolver. (lib/getaways_web/resolvers/accounts.ex)
+```elixir
+defmodule GetawaysWeb.Resolvers.Accounts do
+  alias Getaways.Accounts
+  alias GetawaysWeb.Schema.ChangesetErrors
+
+  def signup(_, args, _) do
+    case Accounts.create_user(args) do
+      {:error, changeset} ->
+        {
+          :error,
+          message: "Could not create account", details: ChangesetErrors.error_details(changeset)
+        }
+
+      {:ok, user} ->
+        token = GetawaysWeb.AuthToken.sign(user)
+        {:ok, %{user: user, token: token}}
+    end
+  end
+end
+
+```
+
+## Create authentication token functionality. (lib/getaways/auth_token.ex)
+```elixir
+defmodule GetawaysWeb.AuthToken do
+  @user_salt "user auth salt"
+
+  @doc """
+  Encodes the given `user` id and signs it, returning a token
+  clients can use as identification when using the API.
+  """
+  def sign(user) do
+    Phoenix.Token.sign(GetawaysWeb.Endpoint, @user_salt, %{id: user.id})
+  end
+
+  @doc """
+  Decodes the original data from the given `token` and
+  verifies its integrity.
+  """
+  def verify(token) do
+    Phoenix.Token.verify(GetawaysWeb.Endpoint, @user_salt, token, max_age: 365 * 24 * 3600)
+  end
+end
+```
+
+## Test it!
+```graphql
+mutation {
+  signup(username: "wojciech", email: "test@gmail.com", password: "password123") {
+    user {
+      username
+      email
+    }
+    token
+  }
+}
+```

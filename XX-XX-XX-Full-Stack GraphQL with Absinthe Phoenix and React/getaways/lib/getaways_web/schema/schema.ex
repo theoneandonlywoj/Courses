@@ -40,6 +40,14 @@ defmodule GetawaysWeb.Schema.Schema do
       arg(:booking_id, non_null(:id))
       resolve(&Resolvers.Vacation.cancel_booking/3)
     end
+
+    @desc "Create a user account"
+    field :signup, :session do
+      arg(:username, non_null(:string))
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+      resolve(&Resolvers.Accounts.signup/3)
+    end
   end
 
   @desc "Filters for the list of places"
@@ -123,6 +131,11 @@ defmodule GetawaysWeb.Schema.Schema do
       resolve: dataloader(Vacation, :bookings, args: %{scope: :user})
 
     field :reviews, list_of(:review), resolve: dataloader(Vacation)
+  end
+
+  object :session do
+    field :user, non_null(:user)
+    field :token, non_null(:string)
   end
 
   def context(ctx) do
