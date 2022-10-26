@@ -15,4 +15,15 @@ defmodule GetawaysWeb.Resolvers.Accounts do
         {:ok, %{user: user, token: token}}
     end
   end
+
+  def signin(_, %{username: username, password: password}, _) do
+    case Accounts.authenticate(username, password) do
+      :error ->
+        {:error, "Whoops, invalid credentials!"}
+
+      {:ok, user} ->
+        token = GetawaysWeb.AuthToken.sign(user)
+        {:ok, %{user: user, token: token}}
+    end
+  end
 end

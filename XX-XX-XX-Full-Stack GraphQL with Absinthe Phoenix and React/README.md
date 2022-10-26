@@ -2029,7 +2029,6 @@ defmodule GetawaysWeb.Resolvers.Accounts do
     end
   end
 end
-
 ```
 
 ## Create authentication token functionality. (lib/getaways/auth_token.ex)
@@ -2059,6 +2058,65 @@ end
 ```graphql
 mutation {
   signup(username: "wojciech", email: "test@gmail.com", password: "password123") {
+    user {
+      username
+      email
+    }
+    token
+  }
+}
+```
+
+## Sign in mutation (lib/getaways_web/schema/schema.ex)
+```elixir
+  mutation do
+    ...
+    @desc "Sign in a user"
+    field :signin, :session do
+      arg :username, non_null(:string)
+      arg :password, non_null(:string)
+      resolve &Resolvers.Accounts.signin/3
+    end
+  end
+```
+
+## Add signin resolver. (lib/getaways_web/resolvers/accounts.ex)
+```elixir
+defmodule GetawaysWeb.Resolvers.Accounts do
+  alias Getaways.Accounts
+  alias GetawaysWeb.Schema.ChangesetErrors
+
+  ...
+  def signin(_, %{username: username, password: password}, _) do
+    case Accounts.authenticate(username, password) do
+      :error ->
+        {:error, "Whoops, invalid credentials!"}
+
+      {:ok, user} ->
+        token = GetawaysWeb.AuthToken.sign(user)
+        {:ok, %{user: user, token: token}}
+    end
+  end
+end
+```
+
+## Test it!
+```graphql
+mutation {
+  signin(username: "wojciech", password: "password123") {
+    user {
+      username
+      email
+    }
+    token
+  }
+}
+```
+
+## Test it failing with wrong credentials
+```graphql
+mutation {
+  signin(username: "wojciech", password: "incorrect_password") {
     user {
       username
       email
