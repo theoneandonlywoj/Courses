@@ -3,6 +3,7 @@ defmodule GetawaysWeb.Schema.Schema do
   alias Getaways.{Accounts, Vacation}
 
   alias GetawaysWeb.Resolvers
+  alias GetawaysWeb.Schema.Middleware
 
   # Importing Custom types, f.e. decimal
   import_types(Absinthe.Type.Custom)
@@ -32,12 +33,14 @@ defmodule GetawaysWeb.Schema.Schema do
       arg(:place_id, non_null(:id))
       arg(:start_date, non_null(:date))
       arg(:end_date, non_null(:date))
+      middleware(Middleware.Authenticate)
       resolve(&Resolvers.Vacation.create_booking/3)
     end
 
     @desc "Cancel a booking"
     field :cancel_booking, :booking do
       arg(:booking_id, non_null(:id))
+      middleware(Middleware.Authenticate)
       resolve(&Resolvers.Vacation.cancel_booking/3)
     end
 
@@ -117,7 +120,12 @@ defmodule GetawaysWeb.Schema.Schema do
     field :end_date, non_null(:date)
     field :state, non_null(:string)
     field :total_price, non_null(:decimal)
-    field :user, non_null(:user), resolve: dataloader(Accounts)
+
+    field :user, :user do
+      middleware(Middleware.Authenticate)
+      resolve(dataloader(Accounts))
+    end
+
     field :place, non_null(:place), resolve: dataloader(Vacation)
   end
 
@@ -146,8 +154,6 @@ defmodule GetawaysWeb.Schema.Schema do
   end
 
   def context(ctx) do
-    ctx = Map.put(ctx, :current_user, Getaways.Accounts.get_user(1))
-
     loader =
       Dataloader.new()
       |> Dataloader.add_source(Vacation, Vacation.datasource())

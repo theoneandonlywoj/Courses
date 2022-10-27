@@ -2125,3 +2125,191 @@ mutation {
   }
 }
 ```
+
+## Authenticating API Requests
+### Changing the GraphiQL to advanced interface by deleting obsolete simple interface settings. (lib/getaways_web/router.ex)
+```elixir
+defmodule GetawaysWeb.Router do
+  use GetawaysWeb, :router
+
+  pipeline :api do
+    plug :accepts, ["json"]
+  end
+
+  scope "/" do
+    pipe_through :api
+
+    forward "/api", Absinthe.Plug, schema: GetawaysWeb.Schema.Schema
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: GetawaysWeb.Schema.Schema,
+      socket: GetawaysWeb.UserSocket
+  end
+end
+```
+
+### Sign in and save the token.
+```graphql
+mutation {
+  signin(username: "wojciech", password: "password123") {
+    token
+  }
+}
+```
+
+### Add the authorization header in the GraphQL GUI.
+```
+Name: Authorization
+Value: Bearer <your_token>
+```
+
+### Add SetCurrentUser Plug to the router (lib/getaways_web/router.ex)
+```elixir
+defmodule GetawaysWeb.Router do
+  use GetawaysWeb, :router
+
+  pipeline :api do
+    plug :accepts, ["json"]
+    plug GetawaysWeb.Plugs.SetCurrentUser
+  end
+
+  scope "/" do
+    pipe_through :api
+
+    forward "/api", Absinthe.Plug, schema: GetawaysWeb.Schema.Schema
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: GetawaysWeb.Schema.Schema,
+      socket: GetawaysWeb.UserSocket
+  end
+end
+```
+
+### Implement the plug (lib/getaways_web/plugs/set_current_user.ex)
+```elixir
+defmodule GetawaysWeb.Plugs.SetCurrentUser do
+  @behaviour Plug
+
+  import Plug.Conn
+
+  def init(opts), do: opts
+
+  def call(conn, _) do
+    context = build_context(conn)
+    Absinthe.Plug.put_options(conn, context: context)
+  end
+
+  defp build_context(conn) do
+    with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
+         {:ok, %{id: id}} <- GetawaysWeb.AuthToken.verify(token),
+         %{} = user <- Getaways.Accounts.get_user(id) do
+      %{current_user: user}
+    else
+      _ -> %{}
+    end
+  end
+end
+```
+
+### Delete the hardcoded user. (lib/getaways_web/schema/schema.ex)
+```elixir
+  ...
+  def context(ctx) do
+    loader =
+      Dataloader.new()
+      |> Dataloader.add_source(Vacation, Vacation.datasource())
+      |> Dataloader.add_source(Accounts, Accounts.datasource())
+
+    Map.put(ctx, :loader, loader)
+  end
+  ...
+```
+
+### Middleware to check if the current_user is set in the context. (lib/getaways_web/schema/middleware/authenticate.ex)
+```elixir
+defmodule GetawaysWeb.Schema.Middleware.Authenticate do
+  @behaviour Absinthe.Middleware
+
+  def call(resolution, _) do
+    case resolution.context do
+      %{current_user: _} ->
+        resolution
+
+      _ ->
+        resolution
+        |> Absinthe.Resolution.put_result({:error, "Please sign in first!"})
+    end
+  end
+end
+```
+
+### Alias the Middleware module in your schema (lib/getaways_web/schema/schema.ex)
+```elixir
+defmodule GetawaysWeb.Schema.Schema do
+  use Absinthe.Schema
+  alias Getaways.{Accounts, Vacation}
+
+  alias GetawaysWeb.Resolvers
+  alias GetawaysWeb.Schema.Middleware
+
+  ...
+
+end
+```
+
+### Add the middleware to the requests that require the authentication. (lib/getaways_web/schema/schema.ex)
+```elixir
+    ...
+    @desc "Create a booking for a place"
+    field :create_booking, :booking do
+      arg(:place_id, non_null(:id))
+      arg(:start_date, non_null(:date))
+      arg(:end_date, non_null(:date))
+      middleware Middleware.Authenticate
+      resolve(&Resolvers.Vacation.create_booking/3)
+    end
+
+    @desc "Cancel a booking"
+    field :cancel_booking, :booking do
+      arg(:booking_id, non_null(:id))
+      middleware Middleware.Authenticate
+      resolve(&Resolvers.Vacation.cancel_booking/3)
+    end
+    ...
+```
+
+### Test it with and without the token.
+```graphql
+mutation{
+  createBooking(
+    placeId: 1,
+    startDate: "2022-10-26"
+    endDate: "2022-10-30") {
+      id
+      startDate
+      endDate
+      state
+      totalPrice
+    }
+}
+```
+
+### You can restrict access to information that shouldn't be available without signing. (lib/getaways_web/schema/schema.ex)
+```graphql
+  ...
+  object :booking do
+    field :id, non_null(:id)
+    field :start_date, non_null(:date)
+    field :end_date, non_null(:date)
+    field :state, non_null(:string)
+    field :total_price, non_null(:decimal)
+
+    field :user, :user do
+      middleware(Middleware.Authenticate)
+      resolve(dataloader(Accounts))
+    end
+
+    field :place, non_null(:place), resolve: dataloader(Vacation)
+  end
+  ...
+```
