@@ -31,3 +31,18 @@ https://www.udemy.com/course/vim-essentials
         - It can be used to perform searches and replace or browse the help menu.
         - Press `ESC` to enter Normal Mode.
         - It will be indicated by `:` (bottom left corner).
+
+### 2. Practice!
+- Open a file with:
+```sh
+vim <filename>
+```
+- Close a file with `:q` (Command-line mode). If you have made any changes and you want to discard them use `:q!` (Command-line mode).
+- Press `i` to enter Insert mode. Write something.
+- Press `ESC` to get back to Normal mode.
+- Press `v` to enter Visual mode. Highlight some text.
+- Press `y` to yank (copy) the text. You will be in Normal mode after this operation.
+- If you want to jump to the end of the line use `$`, and back to the beginning with `0` (zero).
+- Paste the text with `p`.
+- You can undo that with `u`.
+- If you want to save the file use `:w`. You can chain the commands and write and exit with `:wq`. Sometimes you need root access to write to a file. In that case use `:w !sudo tee % `.
