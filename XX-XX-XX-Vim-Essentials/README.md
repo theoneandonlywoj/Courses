@@ -45,4 +45,25 @@ vim <filename>
 - If you want to jump to the end of the line use `$`, and back to the beginning with `0` (zero).
 - Paste the text with `p`.
 - You can undo that with `u`.
-- If you want to save the file use `:w`. You can chain the commands and write and exit with `:wq`. Sometimes you need root access to write to a file. In that case use `:w !sudo tee % `.
+- If you want to save the file use `:w`. You can chain the commands and write and exit with `:wq`. Sometimes you need root access to write to a file. In that case use `:w !sudo tee % `
+- If you want to save the file with a new name but continue editing this file, use `:w <new_filename>`
+
+### 3. Move around!
+- There are two ways you can perform directional movements:
+    - Arrows
+    - h (left), j (up), k (down), l (right)
+- To navigate to the end of the line, use `$`.
+- To navigate to the beginning of the line, use `0` (zero).
+- To jump forward a word - `w`.
+- To jump forward a word - `b`.
+- To jump to the top of a file - `G`.
+- To jump to the bottom of a file - `gg` or `1G`.
+- To scroll a half page down - `Ctrl + d`.
+- To scroll a half page up - `Ctrl + u`.
+- To navigate to a line - `:<line number>`, f.e. `:15`
+- To highlight text across multiple lines down, navigate to your starting line with `:<line number>`, f.e. `:15`, press `v` to enter Visual mode and `<number of lines>j` or `<number of lines>`&#8595;, f.e. `10j` or 10 &#8595;. Now you selected text from the starting cursor on line 15 to the corresponding place on line 25.
+- To highlight text across multiple lines down, navigate to your starting line with `:<line number>`, f.e. `:15`, press `v` to enter Visual mode and `<number of lines>k` or `<number of lines>`&#8593;, f.e. `10j` or `10` &#8593;. Now you selected text from the starting cursor on line 15 but starting from line 5 to the corresponding place on line 15.
+
+### 4. Settings
+- To enable line numbers - use `:set number`.
+- To disable line numbers - use `:set nonumber`.
