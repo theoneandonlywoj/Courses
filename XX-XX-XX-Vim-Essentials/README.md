@@ -67,3 +67,20 @@ vim <filename>
 ### 4. Settings
 - To enable line numbers - use `:set number`.
 - To disable line numbers - use `:set nonumber`.
+
+### 5. Practice !
+1. Open any file on your system with Vim, preferably one that has a few hundred lines of text (or several screens full of text). 
+2. Move around with the arrow keys and hjkl.
+3. Save a copy of the file as  navigatingpractice.txt.
+4. Quit without saving.
+5. Open navigatingpractice.txt (the copy of the previous file) with Vim.
+6. Turn on line numbers.
+7. Navigate to line 15 with a single command in command-line mode.
+8. Navigate to the end of a longer line with one key.
+9. Navigate back to the beginning of the line with one key.
+10. Navigate to the end of the line one word as a time.
+11. Navigate back to the beginning of the line one word at a time.
+12. Navigate to the end of the file with one key.
+13. Navigate to the beginning (top) of the file with one key.
+14. Navigate a half-page down continuously until the bottom of the file is reached.
+15. Navigate a half-page up continuously until the top of the file is reached.
