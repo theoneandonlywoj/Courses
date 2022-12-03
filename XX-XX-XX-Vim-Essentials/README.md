@@ -94,3 +94,10 @@ vim <filename>
 - To insert a line below the current line - `O` (capital o).
 - To delete the character where the cursos is, press `x`.
 - To delete the entire line - `dd`.
+
+### 7. Command Combinations
+- To delete multiple lines - `<number of lines to delete>dd`, f.e. `3dd`.
+- To delete multiple characters - `<number of characters>x`, f.e. `5x`.
+- To delete to the end of the line - `d$`.
+- To delete to the beginning of the file - `dgg`.
+- To delete to the end of the file - `dG`.
