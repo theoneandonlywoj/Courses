@@ -68,7 +68,7 @@ vim <filename>
 - To enable line numbers - use `:set number`.
 - To disable line numbers - use `:set nonumber`.
 
-### 5. Practice !
+### 5. Practice
 1. Open any file on your system with Vim, preferably one that has a few hundred lines of text (or several screens full of text). 
 2. Move around with the arrow keys and hjkl.
 3. Save a copy of the file as  navigatingpractice.txt.
@@ -84,3 +84,13 @@ vim <filename>
 13. Navigate to the beginning (top) of the file with one key.
 14. Navigate a half-page down continuously until the bottom of the file is reached.
 15. Navigate a half-page up continuously until the top of the file is reached.
+
+### 6. More about the Insert mode
+- To enter the Insert mode before the cursor, press `i`.
+- To enter the Insert mode after the cursor, press `a`.
+- To enter the Insert mode at the beginning of the line, press `I`.
+- To enter the Insert mode at the end of the line, press `A`.
+- To insert a line below the current line - `o` (lowercase o).
+- To insert a line below the current line - `O` (capital o).
+- To delete the character where the cursos is, press `x`.
+- To delete the entire line - `dd`.
