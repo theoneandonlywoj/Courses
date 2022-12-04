@@ -101,3 +101,37 @@ vim <filename>
 - To delete to the end of the line - `d$`.
 - To delete to the beginning of the file - `dgg`.
 - To delete to the end of the file - `dG`.
+
+### 8. Visual Mode
+- Enter Visual mode - `v`.
+- To yank (copy) the highlighted text - `y`.
+- To change (cut) the highlighted text - `c`.
+- To pase the text from Normal mode - `p`.
+- To delete the highlighted text - `d`.
+- To copy an entire line from Normal mode - `yy`.
+
+### 9. Practice!
+1.  Open any file on your system with Vim, preferably one that has a few hundred lines of text (or several screens full of text). 
+2.  Save a copy of the file as  `editingpractice.txt`.
+3.  Quit without saving.
+4.  Open `editingpractice.txt` (the copy of the previous file) with Vim.
+5.  Enter insert mode.
+6.  Write your name and address at the top of the file.
+7.  Save and quit the file.
+8.  Open `editingpractice.txt` again in Vim.
+9.  Change your name to the name of your favorite superhero.
+10.  Delete the last 10 lines of the file, either one line at a time or all 10 lines at once.
+11.  Delete the last 10 characters of the file without using the Delete or Backspace buttons.
+12.  Cut (yank) your address in visual mode and paste it at the end of the file.
+13.  Insert a new line above your name with one command from normal mode and type "`Hello.`".
+14.  Insert a new line below your name  with one command from normal mode and type "`Goodbye.`"
+15.  Without using the left or right arrow keys or the `h` or `l` keys, insert text at the end of any line and insert the same text at the beginning of that same line.
+16.  Copy your favorite superhero name and paste it at the bottom of the file.
+17.  Save the file and quit.
+
+### 10. Improving Efficiency!
+- To undo the last change from the Normal Mode, press `u`.
+- To redo the last change from the Normal Mode, press `Ctrl + r`.
+- When pasting text from another source, Vim might mess up the indentation. To turn off auto-indent with the Command-line mode with `:set paste`. To reverse that type `:set nopaste`.
+- To repeat the last change, press `.` (period) in the Normal Mode.
+
