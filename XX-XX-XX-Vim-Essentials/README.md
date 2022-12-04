@@ -130,8 +130,13 @@ vim <filename>
 17.  Save the file and quit.
 
 ### 10. Improving Efficiency!
-- To undo the last change from the Normal Mode, press `u`.
-- To redo the last change from the Normal Mode, press `Ctrl + r`.
-- When pasting text from another source, Vim might mess up the indentation. To turn off auto-indent with the Command-line mode with `:set paste`. To reverse that type `:set nopaste`.
+- To undo the last change, press `u` from the Normal Mode.
+- To redo the last change, press `Ctrl + r` from the Normal Mode.
+- When pasting text from another source, Vim might mess up the indentation. To turn off auto-indent with the Command-line mode with `:set paste`. You will enter into a special Paste Mode. To reverse that type `:set nopaste`.
 - To repeat the last change, press `.` (period) in the Normal Mode.
+
+### 11. Searching.
+- To search a term, type `/<your search term>` from the Normal Mode. This is a case sensitive search. To search a term in a case insensitive manner, add `\c` to the pattern at the beginning of the search term or the end (`/\c<your search term>` or `/<your search term>\c`). The search will begin from the position of the cursor. To search backwards, use `?<your search term>`. In that scenario, the bindings for the next and previous occurances are swapped.
+- To go to the next occurance of the term, press `n`.
+- To go to the previous occurance of the term, press `N`.
 
