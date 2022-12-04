@@ -140,3 +140,9 @@ vim <filename>
 - To go to the next occurance of the term, press `n`.
 - To go to the previous occurance of the term, press `N`.
 
+### 12. Search and Replace
+- To search and replace all occurences, type `:%s/<your search term>/<your replacement term>/g`. 
+- To search and replace only one occurence in each line, skip the `/g` part.
+- To prompt before changing, use `:%s/<your search term>/<your replacement term>/gc`.
+- Same as with the searching, we can search case insensitively, `:%s/\c<your search term>/<your replacement term>/g`.
+
