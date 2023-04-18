@@ -54,3 +54,19 @@ Start the server using the release
 ```sh
 _build/prod/rel/neptune/bin/neptune start
 ```
+
+#### Run the applications in Docker
+Build
+```sh
+docker build -t neptune .
+```
+
+Run
+```sh
+docker run --rm -d -p $PORT:$PORT -e PORT -e SECRET_KEY_BASE -e DATABASE_URL --name neptune neptune
+```
+
+Stop
+```sh
+docker stop neptune
+```
