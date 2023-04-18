@@ -70,3 +70,35 @@ Stop
 ```sh
 docker stop neptune
 ```
+
+#### Clustering in Elixir
+First Shell Session
+```sh
+iex --sname node1
+```
+
+Second Shell Session
+```sh
+iex --sname node2
+```
+
+Connect the first node to the second
+```elixir
+iex(node1@MBP-Wojciech)1> Node.connect(:"node2@MBP-Wojciech")
+true
+```
+
+Connect the first node to the second
+```elixir
+iex(node1@MBP-Wojciech)1> Node.connect(:"node2@MBP-Wojciech")
+```
+
+List the connected nodes (from node1):
+```elixir
+iex(node1@MBP-Wojciech)1> Node.list()
+```
+
+List the connected nodes (from node2):
+```elixir
+iex(node2@MBP-Wojciech)1> Node.list()
+```
