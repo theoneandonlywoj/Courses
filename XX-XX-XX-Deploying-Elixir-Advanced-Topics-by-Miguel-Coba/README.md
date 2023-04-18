@@ -102,3 +102,45 @@ List the connected nodes (from node2):
 ```elixir
 iex(node2@MBP-Wojciech)1> Node.list()
 ```
+
+#### Showing node information
+lib/neptune_web/controllers/page_controller.ex
+```elixir
+defmodule NeptuneWeb.PageController do
+  use NeptuneWeb, :controller
+
+  def home(conn, _params) do
+    this_node = node()
+    other_nodes = Node.list()
+    render(conn, :home, %{this_node: this_node, other_nodes: other_nodes})
+  end
+end
+```
+
+lib/neptune_web/controllers/page_html/home.html.heex
+```elixir
+<section class="phx-hero">
+  <h1>Deploying Elixir: Advanced Topics</h1>
+  <p>This is a node in a cluster of Erlang Nodes</p>
+</section>
+<div class="grid grid-cols-3 gap-4">
+  <div>
+    <h2>This node</h2>
+    <ul>
+      <li>
+        <%= @this_node %>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h2>Other nodes</h2>
+    <ul>
+      <%= for node <- @other_nodes do %>
+        <li>
+          <%= node %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+```
