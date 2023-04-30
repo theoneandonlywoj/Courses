@@ -362,3 +362,88 @@ export MIX_ENV=prod
 export CLUSTERING_STRATEGY=erlang_hosts
 iex --sname node4002 -S mix phx.server
 ```
+
+#### Gossip Strategy
+Config (config/clustering_strategies/gossip.exs):
+```elixir
+import Config
+
+magic_cookie =
+  System.get_env("LIBCLUSTER_COOKIE") ||
+    raise """
+    environment variable LIBCLUSTER_COOKIE is missing.
+    You can generate one by calling: mix phx.gen.secret
+    """
+
+config :libcluster,
+  topologies: [
+    gossip_example: [
+      strategy: Elixir.Cluster.Strategy.Gossip,
+      config: [
+        secret: magic_cookie
+      ]
+    ]
+  ]
+```
+
+Generate two secrets:
+```bash
+mix phx.gen.secret
+```
+
+Example cookie 1:
+A3Zc+vC7bYULDkBKCOgv0xgB704guo/XoSxxVHeghPDD3MrE+ONrV0gaD6GN5RYu
+
+Example cookie 2:
+lzweV6bru1Z1hUKUpFv5Ry/+Chw9fGST0vv6aAQAIsiT1qhh025TmzpRqauLurlw
+
+
+Start the first node
+```bash
+export LIBCLUSTER_COOKIE=A3Zc+vC7bYULDkBKCOgv0xgB704guo/XoSxxVHeghPDD3MrE+ONrV0gaD6GN5RYu
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4000
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=gossip
+iex --sname node4000 -S mix phx.server
+```
+
+Start the second node
+```bash
+export LIBCLUSTER_COOKIE=A3Zc+vC7bYULDkBKCOgv0xgB704guo/XoSxxVHeghPDD3MrE+ONrV0gaD6GN5RYu
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4001
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=gossip
+iex --sname node4001 -S mix phx.server
+```
+
+Start the third node
+```bash
+export LIBCLUSTER_COOKIE=lzweV6bru1Z1hUKUpFv5Ry/+Chw9fGST0vv6aAQAIsiT1qhh025TmzpRqauLurlw
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4002
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=gossip
+iex --sname node4002 -S mix phx.server
+```
+
+Start the fourth node
+```bash
+export LIBCLUSTER_COOKIE=lzweV6bru1Z1hUKUpFv5Ry/+Chw9fGST0vv6aAQAIsiT1qhh025TmzpRqauLurlw
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4003
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=gossip
+iex --sname node4003 -S mix phx.server
+```
+
+See results by accessing http://localhost:4000/, http://localhost:4001/, http://localhost:4002/ and http://localhost:4003/.
