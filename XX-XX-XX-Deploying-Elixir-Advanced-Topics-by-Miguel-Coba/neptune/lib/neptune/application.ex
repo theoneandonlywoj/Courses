@@ -7,6 +7,7 @@ defmodule Neptune.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = Application.get_env(:libcluster, :topologies) || []
     children = [
       # Start the Telemetry supervisor
       NeptuneWeb.Telemetry,
@@ -17,9 +18,11 @@ defmodule Neptune.Application do
       # Start Finch
       {Finch, name: Neptune.Finch},
       # Start the Endpoint (http/https)
-      NeptuneWeb.Endpoint
+      NeptuneWeb.Endpoint,
       # Start a worker by calling: Neptune.Worker.start_link(arg)
       # {Neptune.Worker, arg}
+      # Clustering
+      {Cluster.Supervisor, [topologies, [name: Neptune.ClusterSupervisor]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -166,3 +166,25 @@ lib/neptune_web/controllers/page_html/home.html.heex
   </div>
 </div>
 ```
+
+#### Clustering with Libcluster
+Add libcluster dependency (mix.exs):
+```elixir
+defp deps do
+    [
+      ...
+      {:libcluster, "~> 3.3"}
+      ...
+    ]
+  end
+```
+
+Get updated dependencies:
+```bash
+mix deps.get
+```
+
+Modyfy the application file (lib/neptune/application.ex)
+```elixir
+
+```
