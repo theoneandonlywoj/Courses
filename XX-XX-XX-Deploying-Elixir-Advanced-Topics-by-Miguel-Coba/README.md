@@ -306,3 +306,59 @@ iex --sname node4002 -S mix phx.server
 ```
 
 See results by accessing http://localhost:4000/, http://localhost:4001/ and http://localhost:4002/.
+
+#### Erlang Hosts Strategy
+Config (config/clustering_strategies/erlang_hosts.exs)
+```elixir
+import Config
+
+config :libcluster,
+  topologies: [
+    erlang_hosts_example: [
+      strategy: Elixir.Cluster.Strategy.ErlangHosts
+    ]
+  ]
+```
+
+Create the Erlang Hosts file:
+```sh
+touch .hosts.erlang
+```
+
+Populate with your hostname (.hosts.erlang):
+```erlang
+'MBP-Wojciech'.
+```
+
+Start the first node
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4000
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=erlang_hosts
+iex --sname node4000 -S mix phx.server
+```
+
+Start the second node
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4001
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=erlang_hosts
+iex --sname node4001 -S mix phx.server
+```
+
+Start the third node
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4002
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=erlang_hosts
+iex --sname node4002 -S mix phx.server
+```
