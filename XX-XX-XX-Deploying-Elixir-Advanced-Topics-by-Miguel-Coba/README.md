@@ -186,5 +186,75 @@ mix deps.get
 
 Modyfy the application file (lib/neptune/application.ex)
 ```elixir
+defmodule Neptune.Application do
+  # See https://hexdocs.pm/elixir/Application.html
+  # for more information on OTP Applications
+  @moduledoc false
 
+  use Application
+
+  @impl true
+  def start(_type, _args) do
+    topologies = Application.get_env(:libcluster, :topologies) || []
+
+    children = [
+      ...
+      {Cluster.Supervisor, [topologies, [name: Neptune.ClusterSupervisor]]}
+      ...
+    ]
+
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: Neptune.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+
+  ...
+end
 ```
+
+#### Epmd Strategy
+Epmd config (config/clusterting_strategies/epmd.exs):
+```elixir
+import Config
+
+config :libcluster,
+  topologies: [
+    epmd_example: [
+      strategy: Elixir.Cluster.Strategy.Epmd,
+      config: [
+        hosts: [:"node4000@MBP-Wojciech", :"node4001@MBP-Wojciech"]
+      ]
+    ]
+  ]
+```
+
+Import it in the main config file (config/config.exs)
+```elixir
+  ...
+  # Clustering Strategy
+  strategy = System.get_env("CLUSTERING_STRATEGY") || "epmd"
+  import_config "clustering_strategies/#{strategy}.exs"
+```
+
+Start the first node:
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4000
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+iex --sname node4000 -S mix phx.server
+```
+
+Start the second node:
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4001
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+iex --sname node4001 -S mix phx.server
+```
+
+See results by accessing http://localhost:4000/ and http://localhost:4001/.
