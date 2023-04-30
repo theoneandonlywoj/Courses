@@ -258,3 +258,51 @@ iex --sname node4001 -S mix phx.server
 ```
 
 See results by accessing http://localhost:4000/ and http://localhost:4001/.
+
+#### Local Empd Strategy
+Config (config/clustering_strategies/local_epmd.exs)
+```elixir
+import Config
+
+config :libcluster,
+  topologies: [
+    local_empd_example: [
+      strategy: Elixir.Cluster.Strategy.LocalEpmd
+    ]
+  ]
+```
+
+Start the first node
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4000
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=local_epmd
+iex --sname node4000 -S mix phx.server
+```
+
+Start the second node
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4001
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=local_epmd
+iex --sname node4001 -S mix phx.server
+```
+
+Start the third node
+```bash
+export SECRET_KEY_BASE=$(mix phx.gen.secret)
+export PORT=4002
+export PHX_SERVER=true
+export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
+export MIX_ENV=prod
+export CLUSTERING_STRATEGY=local_epmd
+iex --sname node4002 -S mix phx.server
+```
+
+See results by accessing http://localhost:4000/, http://localhost:4001/ and http://localhost:4002/.
