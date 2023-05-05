@@ -244,6 +244,7 @@ export PORT=4000
 export PHX_SERVER=true
 export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
 export MIX_ENV=prod
+export CLUSTERING_STRATEGY=epmd
 iex --sname node4000 -S mix phx.server
 ```
 
@@ -254,6 +255,7 @@ export PORT=4001
 export PHX_SERVER=true
 export DATABASE_URL=ecto://postgres:postgres@localhost/neptune_prod
 export MIX_ENV=prod
+export CLUSTERING_STRATEGY=epmd
 iex --sname node4001 -S mix phx.server
 ```
 
@@ -447,3 +449,39 @@ iex --sname node4003 -S mix phx.server
 ```
 
 See results by accessing http://localhost:4000/, http://localhost:4001/, http://localhost:4002/ and http://localhost:4003/.
+
+#### PostgreSQL inside Docker
+Check if there is an already running instance:
+```sh
+brew services info postgresql
+```
+
+If it is indeed running, stop it:
+```sh
+brew services stop postgresql
+```
+
+Create a Docker volume to persist the data
+```sh
+docker volume create pgdata
+```
+
+Download and start PostgreSQL Docker Image (with data peristance with the pgdata volume):
+```sh
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -v pgdata:/var/lib/postgresql/data postgres
+```
+
+In another Terminal, connect to the server:
+```sh
+psql -U postgres -h localhost
+```
+
+Create database:
+```sql
+CREATE DATABASE test_db;
+```
+
+Close the docker image:
+```sh
+docker stop $(docker ps -q --filter ancestor=postgres )
+```
