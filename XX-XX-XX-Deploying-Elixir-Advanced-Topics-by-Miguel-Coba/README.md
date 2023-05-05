@@ -481,7 +481,40 @@ Create database:
 CREATE DATABASE test_db;
 ```
 
-Close the docker image:
+Close the Docker image:
 ```sh
 docker stop $(docker ps -q --filter ancestor=postgres )
+```
+
+#### Kubernates
+Install Minikube (local Kubernates):
+```sh
+brew install minikube
+```
+
+Test the setup:
+```sh
+which minikube
+```
+```sh
+minikube version
+```
+
+Create a cluster named neptune-mk with 2 nodes:
+```sh
+minikube start -p neptune-mk -n 2
+```
+
+Activate the neptune-mk profile so that minikube also uses this profile as default when we execute minikube commands:
+```sh
+minikube profile neptune-mk
+```
+
+Confirm there are 2 nodes:
+```sh
+kubectl get nodes
+```
+and 0 pods:
+```sh
+kubectl get pods
 ```
