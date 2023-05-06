@@ -518,3 +518,63 @@ and 0 pods:
 ```sh
 kubectl get pods
 ```
+
+Create a folder for the k8 configs:
+```sh
+mkdir k8s
+```
+
+Create the first configuration:
+```sh
+touch k8s/postgresql-database.yml
+```
+
+Content of the config (k8s/postgresql-database.yml):
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-database
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: postgres-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              value: mysecretpassword
+            - name: POSTGRES_DB
+              value: neptune_prod
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: postgres-volume
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-volume
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
+```
+
+Apply the configuration to the cluster:
+```sh
+kubectl apply -f k8s/postgres-database.yml
+```
+
+Check the pods:
+```sh
+kubectl get pods
+```
