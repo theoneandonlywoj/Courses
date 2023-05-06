@@ -27,10 +27,10 @@ spec:
             - name: postgres-volume
               mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
-    - medatada:
+    - metadata:
         name: postgres-volume
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: 16i
+            storage: 1Gi
