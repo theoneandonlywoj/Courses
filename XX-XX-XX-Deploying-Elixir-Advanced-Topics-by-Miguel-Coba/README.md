@@ -578,3 +578,62 @@ Check the pods:
 ```sh
 kubectl get pods
 ```
+
+Create a Service to access the Pod (Kubernetes doesn't allow a direct access to pods):
+```sh
+touch k8s/postgres-service.yml
+```
+
+Content (k8s/postgres-service.yml)
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  selector:
+    app: postgres
+  type: LoadBalancer
+  ports:
+    - port: 5432
+      targetPort: 5432
+```
+
+Service with type LoadBalancer allows the service to be accessible outside the cluster utilising publicly accessible IP.
+
+Start the service:
+```sh
+kubectl apply -f k8s/postgres-service.yml
+```
+
+Create a tunnel to access the service (keep this terminal alive while connecting to the cluster):
+```sh
+minikube tunnel
+```
+
+List the services (in another terminal):
+```sh
+kubectl get services
+```
+
+Connect to the database using the EXTERNAL-IP:
+```sh
+psql -U postgres -h <EXTERNAL-IP>
+```
+
+Exit the PostgreSQL terminal and list the pods:
+```sh
+kubectl get pods
+```
+
+Kill the pod to test the self-healing capabilities:
+```sh
+kubectl delete pod postgres-database-0
+```
+
+List the pods until the status is Running:
+```sh
+kubectl get pods
+```
+
+Connect again and confirm the neptune_prod database survived a Pod restart.
