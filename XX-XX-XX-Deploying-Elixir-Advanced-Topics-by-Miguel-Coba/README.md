@@ -637,3 +637,75 @@ kubectl get pods
 ```
 
 Connect again and confirm the neptune_prod database survived a Pod restart.
+
+#### Deploying Elixir to a Kubernetes cluster
+1. Sign up for Docker account on DockerHub if you don't have an account already.
+2. Create a Repository named after the project (in this case neptune). Docker image will be available under <USERNAME>@<name>.
+3. We are going to create Kubernetes.DNS config:
+```sh
+touch config/clustering_strategies/kubernetes_dns.exs
+```
+Content (config/clustering_strategies/kubernetes_dns.exs):
+```elixir
+import Config
+
+config :libcluster,
+  topologies: [
+    k8s_example: [
+      strategy: Elixir.Cluster.Strategy.Kubernetes.DNS,
+      config: [
+        service: "neptune-headless",
+        application_name: "neptune"
+      ]
+    ]
+  ]
+```
+4. Generate the release template files:
+```sh
+mix release.init
+```
+
+5. Replace the content of the rel/env.sh.eex file:
+```sh
+# !/bin/sh
+export RELEASE_DISTRIBUTION=name
+export RELEASE_NODE=<%= @release.name %>@${POD_ID}
+```
+
+6. If you have a folder for all clustering strategies, you have to replace line 45 (Dockerfile):
+From:
+```
+COPY config/config.exs config/${MIX_ENV}.exs config/
+```
+
+To:
+```
+COPY config/config.exs config/${MIX_ENV}.exs config/ config/clustering_strategies/
+```
+
+7. Build the image:
+```sh
+docker build -t <Docker Hub Nickname>/<project name>:<version>
+```
+
+My will look like:
+```sh
+docker build -t theoneandonlywoj/neptune:1.0 .
+```
+
+8. Verify the image is built:
+```sh
+docker image list
+```
+
+9. Login to DockerHub throught the terminal:
+```sh
+docker login
+```
+
+10. Push the image to DockerHub:
+```sh
+docker push theoneandonlywoj/neptune:1.0
+```
+
+
