@@ -672,16 +672,39 @@ export RELEASE_DISTRIBUTION=name
 export RELEASE_NODE=<%= @release.name %>@${POD_ID}
 ```
 
-6. If you have a folder for all clustering strategies, you have to replace line 45 (Dockerfile):
+6. If you have a folder for all clustering strategies, you have to replace line 35-46 (Dockerfile):
 From:
 ```
-COPY config/config.exs config/${MIX_ENV}.exs config/
+ENV MIX_ENV="prod"
+
+# install mix dependencies
+COPY mix.exs mix.lock ./
+RUN mix deps.get --only $MIX_ENV
+RUN mkdir config
+
+# copy compile-time config files before we compile dependencies
+# to ensure any relevant config change will trigger the dependencies
+# to be re-compiled.
+COPY config/config.exs config/${MIX_ENV}.exs config/ config/clustering_strategies/
+RUN mix deps.compile
 ```
 
 To:
 ```
-COPY config/config.exs config/${MIX_ENV}.exs config/ config/clustering_strategies/
+ENV MIX_ENV="prod"
+ENV CLUSTERING_STRATEGY="kubernetes_dns"
+
+# install mix dependencies
+COPY mix.exs mix.lock ./
+RUN mix deps.get --only $MIX_ENV
+RUN mkdir config
+RUN mkdir config/clustering_strategies
+
+COPY config/config.exs config/${MIX_ENV}.exs config/clustering_strategies/kubernetes_dns.exs config/ 
+COPY config/clustering_strategies/kubernetes_dns.exs config/clustering_strategies
+RUN mix deps.compile
 ```
+
 
 7. Build the image:
 ```sh
@@ -707,5 +730,3 @@ docker login
 ```sh
 docker push theoneandonlywoj/neptune:1.0
 ```
-
-
