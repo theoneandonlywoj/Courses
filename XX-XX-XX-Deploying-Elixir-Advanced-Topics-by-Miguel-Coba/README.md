@@ -700,7 +700,7 @@ RUN mix deps.get --only $MIX_ENV
 RUN mkdir config
 RUN mkdir config/clustering_strategies
 
-COPY config/config.exs config/${MIX_ENV}.exs config/clustering_strategies/kubernetes_dns.exs config/ 
+COPY config/config.exs config/${MIX_ENV}.exs config/ 
 COPY config/clustering_strategies/kubernetes_dns.exs config/clustering_strategies
 RUN mix deps.compile
 ```
