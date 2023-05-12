@@ -17,7 +17,7 @@ spec:
           image: theoneandonlywoj/neptune:1.0
           env:
             - name: SECRET_KEY_BASE
-              value: iqUewr+tA5s0RsHIgOwgl9PzvSjZZ+3c03XwEG+P3gZMNRWZv/CEhxDbMi5eBGZb
+              value: PKeEaLUUR4cvlVrDS01HmdgOcfjMat4vFMihbYloO8jcBZzFpG2PWE/FLjJnxMjw
             - name: PORT
               value: "4000"
             - name: DATABASE_URL
