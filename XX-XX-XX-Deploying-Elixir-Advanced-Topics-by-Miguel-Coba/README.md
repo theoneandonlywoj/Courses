@@ -730,3 +730,102 @@ docker login
 ```sh
 docker push theoneandonlywoj/neptune:1.0
 ```
+
+11. Create Headless ClusterIP Service:
+Kubernetes DNS strategy queries a DNS query against a headless Kubernetes Service.
+A headless Kubernetes service is of type ClusterIP and clusterIP: None.
+
+Create the K8s config:
+```sh
+touch k8s/elixir-headless.yml
+```
+
+Content (k8s/elixir-headless.yml):
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune-headless
+spec:
+  selector:
+    app: neptune
+  type: ClusterIP
+  clusterIP: None
+```
+
+12. Deploy the headless service to the cluster:
+```sh
+kubectl apply -f k8s/elixir-headless.yml
+```
+
+13. Create Elixir Service config:
+The headless service is not visible outside of the cluster so we need to create a service that will expose it to the Internet:
+
+Create the config file:
+```sh
+touch k8s/elixir-service.yml
+```
+
+Content of the file (k8s/elixir-service.yml):
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: neptune-service
+spec:
+  selector:
+    app: neptune
+  type: LoadBalancer
+  ports:
+    - port: 4000
+      targetPort: 4000
+```
+
+14. Deploy it to the cluster:
+```sh
+kubectl apply -f k8s/elixir-service.yml
+```
+
+15. Create the first iteration of the deployment config:
+```sh
+touch k8s/elixir-deployment.yml
+```
+
+Config (k8s/elixir-deployment.yml):
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neptune-deployment
+spec:
+  selector:
+    matchLabels:
+      app: neptune
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: neptune
+    spec:
+      containers:
+        - name: neptune
+          image: theoneandonlywoj/neptune:1.0
+          env:
+            - name: SECRET_KEY_BASE
+              value: iqUewr+tA5s0RsHIgOwgl9PzvSjZZ+3c03XwEG+P3gZMNRWZv/CEhxDbMi5eBGZb
+            - name: PORT
+              value: "4000"
+            - name: DATABASE_URL
+              value: ecto://postgres:mysecretpassword@postgres-service/neptune_prod
+            - name: CLUSTERING_STRATEGY
+              value: kubernetes_dns
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+```
+
+16. Apply the config to the cluster:
+```sh
+kubectl apply -f k8s/elixir-deployment.yml
+```
