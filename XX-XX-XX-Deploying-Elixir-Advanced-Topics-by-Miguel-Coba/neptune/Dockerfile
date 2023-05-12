@@ -44,7 +44,7 @@ RUN mkdir config/clustering_strategies
 # copy compile-time config files before we compile dependencies
 # to ensure any relevant config change will trigger the dependencies
 # to be re-compiled.
-COPY config/config.exs config/${MIX_ENV}.exs config/clustering_strategies/kubernetes_dns.exs config/ 
+COPY config/config.exs config/${MIX_ENV}.exs config/
 COPY config/clustering_strategies/kubernetes_dns.exs config/clustering_strategies
 RUN mix deps.compile
 
