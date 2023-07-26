@@ -62,3 +62,14 @@ end
 ```
 
 - Test it in the browser (localhost:4000/guess) and see the score getting lower any time we click on a number.
+
+- Generate the authentication layer (and create LiveView based authentication system by accepting prompted option with Y):
+```sh
+mix phx.gen.auth Accounts User users
+```
+
+- Re-fetch the dependencies and run the migrations:
+```bash
+mix deps.get
+mix ecto.migrate
+```
