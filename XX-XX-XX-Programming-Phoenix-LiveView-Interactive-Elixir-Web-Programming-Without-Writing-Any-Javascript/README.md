@@ -113,3 +113,21 @@ params = %{email: "theoneandonlywoj@gmail.com", password: "P455word1234"}
 ```
 
 - Test it with localhost:4000/guess and log in.
+
+- The root layout has a lot of useful information (f.e. branding etc.).
+- Use the root layout (the root layout would be used either way if not specified, this is just an example) (lib/pento_web/router.ex):
+```elixir
+...
+  scope "/", PentoWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    live_session :require_authenticated_user,
+      root_layout: {PentoWeb.Layouts, :root},
+      on_mount: [{PentoWeb.UserAuth, :ensure_authenticated}] do
+      live "/users/settings", UserSettingsLive, :edit
+      live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+      live "/guess", WrongLive
+    end
+  end
+...
+```
