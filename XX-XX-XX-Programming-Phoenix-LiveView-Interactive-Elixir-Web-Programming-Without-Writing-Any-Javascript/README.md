@@ -190,7 +190,7 @@ mix phx.gen.live Catalog Product products \
   sku:integer:unique
 ```
 
-- Add the routes ():
+- Add the routes (lib/pento_web/router.ex):
 ```elixir
 ...
   scope "/", PentoWeb do
@@ -212,4 +212,20 @@ mix phx.gen.live Catalog Product products \
     end
   end
 ...
+```
+
+- Use ConnCase's function to log in the user (test/pento_web/live/product_live_test.exs):
+```elixir
+...
+  describe "Index" do
+    setup [:create_product, :register_and_log_in_user]
+...
+  describe "Show" do
+    setup [:create_product, :register_and_log_in_user]
+...
+```
+
+- Run the tests:
+```sh
+mix test
 ```
