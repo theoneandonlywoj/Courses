@@ -73,3 +73,43 @@ mix phx.gen.auth Accounts User users
 mix deps.get
 mix ecto.migrate
 ```
+
+- Run the project with IEX:
+```bash
+iex -S mix phx.server
+```
+
+- Create a valid user (password must be longer than 12 characters):
+```iex
+alias Pento.Accounts
+params = %{email: "theoneandonlywoj@gmail.com", password: "P455word1234"}
+{:ok, user} = Accounts.register_user(params)
+```
+
+- Fetch the current user from the connection and protect the /guess path (lib/pento_web/router.ex):
+```elixir
+...
+  pipeline :browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_live_flash
+    plug :put_root_layout, html: {PentoWeb.Layouts, :root}
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+    plug :fetch_current_user
+  end
+...
+  scope "/", PentoWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    live_session :require_authenticated_user,
+      on_mount: [{PentoWeb.UserAuth, :ensure_authenticated}] do
+      live "/users/settings", UserSettingsLive, :edit
+      live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+      live "/guess", WrongLive
+    end
+  end
+...
+```
+
+- Test it with localhost:4000/guess and log in.
