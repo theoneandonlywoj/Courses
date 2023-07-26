@@ -131,3 +131,52 @@ params = %{email: "theoneandonlywoj@gmail.com", password: "P455word1234"}
   end
 ...
 ```
+
+- Obtain user from the session(lib/pento_web/live/wrong_live.ex):
+```elixir
+defmodule PentoWeb.WrongLive do
+  use PentoWeb, :live_view
+  alias Pento.Accounts
+
+  def mount(_params, session, socket) do
+    user = Accounts.get_user_by_session_token(session["user_token"])
+
+    {
+      :ok,
+      assign(
+        socket,
+        score: 0,
+        message: "Guess a number.",
+        session_id: session["live_socket_id"],
+        current_user: user
+      )
+    }
+  end
+...
+end
+```
+
+- Render the session id and user's email ():
+```elixir
+...
+  def render(assigns) do
+    ~H"""
+    <h1>Your score: <%= @score %></h1>
+    <h2>
+      <%= @message %>
+    </h2>
+    <h2>
+      <%= for n <- 1..10 do %>
+        <.link href="#" phx-click="guess" phx-value-number={n}>
+          <%= n %>
+        </.link>
+      <% end %>
+      <pre>
+        <%= @current_user.email %>
+        <%= @session_id %>
+      </pre>
+    </h2>
+    """
+  end
+...
+```
