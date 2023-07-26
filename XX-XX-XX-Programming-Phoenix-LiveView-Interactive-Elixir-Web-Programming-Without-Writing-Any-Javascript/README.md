@@ -190,6 +190,11 @@ mix phx.gen.live Catalog Product products \
   sku:integer:unique
 ```
 
+- Migrate:
+```sh
+mix ecto.migrate
+```
+
 - Add the routes (lib/pento_web/router.ex):
 ```elixir
 ...
